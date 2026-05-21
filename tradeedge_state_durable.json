@@ -6,14 +6,14 @@
       "symbol": "SNPS",
       "side": "BUY",
       "entryPrice": 502.97,
-      "currentPrice": 505.03,
+      "currentPrice": 502.73,
       "leverage": 1,
       "margin": 2000,
       "size": 3.97638,
       "takeProfit": 507.2537,
       "stopLoss": 499.7776,
-      "unrealizedPnl": 8.19,
-      "pnlPercent": 0.41,
+      "unrealizedPnl": -0.95,
+      "pnlPercent": -0.05,
       "timestamp": "1:10:30 AM",
       "manualOverride": false,
       "entryFee": 1
@@ -23,14 +23,14 @@
       "symbol": "SBAC",
       "side": "SELL",
       "entryPrice": 207.15,
-      "currentPrice": 208.42,
+      "currentPrice": 207.64,
       "leverage": 1,
       "margin": 2000,
       "size": 9.65484,
       "takeProfit": 198.9204,
       "stopLoss": 210.4068,
-      "unrealizedPnl": -12.26,
-      "pnlPercent": -0.61,
+      "unrealizedPnl": -4.73,
+      "pnlPercent": -0.24,
       "timestamp": "1:11:33 AM",
       "manualOverride": false,
       "entryFee": 1
@@ -40,14 +40,14 @@
       "symbol": "AKAM",
       "side": "BUY",
       "entryPrice": 146.36,
-      "currentPrice": 146.46,
+      "currentPrice": 145.97,
       "leverage": 1,
       "margin": 2000,
       "size": 13.66494,
       "takeProfit": 166.2772,
       "stopLoss": 139.042,
-      "unrealizedPnl": 1.37,
-      "pnlPercent": 0.07,
+      "unrealizedPnl": -5.33,
+      "pnlPercent": -0.27,
       "timestamp": "1:11:33 AM",
       "manualOverride": false,
       "entryFee": 1
@@ -57,14 +57,14 @@
       "symbol": "TSLA",
       "side": "BUY",
       "entryPrice": 419.72,
-      "currentPrice": 418.71,
+      "currentPrice": 416.85,
       "leverage": 1,
       "margin": 2000,
       "size": 4.76508,
       "takeProfit": 455.667,
       "stopLoss": 398.734,
-      "unrealizedPnl": -4.81,
-      "pnlPercent": -0.24,
+      "unrealizedPnl": -13.68,
+      "pnlPercent": -0.68,
       "timestamp": "1:12:32 AM",
       "manualOverride": false,
       "entryFee": 1
@@ -72,6 +72,2282 @@
   ],
   "historicalTrades": [],
   "scanArchive": [
+    {
+      "summary": {
+        "timestamp": "5/22/2026, 2:00:31 AM",
+        "unix": 1779395431184,
+        "totalMarkets": 525,
+        "futuresUSDTCount": 525,
+        "analyzedCount": 300,
+        "buyCount": 5,
+        "sellCount": 2,
+        "holdCount": 293,
+        "blockedCount": 0,
+        "deferredCount": 293,
+        "logs": [
+          "[20:30:24] Starting discovery-scan sequence for Wall Street large-cap stocks...",
+          "[20:30:24] Using cached US index universe (526 symbols loaded).",
+          "[20:30:24] Fetching Wall Street prices from Yahoo Finance Spark API (https://query1.finance.yahoo.com)...",
+          "[20:30:25] Successfully synced 525 US equities using Yahoo Finance Spark API.",
+          "[20:30:25] Filtered out 0 symbols before evaluation due to liquidity filter < 1.0M",
+          "[20:30:25] Broad universe liquid assets count: 525",
+          "[20:30:25] Conducting parallel technical scans on Top 300 high-activity symbols...",
+          "[20:30:31] Analysis finished: 300 assets finalized. BUY: 5, SELL: 2, HOLD: 293"
+        ]
+      },
+      "rankedSignals": [
+        {
+          "symbol": "SBAC",
+          "price": 207.64,
+          "open": 208.07000732421875,
+          "high": 208.07000732421875,
+          "low": 207.64,
+          "volume": 0,
+          "quoteVolume": 312105000,
+          "macd": {
+            "macd": 0.7341676027935762,
+            "signal": 0.8235891468507057,
+            "hist": -0.08942154405712954
+          },
+          "rsi": 52.61782186744822,
+          "ema50": 207.68103438979296,
+          "ema200": 212.77901962823225,
+          "support": 199.9199981689453,
+          "resistance": 209.36000061035156,
+          "direction": "SELL",
+          "score": -55,
+          "strengthReasons": [
+            "Negative MACD momentum",
+            "Long-term bearish trend regime (Price < EMA50 < EMA200)"
+          ],
+          "blockReasons": [],
+          "deferReasons": []
+        },
+        {
+          "symbol": "SNPS",
+          "price": 502.73,
+          "open": 503.9800109863281,
+          "high": 503.9800109863281,
+          "low": 502.73,
+          "volume": 0,
+          "quoteVolume": 755970000,
+          "macd": {
+            "macd": 1.3681701621978846,
+            "signal": -0.10799516282754185,
+            "hist": 1.4761653250254265
+          },
+          "rsi": 56.748073998947234,
+          "ema50": 499.42949506628014,
+          "ema200": 491.121056756255,
+          "support": 502.28900146484375,
+          "resistance": 504.7300109863281,
+          "direction": "BUY",
+          "score": 45,
+          "strengthReasons": [
+            "Positive MACD momentum",
+            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
+          ],
+          "blockReasons": [],
+          "deferReasons": []
+        },
+        {
+          "symbol": "APP",
+          "price": 484.69,
+          "open": 485.8900146484375,
+          "high": 485.8900146484375,
+          "low": 484.69,
+          "volume": 0,
+          "quoteVolume": 728835000,
+          "macd": {
+            "macd": 1.2407070472912096,
+            "signal": 0.7972088683345263,
+            "hist": 0.4434981789566833
+          },
+          "rsi": 50.508775733150976,
+          "ema50": 482.16104850593763,
+          "ema200": 471.2196497449229,
+          "support": 461,
+          "resistance": 515.3900146484375,
+          "direction": "BUY",
+          "score": 45,
+          "strengthReasons": [
+            "Positive MACD momentum",
+            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
+          ],
+          "blockReasons": [],
+          "deferReasons": []
+        },
+        {
+          "symbol": "TTWO",
+          "price": 237.57,
+          "open": 238.0800018310547,
+          "high": 238.0800018310547,
+          "low": 237.57,
+          "volume": 0,
+          "quoteVolume": 357120000,
+          "macd": {
+            "macd": 0.24103156735210973,
+            "signal": 0.2183735839338281,
+            "hist": 0.022657983418281624
+          },
+          "rsi": 47.273144675662444,
+          "ema50": 236.47711165337086,
+          "ema200": 226.2657419217337,
+          "support": 233.1300048828125,
+          "resistance": 246.24989318847656,
+          "direction": "BUY",
+          "score": 45,
+          "strengthReasons": [
+            "Positive MACD momentum",
+            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
+          ],
+          "blockReasons": [],
+          "deferReasons": []
+        },
+        {
+          "symbol": "TMUS",
+          "price": 190.52,
+          "open": 190.89999389648438,
+          "high": 190.89999389648438,
+          "low": 190.52,
+          "volume": 0,
+          "quoteVolume": 286350000,
+          "macd": {
+            "macd": -0.06746577486890715,
+            "signal": -0.023814903299187916,
+            "hist": -0.04365087156971923
+          },
+          "rsi": 49.93819990657839,
+          "ema50": 190.7573150549957,
+          "ema200": 192.02888448304762,
+          "support": 185.1199951171875,
+          "resistance": 195,
+          "direction": "SELL",
+          "score": -45,
+          "strengthReasons": [
+            "Negative MACD momentum",
+            "Long-term bearish trend regime (Price < EMA50 < EMA200)"
+          ],
+          "blockReasons": [],
+          "deferReasons": []
+        },
+        {
+          "symbol": "AKAM",
+          "price": 145.97,
+          "open": 146.24000549316406,
+          "high": 146.24000549316406,
+          "low": 145.97,
+          "volume": 0,
+          "quoteVolume": 219360000,
+          "macd": {
+            "macd": -0.5403784426044922,
+            "signal": -1.1850399563559602,
+            "hist": 0.644661513751468
+          },
+          "rsi": 51.66280049729328,
+          "ema50": 144.84935146002235,
+          "ema200": 127.61370633069062,
+          "support": 138.10000610351562,
+          "resistance": 165.4499969482422,
+          "direction": "BUY",
+          "score": 45,
+          "strengthReasons": [
+            "Positive MACD momentum",
+            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
+          ],
+          "blockReasons": [],
+          "deferReasons": []
+        },
+        {
+          "symbol": "ARES",
+          "price": 123.77,
+          "open": 123.98999786376953,
+          "high": 123.98999786376953,
+          "low": 123.77,
+          "volume": 0,
+          "quoteVolume": 185985000,
+          "macd": {
+            "macd": 0.04288962772191951,
+            "signal": -0.18492077674299295,
+            "hist": 0.22781040446491246
+          },
+          "rsi": 52.359537319554846,
+          "ema50": 123.41392393829797,
+          "ema200": 121.05539076046645,
+          "support": 120.11000061035156,
+          "resistance": 129.35000610351562,
+          "direction": "BUY",
+          "score": 45,
+          "strengthReasons": [
+            "Positive MACD momentum",
+            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
+          ],
+          "blockReasons": [],
+          "deferReasons": []
+        }
+      ],
+      "blockedSignals": [],
+      "deferredSignals": [
+        {
+          "symbol": "MPWR",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 1557.21,
+          "score": 10
+        },
+        {
+          "symbol": "ASML",
+          "reason": "Late MACD entry (RSI is high: 69.0)",
+          "price": 1587.88,
+          "score": 14
+        },
+        {
+          "symbol": "AZO",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 3429.28,
+          "score": 10
+        },
+        {
+          "symbol": "FICO",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 1224.92,
+          "score": -5
+        },
+        {
+          "symbol": "KLAC",
+          "reason": "Poor Risk/Reward Ratio: 0.50x (Target lies too close to resistance)",
+          "price": 1837.41,
+          "score": 23
+        },
+        {
+          "symbol": "GWW",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 1236.05,
+          "score": -10
+        },
+        {
+          "symbol": "FIX",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 1830.58,
+          "score": 10
+        },
+        {
+          "symbol": "SNDK",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 1538.26,
+          "score": 30
+        },
+        {
+          "symbol": "NVR",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 6032.28,
+          "score": 10
+        },
+        {
+          "symbol": "MELI",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 1673.58,
+          "score": 10
+        },
+        {
+          "symbol": "MTD",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 1087.66,
+          "score": 10
+        },
+        {
+          "symbol": "URI",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 929.8,
+          "score": 10
+        },
+        {
+          "symbol": "LITE",
+          "reason": "Poor Risk/Reward Ratio: 0.13x (Target lies too close to resistance)",
+          "price": 962.03,
+          "score": 23
+        },
+        {
+          "symbol": "EQIX",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 1075.66,
+          "score": 10
+        },
+        {
+          "symbol": "BLK",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 1061.03,
+          "score": 10
+        },
+        {
+          "symbol": "LLY",
+          "reason": "Poor Risk/Reward Ratio: 0.14x (Target lies too close to resistance)",
+          "price": 1038.99,
+          "score": 23
+        },
+        {
+          "symbol": "GEV",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 1041.15,
+          "score": 10
+        },
+        {
+          "symbol": "TDG",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 1206.23,
+          "score": 10
+        },
+        {
+          "symbol": "COST",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 1047.77,
+          "score": -10
+        },
+        {
+          "symbol": "GS",
+          "reason": "Poor Risk/Reward Ratio: 0.31x (Target lies too close to resistance)",
+          "price": 985.66,
+          "score": 23
+        },
+        {
+          "symbol": "PH",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 862.55,
+          "score": -5
+        },
+        {
+          "symbol": "MU",
+          "reason": "Poor Risk/Reward Ratio: 0.04x (Target lies too close to resistance)",
+          "price": 760.18,
+          "score": 23
+        },
+        {
+          "symbol": "CASY",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 822.72,
+          "score": -10
+        },
+        {
+          "symbol": "MCK",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 764.57,
+          "score": 15
+        },
+        {
+          "symbol": "PWR",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 715.1,
+          "score": 10
+        },
+        {
+          "symbol": "QQQ",
+          "reason": "Poor Risk/Reward Ratio: 0.53x (Target lies too close to resistance)",
+          "price": 712.71,
+          "score": 23
+        },
+        {
+          "symbol": "EME",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 847.06,
+          "score": -5
+        },
+        {
+          "symbol": "SPY",
+          "reason": "Poor Risk/Reward Ratio: 0.93x (Target lies too close to resistance)",
+          "price": 740.85,
+          "score": 23
+        },
+        {
+          "symbol": "CAT",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 863.77,
+          "score": 10
+        },
+        {
+          "symbol": "STX",
+          "reason": "Poor Risk/Reward Ratio: 0.26x (Target lies too close to resistance)",
+          "price": 808.42,
+          "score": 23
+        },
+        {
+          "symbol": "CIEN",
+          "reason": "Poor Risk/Reward Ratio: 0.07x (Target lies too close to resistance)",
+          "price": 585.76,
+          "score": 23
+        },
+        {
+          "symbol": "CRWD",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 646.61,
+          "score": -5
+        },
+        {
+          "symbol": "TDY",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 605.6,
+          "score": 30
+        },
+        {
+          "symbol": "CMI",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 637.18,
+          "score": -10
+        },
+        {
+          "symbol": "REGN",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 640.98,
+          "score": -5
+        },
+        {
+          "symbol": "NOC",
+          "reason": "Poor Risk/Reward Ratio for Shorts: 0.89x (Target lies too close to support)",
+          "price": 550.2,
+          "score": -27
+        },
+        {
+          "symbol": "IDXX",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 551.69,
+          "score": -27
+        },
+        {
+          "symbol": "MSCI",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 580.89,
+          "score": -5
+        },
+        {
+          "symbol": "META",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 605.86,
+          "score": -5
+        },
+        {
+          "symbol": "VOO",
+          "reason": "Poor Risk/Reward Ratio: 0.93x (Target lies too close to resistance)",
+          "price": 681.14,
+          "score": 23
+        },
+        {
+          "symbol": "LIN",
+          "reason": "Poor Risk/Reward Ratio: 0.10x (Target lies too close to resistance)",
+          "price": 513.24,
+          "score": 23
+        },
+        {
+          "symbol": "DIA",
+          "reason": "Poor Risk/Reward Ratio: 0.23x (Target lies too close to resistance)",
+          "price": 501.86,
+          "score": 23
+        },
+        {
+          "symbol": "DE",
+          "reason": "Poor Risk/Reward Ratio for Shorts: 0.40x (Target lies too close to support)",
+          "price": 530.03,
+          "score": -22
+        },
+        {
+          "symbol": "LMT",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 521.5,
+          "score": -15
+        },
+        {
+          "symbol": "MA",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 498.38,
+          "score": -5
+        },
+        {
+          "symbol": "WDC",
+          "reason": "Poor Risk/Reward Ratio: 0.44x (Target lies too close to resistance)",
+          "price": 485.26,
+          "score": 23
+        },
+        {
+          "symbol": "ULTA",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 502.8,
+          "score": 10
+        },
+        {
+          "symbol": "MLM",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 536.65,
+          "score": -5
+        },
+        {
+          "symbol": "TT",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 446.55,
+          "score": -5
+        },
+        {
+          "symbol": "BRK-B",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 478.81,
+          "score": -10
+        },
+        {
+          "symbol": "TMO",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 448.27,
+          "score": -5
+        },
+        {
+          "symbol": "ISRG",
+          "reason": "Poor Risk/Reward Ratio for Shorts: 0.38x (Target lies too close to support)",
+          "price": 438.73,
+          "score": -27
+        },
+        {
+          "symbol": "AMP",
+          "reason": "Poor Risk/Reward Ratio for Shorts: 0.38x (Target lies too close to support)",
+          "price": 449.47,
+          "score": -22
+        },
+        {
+          "symbol": "ROK",
+          "reason": "Poor Risk/Reward Ratio: 1.00x (Target lies too close to resistance)",
+          "price": 439.18,
+          "score": 23
+        },
+        {
+          "symbol": "HUBB",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 459.86,
+          "score": 5
+        },
+        {
+          "symbol": "MCO",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 444.28,
+          "score": 10
+        },
+        {
+          "symbol": "LII",
+          "reason": "Poor Risk/Reward Ratio for Shorts: 0.23x (Target lies too close to support)",
+          "price": 479.35,
+          "score": -27
+        },
+        {
+          "symbol": "AMD",
+          "reason": "Poor Risk/Reward Ratio: 0.05x (Target lies too close to resistance)",
+          "price": 448.5,
+          "score": 23
+        },
+        {
+          "symbol": "MSI",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 399.28,
+          "score": 5
+        },
+        {
+          "symbol": "AXON",
+          "reason": "Poor Risk/Reward Ratio for Shorts: 0.27x (Target lies too close to support)",
+          "price": 388.9,
+          "score": -22
+        },
+        {
+          "symbol": "AVGO",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 413.57,
+          "score": 15
+        },
+        {
+          "symbol": "MSFT",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 418.08,
+          "score": -5
+        },
+        {
+          "symbol": "TSLA",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 416.85,
+          "score": 10
+        },
+        {
+          "symbol": "TPL",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 396.03,
+          "score": -15
+        },
+        {
+          "symbol": "AMAT",
+          "reason": "Poor Risk/Reward Ratio: 0.76x (Target lies too close to resistance)",
+          "price": 426.34,
+          "score": 23
+        },
+        {
+          "symbol": "HCA",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 391.62,
+          "score": 20
+        },
+        {
+          "symbol": "VRTX",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 432.5,
+          "score": 15
+        },
+        {
+          "symbol": "SPGI",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 414.73,
+          "score": -5
+        },
+        {
+          "symbol": "RL",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 374.01,
+          "score": -5
+        },
+        {
+          "symbol": "GOOG",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 382.56,
+          "score": 10
+        },
+        {
+          "symbol": "FDX",
+          "reason": "Poor Risk/Reward Ratio: 0.21x (Target lies too close to resistance)",
+          "price": 387.98,
+          "score": 23
+        },
+        {
+          "symbol": "UNH",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 381.57,
+          "score": -15
+        },
+        {
+          "symbol": "ADI",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 383.3,
+          "score": -10
+        },
+        {
+          "symbol": "COHR",
+          "reason": "Poor Risk/Reward Ratio: 0.89x (Target lies too close to resistance)",
+          "price": 377.1,
+          "score": 23
+        },
+        {
+          "symbol": "GOOGL",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 386.74,
+          "score": 10
+        },
+        {
+          "symbol": "ETN",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 380.6,
+          "score": -5
+        },
+        {
+          "symbol": "ELV",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 388.89,
+          "score": -10
+        },
+        {
+          "symbol": "FFIV",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 382.79,
+          "score": 5
+        },
+        {
+          "symbol": "TER",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 352.61,
+          "score": 10
+        },
+        {
+          "symbol": "WAT",
+          "reason": "Poor Risk/Reward Ratio: 0.23x (Target lies too close to resistance)",
+          "price": 340.19,
+          "score": 23
+        },
+        {
+          "symbol": "SNA",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 361.46,
+          "score": -5
+        },
+        {
+          "symbol": "GD",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 337.91,
+          "score": -15
+        },
+        {
+          "symbol": "VTI",
+          "reason": "Poor Risk/Reward Ratio: 0.74x (Target lies too close to resistance)",
+          "price": 364.23,
+          "score": 23
+        },
+        {
+          "symbol": "CPAY",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 346.64,
+          "score": -5
+        },
+        {
+          "symbol": "EG",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 355.61,
+          "score": 5
+        },
+        {
+          "symbol": "JBL",
+          "reason": "Poor Risk/Reward Ratio: 0.17x (Target lies too close to resistance)",
+          "price": 355.57,
+          "score": 23
+        },
+        {
+          "symbol": "MAR",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 369.69,
+          "score": -5
+        },
+        {
+          "symbol": "CDNS",
+          "reason": "Poor Risk/Reward Ratio: 0.18x (Target lies too close to resistance)",
+          "price": 357.62,
+          "score": 23
+        },
+        {
+          "symbol": "ROP",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 323.33,
+          "score": 30
+        },
+        {
+          "symbol": "VRT",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 322.65,
+          "score": 10
+        },
+        {
+          "symbol": "DPZ",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 315.74,
+          "score": -15
+        },
+        {
+          "symbol": "AMGN",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 336.64,
+          "score": 10
+        },
+        {
+          "symbol": "HII",
+          "reason": "Late MACD Short-entry (RSI is low: 26.5)",
+          "price": 316.81,
+          "score": -12
+        },
+        {
+          "symbol": "HLT",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 322.01,
+          "score": -27
+        },
+        {
+          "symbol": "AON",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 323.47,
+          "score": -5
+        },
+        {
+          "symbol": "KEYS",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 336.77,
+          "score": 5
+        },
+        {
+          "symbol": "CB",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 329.5,
+          "score": -5
+        },
+        {
+          "symbol": "V",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 330.36,
+          "score": -5
+        },
+        {
+          "symbol": "TYL",
+          "reason": "Poor Risk/Reward Ratio for Shorts: 0.60x (Target lies too close to support)",
+          "price": 308.03,
+          "score": -22
+        },
+        {
+          "symbol": "NSC",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 310.73,
+          "score": -10
+        },
+        {
+          "symbol": "LHX",
+          "reason": "Poor Risk/Reward Ratio for Shorts: 0.42x (Target lies too close to support)",
+          "price": 305.63,
+          "score": -27
+        },
+        {
+          "symbol": "HD",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 313.06,
+          "score": 10
+        },
+        {
+          "symbol": "SHW",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 308.63,
+          "score": 10
+        },
+        {
+          "symbol": "INTU",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 306.37,
+          "score": -30
+        },
+        {
+          "symbol": "TRV",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 306.53,
+          "score": -5
+        },
+        {
+          "symbol": "SYK",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 312.78,
+          "score": -15
+        },
+        {
+          "symbol": "AXP",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 308.99,
+          "score": -5
+        },
+        {
+          "symbol": "WST",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 315.41,
+          "score": 30
+        },
+        {
+          "symbol": "GE",
+          "reason": "Poor Risk/Reward Ratio: 0.09x (Target lies too close to resistance)",
+          "price": 301.08,
+          "score": 23
+        },
+        {
+          "symbol": "PSA",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 304.3,
+          "score": 10
+        },
+        {
+          "symbol": "AAPL",
+          "reason": "Late MACD entry (RSI is high: 68.1)",
+          "price": 304.3,
+          "score": 14
+        },
+        {
+          "symbol": "HUM",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 302.99,
+          "score": 5
+        },
+        {
+          "symbol": "TXN",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 297.72,
+          "score": -10
+        },
+        {
+          "symbol": "NXPI",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 298.7,
+          "score": -5
+        },
+        {
+          "symbol": "LRCX",
+          "reason": "Poor Risk/Reward Ratio: 0.01x (Target lies too close to resistance)",
+          "price": 301.56,
+          "score": 23
+        },
+        {
+          "symbol": "ALNY",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 299.83,
+          "score": 10
+        },
+        {
+          "symbol": "JPM",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 302.32,
+          "score": 10
+        },
+        {
+          "symbol": "VRSN",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 305.24,
+          "score": -5
+        },
+        {
+          "symbol": "IWM",
+          "reason": "Poor Risk/Reward Ratio: 0.34x (Target lies too close to resistance)",
+          "price": 281.86,
+          "score": 23
+        },
+        {
+          "symbol": "TRGP",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 269.63,
+          "score": -5
+        },
+        {
+          "symbol": "APD",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 289.54,
+          "score": -5
+        },
+        {
+          "symbol": "ESS",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 273.19,
+          "score": -5
+        },
+        {
+          "symbol": "MCD",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 283.54,
+          "score": 10
+        },
+        {
+          "symbol": "NDSN",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 286.13,
+          "score": 10
+        },
+        {
+          "symbol": "CI",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 281.39,
+          "score": -10
+        },
+        {
+          "symbol": "ARM",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 297.56,
+          "score": 30
+        },
+        {
+          "symbol": "CEG",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 285.19,
+          "score": 10
+        },
+        {
+          "symbol": "CME",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 288.65,
+          "score": -10
+        },
+        {
+          "symbol": "JBHT",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 258.66,
+          "score": 5
+        },
+        {
+          "symbol": "AIZ",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 255.14,
+          "score": 5
+        },
+        {
+          "symbol": "VMC",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 261.5,
+          "score": -5
+        },
+        {
+          "symbol": "UNP",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 264.86,
+          "score": -10
+        },
+        {
+          "symbol": "LH",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 255.19,
+          "score": 10
+        },
+        {
+          "symbol": "COR",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 264.86,
+          "score": -10
+        },
+        {
+          "symbol": "WTW",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 257.66,
+          "score": 10
+        },
+        {
+          "symbol": "RCL",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 259.75,
+          "score": 10
+        },
+        {
+          "symbol": "AMZN",
+          "reason": "Poor Risk/Reward Ratio: 0.42x (Target lies too close to resistance)",
+          "price": 267.87,
+          "score": 23
+        },
+        {
+          "symbol": "HWM",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 259.32,
+          "score": 10
+        },
+        {
+          "symbol": "ADBE",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 243.57,
+          "score": -10
+        },
+        {
+          "symbol": "FSLR",
+          "reason": "Late MACD entry (RSI is high: 68.8)",
+          "price": 248.34,
+          "score": 14
+        },
+        {
+          "symbol": "ITW",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 249.39,
+          "score": -5
+        },
+        {
+          "symbol": "IBM",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 252.42,
+          "score": -5
+        },
+        {
+          "symbol": "PANW",
+          "reason": "Late MACD entry (RSI is high: 68.8)",
+          "price": 252.37,
+          "score": 14
+        },
+        {
+          "symbol": "DELL",
+          "reason": "Poor Risk/Reward Ratio: 0.33x (Target lies too close to resistance)",
+          "price": 252.25,
+          "score": 23
+        },
+        {
+          "symbol": "GNRC",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 247.25,
+          "score": 10
+        },
+        {
+          "symbol": "MPC",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 247.89,
+          "score": -10
+        },
+        {
+          "symbol": "ECL",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 249.64,
+          "score": 10
+        },
+        {
+          "symbol": "WAB",
+          "reason": "Poor Risk/Reward Ratio for Shorts: 0.08x (Target lies too close to support)",
+          "price": 254.61,
+          "score": -27
+        },
+        {
+          "symbol": "STLD",
+          "reason": "Poor Risk/Reward Ratio: 0.61x (Target lies too close to resistance)",
+          "price": 231.34,
+          "score": 23
+        },
+        {
+          "symbol": "VLO",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 240.57,
+          "score": 5
+        },
+        {
+          "symbol": "ERIE",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 224.25,
+          "score": -15
+        },
+        {
+          "symbol": "JNJ",
+          "reason": "Poor Risk/Reward Ratio: 0.14x (Target lies too close to resistance)",
+          "price": 231.23,
+          "score": 23
+        },
+        {
+          "symbol": "GRMN",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 239.27,
+          "score": 10
+        },
+        {
+          "symbol": "FDS",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 224.53,
+          "score": -10
+        },
+        {
+          "symbol": "ADSK",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 239.68,
+          "score": -10
+        },
+        {
+          "symbol": "NUE",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 225.96,
+          "score": 10
+        },
+        {
+          "symbol": "ZBRA",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 241.74,
+          "score": 28
+        },
+        {
+          "symbol": "PNC",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 217.91,
+          "score": 10
+        },
+        {
+          "symbol": "NVDA",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 219.04,
+          "score": -15
+        },
+        {
+          "symbol": "WM",
+          "reason": "Poor Risk/Reward Ratio for Shorts: 0.38x (Target lies too close to support)",
+          "price": 217.29,
+          "score": -22
+        },
+        {
+          "symbol": "DDOG",
+          "reason": "Poor Risk/Reward Ratio: 0.35x (Target lies too close to resistance)",
+          "price": 217.58,
+          "score": 23
+        },
+        {
+          "symbol": "AME",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 222.7,
+          "score": -5
+        },
+        {
+          "symbol": "ADP",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 219.61,
+          "score": 5
+        },
+        {
+          "symbol": "STE",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 219.2,
+          "score": 15
+        },
+        {
+          "symbol": "EXPE",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 217.66,
+          "score": -5
+        },
+        {
+          "symbol": "HON",
+          "reason": "Poor Risk/Reward Ratio: 0.23x (Target lies too close to resistance)",
+          "price": 223.33,
+          "score": 23
+        },
+        {
+          "symbol": "BA",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 219.15,
+          "score": -5
+        },
+        {
+          "symbol": "PKG",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 213.32,
+          "score": -5
+        },
+        {
+          "symbol": "RMD",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 208.55,
+          "score": -15
+        },
+        {
+          "symbol": "RSG",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 207.66,
+          "score": -15
+        },
+        {
+          "symbol": "QCOM",
+          "reason": "Poor Risk/Reward Ratio: 0.05x (Target lies too close to resistance)",
+          "price": 212.97,
+          "score": 23
+        },
+        {
+          "symbol": "WELL",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 215.56,
+          "score": -15
+        },
+        {
+          "symbol": "ABBV",
+          "reason": "Poor Risk/Reward Ratio: 0.13x (Target lies too close to resistance)",
+          "price": 214.06,
+          "score": 23
+        },
+        {
+          "symbol": "ROST",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 216.74,
+          "score": -15
+        },
+        {
+          "symbol": "MTB",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 211.89,
+          "score": 10
+        },
+        {
+          "symbol": "LOW",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 216.96,
+          "score": -5
+        },
+        {
+          "symbol": "ALL",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 214,
+          "score": -10
+        },
+        {
+          "symbol": "DOV",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 207.34,
+          "score": -5
+        },
+        {
+          "symbol": "CAH",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 200.2,
+          "score": 5
+        },
+        {
+          "symbol": "AJG",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 206.98,
+          "score": 10
+        },
+        {
+          "symbol": "TEL",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 202.15,
+          "score": -5
+        },
+        {
+          "symbol": "SPG",
+          "reason": "Poor Risk/Reward Ratio: 0.19x (Target lies too close to resistance)",
+          "price": 204.48,
+          "score": 23
+        },
+        {
+          "symbol": "ODFL",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 207.26,
+          "score": -15
+        },
+        {
+          "symbol": "EA",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 201.46,
+          "score": -27
+        },
+        {
+          "symbol": "IEX",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 205.19,
+          "score": -5
+        },
+        {
+          "symbol": "FANG",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 200.56,
+          "score": -10
+        },
+        {
+          "symbol": "COIN",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 193.17,
+          "score": -5
+        },
+        {
+          "symbol": "PGR",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 198.57,
+          "score": -15
+        },
+        {
+          "symbol": "DGX",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 193.43,
+          "score": -15
+        },
+        {
+          "symbol": "TKO",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 191.24,
+          "score": -15
+        },
+        {
+          "symbol": "DRI",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 196.67,
+          "score": -27
+        },
+        {
+          "symbol": "DVA",
+          "reason": "Poor Risk/Reward Ratio: 0.90x (Target lies too close to resistance)",
+          "price": 198.26,
+          "score": 23
+        },
+        {
+          "symbol": "MS",
+          "reason": "Poor Risk/Reward Ratio: 0.07x (Target lies too close to resistance)",
+          "price": 200.11,
+          "score": 23
+        },
+        {
+          "symbol": "DLR",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 193.88,
+          "score": 10
+        },
+        {
+          "symbol": "WSM",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 191.55,
+          "score": -5
+        },
+        {
+          "symbol": "GLW",
+          "reason": "Poor Risk/Reward Ratio: 0.93x (Target lies too close to resistance)",
+          "price": 191.51,
+          "score": 23
+        },
+        {
+          "symbol": "PM",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 188.09,
+          "score": 5
+        },
+        {
+          "symbol": "BIIB",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 189.1,
+          "score": 10
+        },
+        {
+          "symbol": "HSY",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 190.01,
+          "score": -15
+        },
+        {
+          "symbol": "AMT",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 183.42,
+          "score": -5
+        },
+        {
+          "symbol": "MRVL",
+          "reason": "Poor Risk/Reward Ratio: 0.07x (Target lies too close to resistance)",
+          "price": 190.31,
+          "score": 23
+        },
+        {
+          "symbol": "COF",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 186.29,
+          "score": 15
+        },
+        {
+          "symbol": "CVX",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 190.63,
+          "score": -10
+        },
+        {
+          "symbol": "ORCL",
+          "reason": "Poor Risk/Reward Ratio: 1.07x (Target lies too close to resistance)",
+          "price": 189.4,
+          "score": 23
+        },
+        {
+          "symbol": "AVB",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 183.75,
+          "score": -10
+        },
+        {
+          "symbol": "RTX",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 175.64,
+          "score": 10
+        },
+        {
+          "symbol": "XLK",
+          "reason": "Poor Risk/Reward Ratio: 0.26x (Target lies too close to resistance)",
+          "price": 178.25,
+          "score": 23
+        },
+        {
+          "symbol": "CRM",
+          "reason": "Poor Risk/Reward Ratio for Shorts: 1.02x (Target lies too close to support)",
+          "price": 175.97,
+          "score": -22
+        },
+        {
+          "symbol": "CTAS",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 172.03,
+          "score": -15
+        },
+        {
+          "symbol": "CHRW",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 177.79,
+          "score": -5
+        },
+        {
+          "symbol": "DHR",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 172.99,
+          "score": 10
+        },
+        {
+          "symbol": "ACN",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 177.53,
+          "score": -10
+        },
+        {
+          "symbol": "PSX",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 173.71,
+          "score": -10
+        },
+        {
+          "symbol": "ATO",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 177.12,
+          "score": 5
+        },
+        {
+          "symbol": "POOL",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 181.34,
+          "score": 15
+        },
+        {
+          "symbol": "LYV",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 165.66,
+          "score": 10
+        },
+        {
+          "symbol": "ZS",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 170.68,
+          "score": 5
+        },
+        {
+          "symbol": "ALB",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 169.58,
+          "score": -5
+        },
+        {
+          "symbol": "NTRS",
+          "reason": "Poor Risk/Reward Ratio: 0.14x (Target lies too close to resistance)",
+          "price": 166.79,
+          "score": 23
+        },
+        {
+          "symbol": "MSTR",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 164.54,
+          "score": -5
+        },
+        {
+          "symbol": "CINF",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 168.05,
+          "score": 5
+        },
+        {
+          "symbol": "EFX",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 162.79,
+          "score": 5
+        },
+        {
+          "symbol": "MRSH",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 164.81,
+          "score": -10
+        },
+        {
+          "symbol": "IQV",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 167.7,
+          "score": -15
+        },
+        {
+          "symbol": "VRSK",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 171.27,
+          "score": -15
+        },
+        {
+          "symbol": "EXPD",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 156.89,
+          "score": 5
+        },
+        {
+          "symbol": "UHS",
+          "reason": "Poor Risk/Reward Ratio for Shorts: 0.07x (Target lies too close to support)",
+          "price": 162.14,
+          "score": -22
+        },
+        {
+          "symbol": "CRL",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 158.56,
+          "score": 10
+        },
+        {
+          "symbol": "VEEV",
+          "reason": "Poor Risk/Reward Ratio for Shorts: 0.11x (Target lies too close to support)",
+          "price": 157.97,
+          "score": -27
+        },
+        {
+          "symbol": "IT",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 156.92,
+          "score": 5
+        },
+        {
+          "symbol": "BKNG",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 159.38,
+          "score": 10
+        },
+        {
+          "symbol": "TJX",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 157.16,
+          "score": -15
+        },
+        {
+          "symbol": "ALGN",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 162.73,
+          "score": 10
+        },
+        {
+          "symbol": "DASH",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 158.97,
+          "score": -5
+        },
+        {
+          "symbol": "AVY",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 158.6,
+          "score": 10
+        },
+        {
+          "symbol": "GL",
+          "reason": "Poor Risk/Reward Ratio: 0.32x (Target lies too close to resistance)",
+          "price": 156.31,
+          "score": 23
+        },
+        {
+          "symbol": "MMM",
+          "reason": "Poor Risk/Reward Ratio: 0.20x (Target lies too close to resistance)",
+          "price": 151.32,
+          "score": 23
+        },
+        {
+          "symbol": "Q",
+          "reason": "Poor Risk/Reward Ratio: 0.17x (Target lies too close to resistance)",
+          "price": 152.48,
+          "score": 23
+        },
+        {
+          "symbol": "RJF",
+          "reason": "Poor Risk/Reward Ratio for Shorts: 0.45x (Target lies too close to support)",
+          "price": 150.14,
+          "score": -22
+        },
+        {
+          "symbol": "XOM",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 155,
+          "score": -10
+        },
+        {
+          "symbol": "ICE",
+          "reason": "Poor Risk/Reward Ratio for Shorts: 0.25x (Target lies too close to support)",
+          "price": 151.21,
+          "score": -22
+        },
+        {
+          "symbol": "YUM",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 154.03,
+          "score": 10
+        },
+        {
+          "symbol": "PODD",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 156.6,
+          "score": 10
+        },
+        {
+          "symbol": "STT",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 153.4,
+          "score": -5
+        },
+        {
+          "symbol": "STZ",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 150.55,
+          "score": -27
+        },
+        {
+          "symbol": "PEP",
+          "reason": "Poor Risk/Reward Ratio for Shorts: 0.11x (Target lies too close to support)",
+          "price": 148.58,
+          "score": -22
+        },
+        {
+          "symbol": "BDX",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 145.98,
+          "score": -15
+        },
+        {
+          "symbol": "CHTR",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 148.63,
+          "score": 10
+        },
+        {
+          "symbol": "DHI",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 143.88,
+          "score": 10
+        },
+        {
+          "symbol": "PLD",
+          "reason": "Poor Risk/Reward Ratio: 0.22x (Target lies too close to resistance)",
+          "price": 144.37,
+          "score": 23
+        },
+        {
+          "symbol": "VST",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 148.81,
+          "score": 10
+        },
+        {
+          "symbol": "PTC",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 145.57,
+          "score": -5
+        },
+        {
+          "symbol": "BR",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 149.75,
+          "score": -15
+        },
+        {
+          "symbol": "ANET",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 148.32,
+          "score": 10
+        },
+        {
+          "symbol": "DTE",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 143.49,
+          "score": -27
+        },
+        {
+          "symbol": "HIG",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 135.78,
+          "score": -15
+        },
+        {
+          "symbol": "TPR",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 138.86,
+          "score": 10
+        },
+        {
+          "symbol": "EOG",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 139.73,
+          "score": -10
+        },
+        {
+          "symbol": "NRG",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 136.67,
+          "score": 10
+        },
+        {
+          "symbol": "PG",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 143.14,
+          "score": 10
+        },
+        {
+          "symbol": "PLTR",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 137.17,
+          "score": 10
+        },
+        {
+          "symbol": "BK",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 136.91,
+          "score": -5
+        },
+        {
+          "symbol": "EXR",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 143.65,
+          "score": 10
+        },
+        {
+          "symbol": "JKHY",
+          "reason": "Poor Risk/Reward Ratio for Shorts: 0.48x (Target lies too close to support)",
+          "price": 139.31,
+          "score": -27
+        },
+        {
+          "symbol": "AEP",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 129.38,
+          "score": 10
+        },
+        {
+          "symbol": "GILD",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 130.27,
+          "score": -5
+        },
+        {
+          "symbol": "ABNB",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 134.01,
+          "score": 5
+        },
+        {
+          "symbol": "ALLE",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 130.47,
+          "score": 10
+        },
+        {
+          "symbol": "EMR",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 134.66,
+          "score": 10
+        },
+        {
+          "symbol": "CBRE",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 130.81,
+          "score": 5
+        },
+        {
+          "symbol": "MAA",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 129.78,
+          "score": 5
+        },
+        {
+          "symbol": "APO",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 130.67,
+          "score": -27
+        },
+        {
+          "symbol": "JCI",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 135.23,
+          "score": -5
+        },
+        {
+          "symbol": "FTNT",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 129.23,
+          "score": 5
+        },
+        {
+          "symbol": "AWK",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 123.66,
+          "score": 5
+        },
+        {
+          "symbol": "DUK",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 124.44,
+          "score": -15
+        },
+        {
+          "symbol": "IRM",
+          "reason": "Poor Risk/Reward Ratio: 0.27x (Target lies too close to resistance)",
+          "price": 127.11,
+          "score": 23
+        },
+        {
+          "symbol": "NTAP",
+          "reason": "Poor Risk/Reward Ratio: 0.08x (Target lies too close to resistance)",
+          "price": 123.73,
+          "score": 28
+        },
+        {
+          "symbol": "TGT",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 125.93,
+          "score": 15
+        },
+        {
+          "symbol": "LULU",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 126.54,
+          "score": 10
+        },
+        {
+          "symbol": "APH",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 124.64,
+          "score": 10
+        },
+        {
+          "symbol": "SATS",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 128.22,
+          "score": -15
+        },
+        {
+          "symbol": "C",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 125,
+          "score": 10
+        },
+        {
+          "symbol": "FRT",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 118.41,
+          "score": 30
+        },
+        {
+          "symbol": "BG",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 120.25,
+          "score": -5
+        },
+        {
+          "symbol": "WMT",
+          "reason": "Insufficient indicator convergence strength",
+          "price": 121.13,
+          "score": -30
+        },
+        {
+          "symbol": "WDAY",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 121.64,
+          "score": -10
+        },
+        {
+          "symbol": "INTC",
+          "reason": "Poor Risk/Reward Ratio: 0.23x (Target lies too close to resistance)",
+          "price": 118.3,
+          "score": 23
+        },
+        {
+          "symbol": "CSCO",
+          "reason": "Poor Risk/Reward Ratio: 0.31x (Target lies too close to resistance)",
+          "price": 118,
+          "score": 23
+        },
+        {
+          "symbol": "CF",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 121.48,
+          "score": -15
+        },
+        {
+          "symbol": "BX",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 118.37,
+          "score": 10
+        },
+        {
+          "symbol": "LDOS",
+          "reason": "Poor Risk/Reward Ratio for Shorts: 0.04x (Target lies too close to support)",
+          "price": 122.83,
+          "score": -27
+        },
+        {
+          "symbol": "COP",
+          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
+          "price": 120.34,
+          "score": -10
+        }
+      ],
+      "nearMisses": [
+        {
+          "symbol": "SNDK",
+          "price": 1538.26,
+          "open": 1542.239990234375,
+          "high": 1542.239990234375,
+          "low": 1538.26,
+          "volume": 0,
+          "quoteVolume": 2313360000,
+          "macd": {
+            "macd": 43.818145836947224,
+            "signal": 28.361556067346996,
+            "hist": 15.456589769600228
+          },
+          "rsi": 74.60865518183716,
+          "ema50": 1414.8678859604104,
+          "ema200": 1275.1958466100239,
+          "support": 1277.3299560546875,
+          "resistance": 1546.0899658203125,
+          "direction": "HOLD",
+          "score": 30,
+          "strengthReasons": [
+            "Positive MACD momentum",
+            "Long-term bullish trend regime (Price > EMA50 > EMA200)",
+            "RSI overbought (potential reversal)"
+          ],
+          "blockReasons": [],
+          "deferReasons": [
+            "Insufficient indicator convergence strength"
+          ]
+        },
+        {
+          "symbol": "TDY",
+          "price": 605.6,
+          "open": 607.1199951171875,
+          "high": 607.1199951171875,
+          "low": 605.6,
+          "volume": 0,
+          "quoteVolume": 910680000,
+          "macd": {
+            "macd": -3.4902278320024607,
+            "signal": -3.5159563217253424,
+            "hist": 0.025728489722881775
+          },
+          "rsi": 41.831447108482266,
+          "ema50": 616.3596321949192,
+          "ema200": 629.9243156730718,
+          "support": 602.760009765625,
+          "resistance": 628.3400268554688,
+          "direction": "HOLD",
+          "score": 30,
+          "strengthReasons": [
+            "Positive MACD momentum",
+            "Bullish MACD crossover (recent)",
+            "Long-term bearish trend regime (Price < EMA50 < EMA200)"
+          ],
+          "blockReasons": [],
+          "deferReasons": [
+            "Insufficient indicator convergence strength"
+          ]
+        },
+        {
+          "symbol": "ROP",
+          "price": 323.33,
+          "open": 324.0799865722656,
+          "high": 324.0799865722656,
+          "low": 323.33,
+          "volume": 0,
+          "quoteVolume": 486120000,
+          "macd": {
+            "macd": -1.0064407881952775,
+            "signal": -1.0883563305361745,
+            "hist": 0.08191554234089704
+          },
+          "rsi": 48.178152067575596,
+          "ema50": 326.19083717762845,
+          "ema200": 339.74556288181003,
+          "support": 305.9599914550781,
+          "resistance": 340,
+          "direction": "HOLD",
+          "score": 30,
+          "strengthReasons": [
+            "Positive MACD momentum",
+            "Bullish MACD crossover (recent)",
+            "Long-term bearish trend regime (Price < EMA50 < EMA200)"
+          ],
+          "blockReasons": [],
+          "deferReasons": [
+            "Insufficient indicator convergence strength"
+          ]
+        },
+        {
+          "symbol": "INTU",
+          "price": 306.37,
+          "open": 307.07000732421875,
+          "high": 307.07000732421875,
+          "low": 306.37,
+          "volume": 0,
+          "quoteVolume": 460605000,
+          "macd": {
+            "macd": -24.468278898905965,
+            "signal": -17.929942078803652,
+            "hist": -6.538336820102312
+          },
+          "rsi": 15.426421921716383,
+          "ema50": 369.36416471391607,
+          "ema200": 385.77275430386555,
+          "support": 302.3638916015625,
+          "resistance": 423.989990234375,
+          "direction": "HOLD",
+          "score": -30,
+          "strengthReasons": [
+            "Negative MACD momentum",
+            "Long-term bearish trend regime (Price < EMA50 < EMA200)",
+            "RSI oversold (potential reversal)"
+          ],
+          "blockReasons": [],
+          "deferReasons": [
+            "Insufficient indicator convergence strength"
+          ]
+        },
+        {
+          "symbol": "WST",
+          "price": 315.41,
+          "open": 316.1300048828125,
+          "high": 316.1300048828125,
+          "low": 315.41,
+          "volume": 0,
+          "quoteVolume": 474195000,
+          "macd": {
+            "macd": 2.7880746036098003,
+            "signal": 1.5919491659516225,
+            "hist": 1.1961254376581778
+          },
+          "rsi": 70.44869207261135,
+          "ema50": 307.57906878407283,
+          "ema200": 301.82138109897363,
+          "support": 299.7200012207031,
+          "resistance": 316.6000061035156,
+          "direction": "HOLD",
+          "score": 30,
+          "strengthReasons": [
+            "Positive MACD momentum",
+            "Long-term bullish trend regime (Price > EMA50 > EMA200)",
+            "RSI overbought (potential reversal)"
+          ],
+          "blockReasons": [],
+          "deferReasons": [
+            "Insufficient indicator convergence strength"
+          ]
+        },
+        {
+          "symbol": "ARM",
+          "price": 297.56,
+          "open": 298.2300109863281,
+          "high": 298.2300109863281,
+          "low": 297.56,
+          "volume": 0,
+          "quoteVolume": 447345000,
+          "macd": {
+            "macd": 19.931170164864398,
+            "signal": 16.663083239402372,
+            "hist": 3.2680869254620255
+          },
+          "rsi": 84.22432126430576,
+          "ema50": 242.80217498311677,
+          "ema200": 215.6607157144822,
+          "support": 203.00489807128906,
+          "resistance": 298.69000244140625,
+          "direction": "HOLD",
+          "score": 30,
+          "strengthReasons": [
+            "Positive MACD momentum",
+            "Long-term bullish trend regime (Price > EMA50 > EMA200)",
+            "RSI overbought (potential reversal)"
+          ],
+          "blockReasons": [],
+          "deferReasons": [
+            "Insufficient indicator convergence strength"
+          ]
+        },
+        {
+          "symbol": "FRT",
+          "price": 118.41,
+          "open": 118.61000061035156,
+          "high": 118.61000061035156,
+          "low": 118.41,
+          "volume": 0,
+          "quoteVolume": 177915000,
+          "macd": {
+            "macd": 0.9307271836147777,
+            "signal": 0.6395259906297405,
+            "hist": 0.2912011929850372
+          },
+          "rsi": 75.86514281289557,
+          "ema50": 115.5560751478357,
+          "ema200": 113.96763101164093,
+          "support": 112.67310333251953,
+          "resistance": 118.73999786376953,
+          "direction": "HOLD",
+          "score": 30,
+          "strengthReasons": [
+            "Positive MACD momentum",
+            "Long-term bullish trend regime (Price > EMA50 > EMA200)",
+            "RSI overbought (potential reversal)"
+          ],
+          "blockReasons": [],
+          "deferReasons": [
+            "Insufficient indicator convergence strength"
+          ]
+        },
+        {
+          "symbol": "WMT",
+          "price": 121.13,
+          "open": 121.33999633789062,
+          "high": 121.33999633789062,
+          "low": 121.13,
+          "volume": 0,
+          "quoteVolume": 182010000,
+          "macd": {
+            "macd": -3.047927601832029,
+            "signal": -2.151131170875649,
+            "hist": -0.8967964309563801
+          },
+          "rsi": 21.570478002705087,
+          "ema50": 129.0796012215767,
+          "ema200": 129.59968271583176,
+          "support": 120.4000015258789,
+          "resistance": 133.9499969482422,
+          "direction": "HOLD",
+          "score": -30,
+          "strengthReasons": [
+            "Negative MACD momentum",
+            "Long-term bearish trend regime (Price < EMA50 < EMA200)",
+            "RSI oversold (potential reversal)"
+          ],
+          "blockReasons": [],
+          "deferReasons": [
+            "Insufficient indicator convergence strength"
+          ]
+        },
+        {
+          "symbol": "ZBRA",
+          "price": 241.74,
+          "open": 242.25999450683594,
+          "high": 242.25999450683594,
+          "low": 241.74,
+          "volume": 0,
+          "quoteVolume": 363390000,
+          "macd": {
+            "macd": -2.9427432651880565,
+            "signal": -3.033743953098325,
+            "hist": 0.0910006879102685
+          },
+          "rsi": 42.75871349783819,
+          "ema50": 245.35856829714274,
+          "ema200": 237.26668563077868,
+          "support": 234.03500366210938,
+          "resistance": 261.4100036621094,
+          "direction": "HOLD",
+          "score": 28,
+          "strengthReasons": [
+            "Positive MACD momentum",
+            "Bullish MACD crossover (recent)"
+          ],
+          "blockReasons": [],
+          "deferReasons": [
+            "Choppy trend regime (EMA50/EMA200 alignment weak)"
+          ]
+        },
+        {
+          "symbol": "NTAP",
+          "price": 123.73,
+          "open": 123.94499969482422,
+          "high": 123.94499969482422,
+          "low": 123.73,
+          "volume": 0,
+          "quoteVolume": 185917500,
+          "macd": {
+            "macd": 0.7893973119421389,
+            "signal": 0.4368992690895196,
+            "hist": 0.3524980428526193
+          },
+          "rsi": 66.19983862818805,
+          "ema50": 119.82384680932547,
+          "ema200": 114.56432670850216,
+          "support": 117.58999633789062,
+          "resistance": 124.22000122070312,
+          "direction": "HOLD",
+          "score": 28,
+          "strengthReasons": [
+            "Positive MACD momentum",
+            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
+          ],
+          "blockReasons": [],
+          "deferReasons": [
+            "Poor Risk/Reward Ratio: 0.08x (Target lies too close to resistance)"
+          ]
+        }
+      ]
+    },
     {
       "summary": {
         "timestamp": "5/22/2026, 1:59:29 AM",
@@ -66278,2406 +68554,54 @@
           ]
         }
       ]
-    },
-    {
-      "summary": {
-        "timestamp": "5/22/2026, 1:30:32 AM",
-        "unix": 1779393632862,
-        "totalMarkets": 525,
-        "futuresUSDTCount": 525,
-        "analyzedCount": 300,
-        "buyCount": 6,
-        "sellCount": 2,
-        "holdCount": 292,
-        "blockedCount": 0,
-        "deferredCount": 292,
-        "logs": [
-          "[20:00:24] Starting discovery-scan sequence for Wall Street large-cap stocks...",
-          "[20:00:24] Using cached US index universe (526 symbols loaded).",
-          "[20:00:24] Fetching Wall Street prices from Yahoo Finance Spark API (https://query1.finance.yahoo.com)...",
-          "[20:00:28] Successfully synced 525 US equities using Yahoo Finance Spark API.",
-          "[20:00:28] Filtered out 0 symbols before evaluation due to liquidity filter < 1.0M",
-          "[20:00:28] Broad universe liquid assets count: 525",
-          "[20:00:28] Conducting parallel technical scans on Top 300 high-activity symbols...",
-          "[20:00:32] Analysis finished: 300 assets finalized. BUY: 6, SELL: 2, HOLD: 292"
-        ]
-      },
-      "rankedSignals": [
-        {
-          "symbol": "SBAC",
-          "price": 207.55,
-          "open": 208.07000732421875,
-          "high": 208.07000732421875,
-          "low": 207.55,
-          "volume": 0,
-          "quoteVolume": 312105000,
-          "macd": {
-            "macd": 0.7269881156140912,
-            "signal": 0.8221532494148087,
-            "hist": -0.09516513380071756
-          },
-          "rsi": 52.11089397059449,
-          "ema50": 207.67750497802822,
-          "ema200": 212.7781241058442,
-          "support": 199.9199981689453,
-          "resistance": 209.36000061035156,
-          "direction": "SELL",
-          "score": -55,
-          "strengthReasons": [
-            "Negative MACD momentum",
-            "Long-term bearish trend regime (Price < EMA50 < EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": []
-        },
-        {
-          "symbol": "ARES",
-          "price": 123.95,
-          "open": 123.57499694824219,
-          "high": 124.38500213623047,
-          "low": 123.0199966430664,
-          "volume": 240361,
-          "quoteVolume": 186000000,
-          "macd": {
-            "macd": 0.001142288401837277,
-            "signal": -0.24187332917020668,
-            "hist": 0.24301561757204396
-          },
-          "rsi": 53.24156029928362,
-          "ema50": 123.39939034117056,
-          "ema200": 121.02810828591227,
-          "support": 120.11000061035156,
-          "resistance": 129.35000610351562,
-          "direction": "BUY",
-          "score": 55,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": []
-        },
-        {
-          "symbol": "APP",
-          "price": 484.84,
-          "open": 485.8900146484375,
-          "high": 485.8900146484375,
-          "low": 484.84,
-          "volume": 0,
-          "quoteVolume": 728835000,
-          "macd": {
-            "macd": 1.2557535074694215,
-            "signal": 0.8008565707156052,
-            "hist": 0.45489693675381626
-          },
-          "rsi": 50.63663985775186,
-          "ema50": 482.16881543959147,
-          "ema200": 471.2216350246832,
-          "support": 461,
-          "resistance": 515.3900146484375,
-          "direction": "BUY",
-          "score": 45,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": []
-        },
-        {
-          "symbol": "SNPS",
-          "price": 502.89,
-          "open": 503.9800109863281,
-          "high": 503.9800109863281,
-          "low": 502.89,
-          "volume": 0,
-          "quoteVolume": 755970000,
-          "macd": {
-            "macd": 1.3809336949614135,
-            "signal": -0.10544245627483606,
-            "hist": 1.4863761512362497
-          },
-          "rsi": 57.01938113089845,
-          "ema50": 499.4357695760841,
-          "ema200": 491.12264879605596,
-          "support": 502.28900146484375,
-          "resistance": 504.7300109863281,
-          "direction": "BUY",
-          "score": 45,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": []
-        },
-        {
-          "symbol": "HCA",
-          "price": 391.36,
-          "open": 392.489990234375,
-          "high": 392.7955322265625,
-          "low": 391.0799865722656,
-          "volume": 256195,
-          "quoteVolume": 589230000,
-          "macd": {
-            "macd": -7.673242034362772,
-            "signal": -7.696128787041868,
-            "hist": 0.02288675267909568
-          },
-          "rsi": 27.243609344723055,
-          "ema50": 411.5081449676624,
-          "ema200": 433.7032941270888,
-          "support": 386.010009765625,
-          "resistance": 437,
-          "direction": "BUY",
-          "score": 45,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Bullish MACD crossover (recent)",
-            "Long-term bearish trend regime (Price < EMA50 < EMA200)",
-            "RSI oversold (potential reversal)"
-          ],
-          "blockReasons": [],
-          "deferReasons": []
-        },
-        {
-          "symbol": "TTWO",
-          "price": 237.51,
-          "open": 238.0800018310547,
-          "high": 238.0800018310547,
-          "low": 237.51,
-          "volume": 0,
-          "quoteVolume": 357120000,
-          "macd": {
-            "macd": 0.23624524256575796,
-            "signal": 0.21741631897655775,
-            "hist": 0.018828923589200214
-          },
-          "rsi": 47.072060773681336,
-          "ema50": 236.4747587121944,
-          "ema200": 226.26514490680836,
-          "support": 233.1300048828125,
-          "resistance": 246.24989318847656,
-          "direction": "BUY",
-          "score": 45,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": []
-        },
-        {
-          "symbol": "TMUS",
-          "price": 190.42,
-          "open": 190.89999389648438,
-          "high": 190.89999389648438,
-          "low": 190.42,
-          "volume": 0,
-          "quoteVolume": 286350000,
-          "macd": {
-            "macd": -0.07544298284611273,
-            "signal": -0.025410344894629032,
-            "hist": -0.050032637951483695
-          },
-          "rsi": 49.34229846323866,
-          "ema50": 190.75339348636825,
-          "ema200": 192.027889458172,
-          "support": 185.1199951171875,
-          "resistance": 195,
-          "direction": "SELL",
-          "score": -45,
-          "strengthReasons": [
-            "Negative MACD momentum",
-            "Long-term bearish trend regime (Price < EMA50 < EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": []
-        },
-        {
-          "symbol": "AKAM",
-          "price": 145.86,
-          "open": 146.24000549316406,
-          "high": 146.24000549316406,
-          "low": 145.86,
-          "volume": 0,
-          "quoteVolume": 219660000,
-          "macd": {
-            "macd": -0.5497698769399619,
-            "signal": -1.1870460031945644,
-            "hist": 0.6372761262546025
-          },
-          "rsi": 51.323492258802645,
-          "ema50": 144.84466058842247,
-          "ema200": 127.61251319471086,
-          "support": 138.10000610351562,
-          "resistance": 165.4499969482422,
-          "direction": "BUY",
-          "score": 45,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": []
-        }
-      ],
-      "blockedSignals": [],
-      "deferredSignals": [
-        {
-          "symbol": "KLAC",
-          "reason": "Poor Risk/Reward Ratio: 0.49x (Target lies too close to resistance)",
-          "price": 1838.32,
-          "score": 23
-        },
-        {
-          "symbol": "NVR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 6033.89,
-          "score": 10
-        },
-        {
-          "symbol": "FIX",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 1831.54,
-          "score": 10
-        },
-        {
-          "symbol": "MELI",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 1674.38,
-          "score": 10
-        },
-        {
-          "symbol": "AZO",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 3425.13,
-          "score": 10
-        },
-        {
-          "symbol": "SNDK",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 1539.01,
-          "score": 30
-        },
-        {
-          "symbol": "ASML",
-          "reason": "Late MACD entry (RSI is high: 69.4)",
-          "price": 1588.66,
-          "score": 14
-        },
-        {
-          "symbol": "MPWR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 1557.97,
-          "score": 10
-        },
-        {
-          "symbol": "FICO",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 1225.49,
-          "score": -5
-        },
-        {
-          "symbol": "GWW",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 1237.77,
-          "score": -10
-        },
-        {
-          "symbol": "COST",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 1048.23,
-          "score": -10
-        },
-        {
-          "symbol": "EQIX",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 1076.14,
-          "score": 10
-        },
-        {
-          "symbol": "TDG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 1207.11,
-          "score": 10
-        },
-        {
-          "symbol": "MTD",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 1089.27,
-          "score": 10
-        },
-        {
-          "symbol": "BLK",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 1059.77,
-          "score": 15
-        },
-        {
-          "symbol": "GEV",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 1043.5,
-          "score": 10
-        },
-        {
-          "symbol": "URI",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 929,
-          "score": 10
-        },
-        {
-          "symbol": "LLY",
-          "reason": "Poor Risk/Reward Ratio: 0.12x (Target lies too close to resistance)",
-          "price": 1039.91,
-          "score": 23
-        },
-        {
-          "symbol": "GS",
-          "reason": "Poor Risk/Reward Ratio: 0.30x (Target lies too close to resistance)",
-          "price": 986.18,
-          "score": 23
-        },
-        {
-          "symbol": "LITE",
-          "reason": "Poor Risk/Reward Ratio: 0.12x (Target lies too close to resistance)",
-          "price": 962.46,
-          "score": 23
-        },
-        {
-          "symbol": "CASY",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 823.04,
-          "score": -10
-        },
-        {
-          "symbol": "CAT",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 863.9,
-          "score": 10
-        },
-        {
-          "symbol": "STX",
-          "reason": "Poor Risk/Reward Ratio: 0.26x (Target lies too close to resistance)",
-          "price": 808.73,
-          "score": 23
-        },
-        {
-          "symbol": "MU",
-          "reason": "Poor Risk/Reward Ratio: 0.04x (Target lies too close to resistance)",
-          "price": 760.48,
-          "score": 23
-        },
-        {
-          "symbol": "EME",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 847.72,
-          "score": -5
-        },
-        {
-          "symbol": "PWR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 715.85,
-          "score": 10
-        },
-        {
-          "symbol": "PH",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 863.48,
-          "score": -5
-        },
-        {
-          "symbol": "MCK",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 763.21,
-          "score": -10
-        },
-        {
-          "symbol": "QQQ",
-          "reason": "Poor Risk/Reward Ratio: 0.51x (Target lies too close to resistance)",
-          "price": 712.99,
-          "score": 23
-        },
-        {
-          "symbol": "SPY",
-          "reason": "Poor Risk/Reward Ratio: 0.83x (Target lies too close to resistance)",
-          "price": 741.36,
-          "score": 23
-        },
-        {
-          "symbol": "CRWD",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 646.84,
-          "score": -5
-        },
-        {
-          "symbol": "REGN",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 641.21,
-          "score": -5
-        },
-        {
-          "symbol": "VOO",
-          "reason": "Poor Risk/Reward Ratio: 0.83x (Target lies too close to resistance)",
-          "price": 681.57,
-          "score": 23
-        },
-        {
-          "symbol": "IDXX",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 551.88,
-          "score": 10
-        },
-        {
-          "symbol": "TDY",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.14x (Target lies too close to support)",
-          "price": 605.81,
-          "score": -22
-        },
-        {
-          "symbol": "NOC",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.93x (Target lies too close to support)",
-          "price": 550.37,
-          "score": -27
-        },
-        {
-          "symbol": "MSCI",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 580.99,
-          "score": -5
-        },
-        {
-          "symbol": "CMI",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 637.02,
-          "score": -10
-        },
-        {
-          "symbol": "META",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 606.07,
-          "score": -5
-        },
-        {
-          "symbol": "CIEN",
-          "reason": "Poor Risk/Reward Ratio: 0.06x (Target lies too close to resistance)",
-          "price": 586.17,
-          "score": 23
-        },
-        {
-          "symbol": "MA",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 498.58,
-          "score": -5
-        },
-        {
-          "symbol": "LMT",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 521.61,
-          "score": -27
-        },
-        {
-          "symbol": "LIN",
-          "reason": "Poor Risk/Reward Ratio: 0.08x (Target lies too close to resistance)",
-          "price": 513.4,
-          "score": 23
-        },
-        {
-          "symbol": "DIA",
-          "reason": "Poor Risk/Reward Ratio: 0.19x (Target lies too close to resistance)",
-          "price": 502.2,
-          "score": 23
-        },
-        {
-          "symbol": "MLM",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 538.35,
-          "score": -5
-        },
-        {
-          "symbol": "WDC",
-          "reason": "Poor Risk/Reward Ratio: 0.44x (Target lies too close to resistance)",
-          "price": 485.41,
-          "score": 23
-        },
-        {
-          "symbol": "DE",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.37x (Target lies too close to support)",
-          "price": 529.21,
-          "score": -22
-        },
-        {
-          "symbol": "ULTA",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 502.95,
-          "score": 10
-        },
-        {
-          "symbol": "LII",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.12x (Target lies too close to support)",
-          "price": 479.53,
-          "score": -27
-        },
-        {
-          "symbol": "HUBB",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 458.88,
-          "score": 5
-        },
-        {
-          "symbol": "AMD",
-          "reason": "Poor Risk/Reward Ratio: 0.05x (Target lies too close to resistance)",
-          "price": 448.6,
-          "score": 23
-        },
-        {
-          "symbol": "ISRG",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.40x (Target lies too close to support)",
-          "price": 438.84,
-          "score": -27
-        },
-        {
-          "symbol": "BRK-B",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 479.11,
-          "score": -10
-        },
-        {
-          "symbol": "TT",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 445.68,
-          "score": -5
-        },
-        {
-          "symbol": "AMP",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.36x (Target lies too close to support)",
-          "price": 449.16,
-          "score": -22
-        },
-        {
-          "symbol": "ROK",
-          "reason": "Poor Risk/Reward Ratio: 0.93x (Target lies too close to resistance)",
-          "price": 439.89,
-          "score": 23
-        },
-        {
-          "symbol": "TMO",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 448.24,
-          "score": -5
-        },
-        {
-          "symbol": "MCO",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 443.9,
-          "score": 10
-        },
-        {
-          "symbol": "TSLA",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 416.93,
-          "score": 10
-        },
-        {
-          "symbol": "VRTX",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 432.58,
-          "score": 15
-        },
-        {
-          "symbol": "AVGO",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 413.65,
-          "score": 15
-        },
-        {
-          "symbol": "MSFT",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 418.16,
-          "score": -5
-        },
-        {
-          "symbol": "TPL",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 396.79,
-          "score": -27
-        },
-        {
-          "symbol": "AXON",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.27x (Target lies too close to support)",
-          "price": 388.98,
-          "score": -22
-        },
-        {
-          "symbol": "SPGI",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 414.38,
-          "score": -5
-        },
-        {
-          "symbol": "AMAT",
-          "reason": "Poor Risk/Reward Ratio: 0.76x (Target lies too close to resistance)",
-          "price": 426.42,
-          "score": 23
-        },
-        {
-          "symbol": "MSI",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 399.42,
-          "score": 30
-        },
-        {
-          "symbol": "ETN",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 380.36,
-          "score": -5
-        },
-        {
-          "symbol": "GOOG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 382.61,
-          "score": 10
-        },
-        {
-          "symbol": "ELV",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 388.33,
-          "score": -10
-        },
-        {
-          "symbol": "COHR",
-          "reason": "Poor Risk/Reward Ratio: 0.87x (Target lies too close to resistance)",
-          "price": 377.59,
-          "score": 23
-        },
-        {
-          "symbol": "RL",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 374.41,
-          "score": -5
-        },
-        {
-          "symbol": "ADI",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 383.35,
-          "score": -10
-        },
-        {
-          "symbol": "FDX",
-          "reason": "Poor Risk/Reward Ratio: 0.17x (Target lies too close to resistance)",
-          "price": 388.71,
-          "score": 23
-        },
-        {
-          "symbol": "UNH",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 381.46,
-          "score": -15
-        },
-        {
-          "symbol": "GOOGL",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 386.79,
-          "score": 10
-        },
-        {
-          "symbol": "FFIV",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 382.84,
-          "score": 5
-        },
-        {
-          "symbol": "SNA",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 361.69,
-          "score": -5
-        },
-        {
-          "symbol": "WAT",
-          "reason": "Poor Risk/Reward Ratio: 0.22x (Target lies too close to resistance)",
-          "price": 340.33,
-          "score": 23
-        },
-        {
-          "symbol": "MAR",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 369.73,
-          "score": -5
-        },
-        {
-          "symbol": "CDNS",
-          "reason": "Poor Risk/Reward Ratio: 0.17x (Target lies too close to resistance)",
-          "price": 357.65,
-          "score": 23
-        },
-        {
-          "symbol": "EG",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 355.47,
-          "score": 5
-        },
-        {
-          "symbol": "JBL",
-          "reason": "Poor Risk/Reward Ratio: 0.18x (Target lies too close to resistance)",
-          "price": 355.26,
-          "score": 23
-        },
-        {
-          "symbol": "VTI",
-          "reason": "Poor Risk/Reward Ratio: 0.71x (Target lies too close to resistance)",
-          "price": 364.34,
-          "score": 23
-        },
-        {
-          "symbol": "GD",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 338.12,
-          "score": -15
-        },
-        {
-          "symbol": "CPAY",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 347.13,
-          "score": -5
-        },
-        {
-          "symbol": "TER",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 352.64,
-          "score": 10
-        },
-        {
-          "symbol": "AMGN",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 336.65,
-          "score": 10
-        },
-        {
-          "symbol": "DPZ",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 315.75,
-          "score": -15
-        },
-        {
-          "symbol": "CB",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 329.18,
-          "score": -5
-        },
-        {
-          "symbol": "V",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 330.63,
-          "score": -5
-        },
-        {
-          "symbol": "KEYS",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 337.29,
-          "score": 5
-        },
-        {
-          "symbol": "HII",
-          "reason": "Late MACD Short-entry (RSI is low: 26.6)",
-          "price": 316.82,
-          "score": -12
-        },
-        {
-          "symbol": "VRT",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 322.29,
-          "score": 10
-        },
-        {
-          "symbol": "AON",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 323.44,
-          "score": -5
-        },
-        {
-          "symbol": "HLT",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 321.71,
-          "score": -15
-        },
-        {
-          "symbol": "ROP",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 323.34,
-          "score": 30
-        },
-        {
-          "symbol": "TYL",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.63x (Target lies too close to support)",
-          "price": 308.51,
-          "score": -22
-        },
-        {
-          "symbol": "SYK",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 312.55,
-          "score": -15
-        },
-        {
-          "symbol": "NSC",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 311.23,
-          "score": -10
-        },
-        {
-          "symbol": "AXP",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 309.41,
-          "score": 5
-        },
-        {
-          "symbol": "WST",
-          "reason": "Late MACD entry (RSI is high: 72.7)",
-          "price": 315.59,
-          "score": 12
-        },
-        {
-          "symbol": "SHW",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 308.95,
-          "score": 10
-        },
-        {
-          "symbol": "INTU",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 306.37,
-          "score": -30
-        },
-        {
-          "symbol": "LHX",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.47x (Target lies too close to support)",
-          "price": 305.73,
-          "score": -27
-        },
-        {
-          "symbol": "HD",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 313.18,
-          "score": -5
-        },
-        {
-          "symbol": "TRV",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 306.68,
-          "score": -5
-        },
-        {
-          "symbol": "ALNY",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 299.81,
-          "score": 10
-        },
-        {
-          "symbol": "TXN",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 297.7,
-          "score": -10
-        },
-        {
-          "symbol": "LRCX",
-          "reason": "Poor Risk/Reward Ratio: 0.01x (Target lies too close to resistance)",
-          "price": 301.54,
-          "score": 23
-        },
-        {
-          "symbol": "VRSN",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 305.22,
-          "score": -5
-        },
-        {
-          "symbol": "NXPI",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 298.69,
-          "score": -5
-        },
-        {
-          "symbol": "JPM",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 302.53,
-          "score": 10
-        },
-        {
-          "symbol": "HUM",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 302.28,
-          "score": 5
-        },
-        {
-          "symbol": "AAPL",
-          "reason": "Poor Risk/Reward Ratio: 0.13x (Target lies too close to resistance)",
-          "price": 304.28,
-          "score": 23
-        },
-        {
-          "symbol": "PSA",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 304.18,
-          "score": 10
-        },
-        {
-          "symbol": "GE",
-          "reason": "Poor Risk/Reward Ratio: 0.08x (Target lies too close to resistance)",
-          "price": 301.24,
-          "score": 23
-        },
-        {
-          "symbol": "NDSN",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 286.1,
-          "score": 10
-        },
-        {
-          "symbol": "TRGP",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 269.51,
-          "score": -5
-        },
-        {
-          "symbol": "ARM",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 297.53,
-          "score": 30
-        },
-        {
-          "symbol": "CEG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 285.16,
-          "score": 10
-        },
-        {
-          "symbol": "APD",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 289.41,
-          "score": 5
-        },
-        {
-          "symbol": "CME",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 288.61,
-          "score": -10
-        },
-        {
-          "symbol": "IWM",
-          "reason": "Poor Risk/Reward Ratio: 0.32x (Target lies too close to resistance)",
-          "price": 281.97,
-          "score": 23
-        },
-        {
-          "symbol": "ESS",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 273.3,
-          "score": 5
-        },
-        {
-          "symbol": "CI",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 281.07,
-          "score": -15
-        },
-        {
-          "symbol": "MCD",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 283.5,
-          "score": 10
-        },
-        {
-          "symbol": "JBHT",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 258.62,
-          "score": 5
-        },
-        {
-          "symbol": "WTW",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 257.62,
-          "score": 10
-        },
-        {
-          "symbol": "LH",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 255.11,
-          "score": -10
-        },
-        {
-          "symbol": "COR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 264.79,
-          "score": -10
-        },
-        {
-          "symbol": "HWM",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 259.41,
-          "score": 10
-        },
-        {
-          "symbol": "AIZ",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 254.84,
-          "score": 5
-        },
-        {
-          "symbol": "RCL",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 260.04,
-          "score": 15
-        },
-        {
-          "symbol": "UNP",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 265.22,
-          "score": -10
-        },
-        {
-          "symbol": "VMC",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 261.63,
-          "score": -5
-        },
-        {
-          "symbol": "AMZN",
-          "reason": "Poor Risk/Reward Ratio: 0.43x (Target lies too close to resistance)",
-          "price": 267.82,
-          "score": 23
-        },
-        {
-          "symbol": "FSLR",
-          "reason": "Late MACD entry (RSI is high: 68.7)",
-          "price": 248.29,
-          "score": 14
-        },
-        {
-          "symbol": "MPC",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 247.58,
-          "score": -15
-        },
-        {
-          "symbol": "IBM",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 252.63,
-          "score": -5
-        },
-        {
-          "symbol": "ITW",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 249.39,
-          "score": -5
-        },
-        {
-          "symbol": "WAB",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.07x (Target lies too close to support)",
-          "price": 254.5,
-          "score": -40
-        },
-        {
-          "symbol": "ECL",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 249.5,
-          "score": 10
-        },
-        {
-          "symbol": "PANW",
-          "reason": "Late MACD entry (RSI is high: 68.6)",
-          "price": 252.32,
-          "score": 14
-        },
-        {
-          "symbol": "GNRC",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 247.3,
-          "score": 10
-        },
-        {
-          "symbol": "DELL",
-          "reason": "Poor Risk/Reward Ratio: 0.32x (Target lies too close to resistance)",
-          "price": 252.53,
-          "score": 23
-        },
-        {
-          "symbol": "ADBE",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 243.51,
-          "score": -10
-        },
-        {
-          "symbol": "ERIE",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 224.19,
-          "score": -15
-        },
-        {
-          "symbol": "STLD",
-          "reason": "Poor Risk/Reward Ratio: 0.61x (Target lies too close to resistance)",
-          "price": 231.28,
-          "score": 23
-        },
-        {
-          "symbol": "ADSK",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 239.61,
-          "score": -10
-        },
-        {
-          "symbol": "ZBRA",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 241.68,
-          "score": 28
-        },
-        {
-          "symbol": "NUE",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 225.99,
-          "score": 10
-        },
-        {
-          "symbol": "GRMN",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 239.05,
-          "score": 10
-        },
-        {
-          "symbol": "VLO",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 240.4,
-          "score": 0
-        },
-        {
-          "symbol": "FDS",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 224.2,
-          "score": -10
-        },
-        {
-          "symbol": "JNJ",
-          "reason": "Poor Risk/Reward Ratio: 0.18x (Target lies too close to resistance)",
-          "price": 231.08,
-          "score": 28
-        },
-        {
-          "symbol": "PNC",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 217.94,
-          "score": 10
-        },
-        {
-          "symbol": "AME",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 222.64,
-          "score": -5
-        },
-        {
-          "symbol": "EXPE",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 217.59,
-          "score": -5
-        },
-        {
-          "symbol": "NVDA",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 218.98,
-          "score": -15
-        },
-        {
-          "symbol": "ADP",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 219.54,
-          "score": 5
-        },
-        {
-          "symbol": "DDOG",
-          "reason": "Poor Risk/Reward Ratio: 0.36x (Target lies too close to resistance)",
-          "price": 217.51,
-          "score": 23
-        },
-        {
-          "symbol": "STE",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 218.96,
-          "score": 15
-        },
-        {
-          "symbol": "HON",
-          "reason": "Poor Risk/Reward Ratio: 0.24x (Target lies too close to resistance)",
-          "price": 223.26,
-          "score": 23
-        },
-        {
-          "symbol": "WM",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.36x (Target lies too close to support)",
-          "price": 217.08,
-          "score": -22
-        },
-        {
-          "symbol": "BA",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 219.3,
-          "score": -5
-        },
-        {
-          "symbol": "ROST",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 216.66,
-          "score": -15
-        },
-        {
-          "symbol": "WELL",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 215.11,
-          "score": -15
-        },
-        {
-          "symbol": "PKG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 213.52,
-          "score": 10
-        },
-        {
-          "symbol": "RMD",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 208.42,
-          "score": -15
-        },
-        {
-          "symbol": "ABBV",
-          "reason": "Poor Risk/Reward Ratio: 0.21x (Target lies too close to resistance)",
-          "price": 214.37,
-          "score": 23
-        },
-        {
-          "symbol": "ALL",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 213.97,
-          "score": 5
-        },
-        {
-          "symbol": "MTB",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 211.92,
-          "score": 10
-        },
-        {
-          "symbol": "RSG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 207.2,
-          "score": 0
-        },
-        {
-          "symbol": "LOW",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 216.97,
-          "score": -5
-        },
-        {
-          "symbol": "QCOM",
-          "reason": "Poor Risk/Reward Ratio: 0.05x (Target lies too close to resistance)",
-          "price": 212.88,
-          "score": 23
-        },
-        {
-          "symbol": "ODFL",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 207.18,
-          "score": -15
-        },
-        {
-          "symbol": "IEX",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 205.04,
-          "score": -5
-        },
-        {
-          "symbol": "AJG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 206.89,
-          "score": 10
-        },
-        {
-          "symbol": "CAH",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 200.15,
-          "score": -10
-        },
-        {
-          "symbol": "FANG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 200.47,
-          "score": -10
-        },
-        {
-          "symbol": "TEL",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 201.96,
-          "score": 5
-        },
-        {
-          "symbol": "SPG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 204.63,
-          "score": 10
-        },
-        {
-          "symbol": "EA",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 201.37,
-          "score": -27
-        },
-        {
-          "symbol": "DOV",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 207.45,
-          "score": -5
-        },
-        {
-          "symbol": "COIN",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 193.08,
-          "score": -5
-        },
-        {
-          "symbol": "TKO",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 191.28,
-          "score": -15
-        },
-        {
-          "symbol": "DGX",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 193.1,
-          "score": -15
-        },
-        {
-          "symbol": "DLR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 193.69,
-          "score": 10
-        },
-        {
-          "symbol": "WSM",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 191.06,
-          "score": -5
-        },
-        {
-          "symbol": "DVA",
-          "reason": "Poor Risk/Reward Ratio: 0.81x (Target lies too close to resistance)",
-          "price": 198.47,
-          "score": 28
-        },
-        {
-          "symbol": "PGR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 198.59,
-          "score": -15
-        },
-        {
-          "symbol": "DRI",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 196.34,
-          "score": 10
-        },
-        {
-          "symbol": "MS",
-          "reason": "Poor Risk/Reward Ratio: 0.09x (Target lies too close to resistance)",
-          "price": 199.96,
-          "score": 23
-        },
-        {
-          "symbol": "GLW",
-          "reason": "Poor Risk/Reward Ratio: 0.85x (Target lies too close to resistance)",
-          "price": 192.48,
-          "score": 23
-        },
-        {
-          "symbol": "AVB",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 183.46,
-          "score": -10
-        },
-        {
-          "symbol": "AMT",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 183.1,
-          "score": -5
-        },
-        {
-          "symbol": "ORCL",
-          "reason": "Poor Risk/Reward Ratio: 1.08x (Target lies too close to resistance)",
-          "price": 189.33,
-          "score": 23
-        },
-        {
-          "symbol": "MRVL",
-          "reason": "Poor Risk/Reward Ratio: 0.07x (Target lies too close to resistance)",
-          "price": 190.21,
-          "score": 23
-        },
-        {
-          "symbol": "PM",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 187.85,
-          "score": 5
-        },
-        {
-          "symbol": "COF",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 186.15,
-          "score": 15
-        },
-        {
-          "symbol": "HSY",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 190.06,
-          "score": -15
-        },
-        {
-          "symbol": "CVX",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 190.73,
-          "score": -10
-        },
-        {
-          "symbol": "BIIB",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 188.99,
-          "score": 10
-        },
-        {
-          "symbol": "CHRW",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 177.68,
-          "score": -5
-        },
-        {
-          "symbol": "PSX",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 173.48,
-          "score": -15
-        },
-        {
-          "symbol": "POOL",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 181.23,
-          "score": 15
-        },
-        {
-          "symbol": "CTAS",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 171.92,
-          "score": -15
-        },
-        {
-          "symbol": "RTX",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 175.88,
-          "score": 10
-        },
-        {
-          "symbol": "XLK",
-          "reason": "Poor Risk/Reward Ratio: 0.29x (Target lies too close to resistance)",
-          "price": 178.12,
-          "score": 23
-        },
-        {
-          "symbol": "CRM",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 1.00x (Target lies too close to support)",
-          "price": 175.9,
-          "score": -22
-        },
-        {
-          "symbol": "ACN",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 177.46,
-          "score": -10
-        },
-        {
-          "symbol": "ATO",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 176.87,
-          "score": 5
-        },
-        {
-          "symbol": "DHR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 173.11,
-          "score": 10
-        },
-        {
-          "symbol": "MSTR",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 164.43,
-          "score": -5
-        },
-        {
-          "symbol": "NTRS",
-          "reason": "Poor Risk/Reward Ratio: 0.17x (Target lies too close to resistance)",
-          "price": 166.68,
-          "score": 23
-        },
-        {
-          "symbol": "ALB",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 169.54,
-          "score": -5
-        },
-        {
-          "symbol": "VRSK",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 171.16,
-          "score": -15
-        },
-        {
-          "symbol": "CINF",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 167.94,
-          "score": 5
-        },
-        {
-          "symbol": "EFX",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 162.52,
-          "score": 5
-        },
-        {
-          "symbol": "ZS",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 170.57,
-          "score": 5
-        },
-        {
-          "symbol": "IQV",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 167.42,
-          "score": -15
-        },
-        {
-          "symbol": "MRSH",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 164.78,
-          "score": -10
-        },
-        {
-          "symbol": "LYV",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 165.43,
-          "score": 10
-        },
-        {
-          "symbol": "BKNG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 159.27,
-          "score": 10
-        },
-        {
-          "symbol": "AVY",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 158.77,
-          "score": 10
-        },
-        {
-          "symbol": "UHS",
-          "reason": "Late MACD Short-entry (RSI is low: 31.7)",
-          "price": 162.07,
-          "score": -13
-        },
-        {
-          "symbol": "DASH",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 158.86,
-          "score": -5
-        },
-        {
-          "symbol": "EXPD",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 156.88,
-          "score": 5
-        },
-        {
-          "symbol": "IT",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 156.91,
-          "score": 5
-        },
-        {
-          "symbol": "TJX",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 157.19,
-          "score": -15
-        },
-        {
-          "symbol": "CRL",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 158.73,
-          "score": 10
-        },
-        {
-          "symbol": "ALGN",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 162.62,
-          "score": 10
-        },
-        {
-          "symbol": "VEEV",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.11x (Target lies too close to support)",
-          "price": 158.02,
-          "score": -27
-        },
-        {
-          "symbol": "PODD",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 156.48,
-          "score": 10
-        },
-        {
-          "symbol": "STZ",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 150.4,
-          "score": 10
-        },
-        {
-          "symbol": "GL",
-          "reason": "Poor Risk/Reward Ratio: 0.40x (Target lies too close to resistance)",
-          "price": 156,
-          "score": 23
-        },
-        {
-          "symbol": "STT",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 153.2,
-          "score": -5
-        },
-        {
-          "symbol": "ICE",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.19x (Target lies too close to support)",
-          "price": 150.9,
-          "score": -22
-        },
-        {
-          "symbol": "Q",
-          "reason": "Poor Risk/Reward Ratio: 0.18x (Target lies too close to resistance)",
-          "price": 152.43,
-          "score": 23
-        },
-        {
-          "symbol": "RJF",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.42x (Target lies too close to support)",
-          "price": 149.98,
-          "score": -22
-        },
-        {
-          "symbol": "YUM",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 154.08,
-          "score": 10
-        },
-        {
-          "symbol": "MMM",
-          "reason": "Poor Risk/Reward Ratio: 0.17x (Target lies too close to resistance)",
-          "price": 151.51,
-          "score": 23
-        },
-        {
-          "symbol": "XOM",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 154.99,
-          "score": -10
-        },
-        {
-          "symbol": "VST",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 148.68,
-          "score": 10
-        },
-        {
-          "symbol": "PEP",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.08x (Target lies too close to support)",
-          "price": 148.46,
-          "score": -22
-        },
-        {
-          "symbol": "DHI",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 143.83,
-          "score": 10
-        },
-        {
-          "symbol": "BDX",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 146.07,
-          "score": -10
-        },
-        {
-          "symbol": "BR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 149.74,
-          "score": -10
-        },
-        {
-          "symbol": "PLD",
-          "reason": "Poor Risk/Reward Ratio: 0.25x (Target lies too close to resistance)",
-          "price": 144.26,
-          "score": 23
-        },
-        {
-          "symbol": "ANET",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 148.5,
-          "score": 15
-        },
-        {
-          "symbol": "PTC",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 145.46,
-          "score": -5
-        },
-        {
-          "symbol": "CHTR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 148.51,
-          "score": 10
-        },
-        {
-          "symbol": "BK",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 136.8,
-          "score": -5
-        },
-        {
-          "symbol": "EXR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 143.5,
-          "score": 10
-        },
-        {
-          "symbol": "HIG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 135.55,
-          "score": -15
-        },
-        {
-          "symbol": "PG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 142.98,
-          "score": 10
-        },
-        {
-          "symbol": "TPR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 139.07,
-          "score": 10
-        },
-        {
-          "symbol": "NRG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 136.52,
-          "score": 10
-        },
-        {
-          "symbol": "JKHY",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.45x (Target lies too close to support)",
-          "price": 139.19,
-          "score": -27
-        },
-        {
-          "symbol": "DTE",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 143.36,
-          "score": -27
-        },
-        {
-          "symbol": "EOG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 139.64,
-          "score": -15
-        },
-        {
-          "symbol": "PLTR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 137.05,
-          "score": 10
-        },
-        {
-          "symbol": "FTNT",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 129.12,
-          "score": 5
-        },
-        {
-          "symbol": "GILD",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 130.15,
-          "score": -5
-        },
-        {
-          "symbol": "CBRE",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 130.49,
-          "score": 5
-        },
-        {
-          "symbol": "MAA",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 129.65,
-          "score": 5
-        },
-        {
-          "symbol": "ALLE",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 130.33,
-          "score": 10
-        },
-        {
-          "symbol": "ABNB",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 133.89,
-          "score": 5
-        },
-        {
-          "symbol": "APO",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 130.66,
-          "score": 10
-        },
-        {
-          "symbol": "EMR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 134.72,
-          "score": 15
-        },
-        {
-          "symbol": "AEP",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 129.27,
-          "score": -27
-        },
-        {
-          "symbol": "JCI",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 135.06,
-          "score": -5
-        },
-        {
-          "symbol": "SATS",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 128.1,
-          "score": -15
-        },
-        {
-          "symbol": "AWK",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 123.56,
-          "score": 5
-        },
-        {
-          "symbol": "DUK",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 124.45,
-          "score": -15
-        },
-        {
-          "symbol": "APH",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 124.71,
-          "score": 10
-        },
-        {
-          "symbol": "NTAP",
-          "reason": "Poor Risk/Reward Ratio: 0.10x (Target lies too close to resistance)",
-          "price": 123.61,
-          "score": 28
-        },
-        {
-          "symbol": "TGT",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 125.72,
-          "score": 15
-        },
-        {
-          "symbol": "C",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 124.81,
-          "score": 10
-        },
-        {
-          "symbol": "IRM",
-          "reason": "Poor Risk/Reward Ratio: 0.27x (Target lies too close to resistance)",
-          "price": 127.1,
-          "score": 23
-        },
-        {
-          "symbol": "LULU",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 126.42,
-          "score": 10
-        },
-        {
-          "symbol": "FRT",
-          "reason": "Late MACD entry (RSI is high: 75.4)",
-          "price": 118.27,
-          "score": 12
-        },
-        {
-          "symbol": "CSCO",
-          "reason": "Poor Risk/Reward Ratio: 0.34x (Target lies too close to resistance)",
-          "price": 117.88,
-          "score": 23
-        },
-        {
-          "symbol": "LDOS",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.00x (Target lies too close to support)",
-          "price": 122.62,
-          "score": -27
-        },
-        {
-          "symbol": "INTC",
-          "reason": "Poor Risk/Reward Ratio: 0.24x (Target lies too close to resistance)",
-          "price": 118.18,
-          "score": 23
-        },
-        {
-          "symbol": "WDAY",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 121.52,
-          "score": -10
-        },
-        {
-          "symbol": "COP",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 120.35,
-          "score": -10
-        },
-        {
-          "symbol": "CF",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 121.5,
-          "score": -15
-        },
-        {
-          "symbol": "BG",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 120.32,
-          "score": -5
-        },
-        {
-          "symbol": "BX",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 118.32,
-          "score": -5
-        },
-        {
-          "symbol": "WMT",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 121.01,
-          "score": -30
-        }
-      ],
-      "nearMisses": [
-        {
-          "symbol": "WAB",
-          "price": 254.5,
-          "open": 255.8000030517578,
-          "high": 256.2200012207031,
-          "low": 254.5,
-          "volume": 183996,
-          "quoteVolume": 382530000,
-          "macd": {
-            "macd": -1.6533255594426919,
-            "signal": -1.5953909040043368,
-            "hist": -0.057934655438355076
-          },
-          "rsi": 36.85396102664344,
-          "ema50": 260.443834352654,
-          "ema200": 263.7629548163172,
-          "support": 253.4600067138672,
-          "resistance": 269.44000244140625,
-          "direction": "HOLD",
-          "score": -40,
-          "strengthReasons": [
-            "Negative MACD momentum",
-            "Bearish MACD crossover (recent)",
-            "Long-term bearish trend regime (Price < EMA50 < EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": [
-            "Poor Risk/Reward Ratio for Shorts: 0.07x (Target lies too close to support)"
-          ]
-        },
-        {
-          "symbol": "SNDK",
-          "price": 1539.01,
-          "open": 1542.239990234375,
-          "high": 1542.239990234375,
-          "low": 1539.01,
-          "volume": 0,
-          "quoteVolume": 2313360000,
-          "macd": {
-            "macd": 43.87797489677632,
-            "signal": 28.373521879312815,
-            "hist": 15.504453017463508
-          },
-          "rsi": 74.86954818009607,
-          "ema50": 1414.8972977251162,
-          "ema200": 1275.203309296591,
-          "support": 1277.3299560546875,
-          "resistance": 1546.0899658203125,
-          "direction": "HOLD",
-          "score": 30,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Long-term bullish trend regime (Price > EMA50 > EMA200)",
-            "RSI overbought (potential reversal)"
-          ],
-          "blockReasons": [],
-          "deferReasons": [
-            "Insufficient indicator convergence strength"
-          ]
-        },
-        {
-          "symbol": "MSI",
-          "price": 399.42,
-          "open": 399.489990234375,
-          "high": 400.9599914550781,
-          "low": 397,
-          "volume": 235236,
-          "quoteVolume": 599917500,
-          "macd": {
-            "macd": -0.5634469519450249,
-            "signal": -0.7209219890881065,
-            "hist": 0.15747503714308153
-          },
-          "rsi": 52.21187463251277,
-          "ema50": 400.11375150982775,
-          "ema200": 415.3641146683739,
-          "support": 391.30999755859375,
-          "resistance": 403.5050048828125,
-          "direction": "HOLD",
-          "score": 30,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Bullish MACD crossover (recent)",
-            "Long-term bearish trend regime (Price < EMA50 < EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": [
-            "Insufficient indicator convergence strength"
-          ]
-        },
-        {
-          "symbol": "ROP",
-          "price": 323.34,
-          "open": 324.0799865722656,
-          "high": 324.0799865722656,
-          "low": 323.34,
-          "volume": 0,
-          "quoteVolume": 486120000,
-          "macd": {
-            "macd": -1.0050284414271573,
-            "signal": -1.0879464907231462,
-            "hist": 0.0829180492959889
-          },
-          "rsi": 48.202496208096186,
-          "ema50": 326.1916053307651,
-          "ema200": 339.7457606922781,
-          "support": 305.9599914550781,
-          "resistance": 340,
-          "direction": "HOLD",
-          "score": 30,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Bullish MACD crossover (recent)",
-            "Long-term bearish trend regime (Price < EMA50 < EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": [
-            "Insufficient indicator convergence strength"
-          ]
-        },
-        {
-          "symbol": "INTU",
-          "price": 306.37,
-          "open": 307.07000732421875,
-          "high": 307.07000732421875,
-          "low": 306.37,
-          "volume": 0,
-          "quoteVolume": 460605000,
-          "macd": {
-            "macd": -24.468278898905965,
-            "signal": -17.929942078803652,
-            "hist": -6.538336820102312
-          },
-          "rsi": 15.426421921716383,
-          "ema50": 369.36416471391607,
-          "ema200": 385.77275430386555,
-          "support": 302.3638916015625,
-          "resistance": 423.989990234375,
-          "direction": "HOLD",
-          "score": -30,
-          "strengthReasons": [
-            "Negative MACD momentum",
-            "Long-term bearish trend regime (Price < EMA50 < EMA200)",
-            "RSI oversold (potential reversal)"
-          ],
-          "blockReasons": [],
-          "deferReasons": [
-            "Insufficient indicator convergence strength"
-          ]
-        },
-        {
-          "symbol": "ARM",
-          "price": 297.53,
-          "open": 298.2300109863281,
-          "high": 298.2300109863281,
-          "low": 297.53,
-          "volume": 0,
-          "quoteVolume": 447345000,
-          "macd": {
-            "macd": 19.926929365379806,
-            "signal": 16.661852189103037,
-            "hist": 3.265077176276769
-          },
-          "rsi": 84.21721505269811,
-          "ema50": 242.79986822403524,
-          "ema200": 215.66012168180575,
-          "support": 203.00489807128906,
-          "resistance": 298.69000244140625,
-          "direction": "HOLD",
-          "score": 30,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Long-term bullish trend regime (Price > EMA50 > EMA200)",
-            "RSI overbought (potential reversal)"
-          ],
-          "blockReasons": [],
-          "deferReasons": [
-            "Insufficient indicator convergence strength"
-          ]
-        },
-        {
-          "symbol": "WMT",
-          "price": 121.01,
-          "open": 121.33999633789062,
-          "high": 121.33999633789062,
-          "low": 121.01,
-          "volume": 0,
-          "quoteVolume": 182010000,
-          "macd": {
-            "macd": -3.0568846856392042,
-            "signal": -2.1527950224216292,
-            "hist": -0.904089663217575
-          },
-          "rsi": 21.357319065833167,
-          "ema50": 129.07527191041558,
-          "ema200": 129.59858714427963,
-          "support": 120.4000015258789,
-          "resistance": 133.9499969482422,
-          "direction": "HOLD",
-          "score": -30,
-          "strengthReasons": [
-            "Negative MACD momentum",
-            "Long-term bearish trend regime (Price < EMA50 < EMA200)",
-            "RSI oversold (potential reversal)"
-          ],
-          "blockReasons": [],
-          "deferReasons": [
-            "Insufficient indicator convergence strength"
-          ]
-        },
-        {
-          "symbol": "ZBRA",
-          "price": 241.68,
-          "open": 242.25999450683594,
-          "high": 242.25999450683594,
-          "low": 241.68,
-          "volume": 0,
-          "quoteVolume": 363390000,
-          "macd": {
-            "macd": -2.959231918083674,
-            "signal": -3.03946678606349,
-            "hist": 0.08023486797981594
-          },
-          "rsi": 42.567794851050046,
-          "ema50": 245.34905647889676,
-          "ema200": 237.2642168559543,
-          "support": 234.03500366210938,
-          "resistance": 261.4100036621094,
-          "direction": "HOLD",
-          "score": 28,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Bullish MACD crossover (recent)"
-          ],
-          "blockReasons": [],
-          "deferReasons": [
-            "Choppy trend regime (EMA50/EMA200 alignment weak)"
-          ]
-        },
-        {
-          "symbol": "JNJ",
-          "price": 231.08,
-          "open": 231.13499450683594,
-          "high": 231.6699981689453,
-          "low": 231.08,
-          "volume": 452824,
-          "quoteVolume": 347745000,
-          "macd": {
-            "macd": 0.5316680605390047,
-            "signal": 0.4519912016284858,
-            "hist": 0.07967685891051896
-          },
-          "rsi": 61.43587326701322,
-          "ema50": 228.840965930418,
-          "ema200": 228.19413749909657,
-          "support": 225.86000061035156,
-          "resistance": 232,
-          "direction": "HOLD",
-          "score": 28,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": [
-            "Poor Risk/Reward Ratio: 0.18x (Target lies too close to resistance)"
-          ]
-        },
-        {
-          "symbol": "DVA",
-          "price": 198.47,
-          "open": 198.72999572753906,
-          "high": 199.38999938964844,
-          "low": 198.47,
-          "volume": 67338,
-          "quoteVolume": 298215000,
-          "macd": {
-            "macd": 0.27355142419460776,
-            "signal": 0.08883746921912697,
-            "hist": 0.1847139549754808
-          },
-          "rsi": 55.518420714708114,
-          "ema50": 195.79595146535937,
-          "ema200": 179.32360391107713,
-          "support": 194.10000610351562,
-          "resistance": 201.99989318847656,
-          "direction": "HOLD",
-          "score": 28,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": [
-            "Poor Risk/Reward Ratio: 0.81x (Target lies too close to resistance)"
-          ]
-        }
-      ]
     }
   ],
   "lastNonEmptyRanked": [
     {
-      "symbol": "BLK",
-      "price": 1066.04,
-      "open": 1063.75,
-      "high": 1066.04,
-      "low": 1063.75,
+      "symbol": "SBAC",
+      "price": 207.64,
+      "open": 208.07000732421875,
+      "high": 208.07000732421875,
+      "low": 207.64,
       "volume": 0,
-      "quoteVolume": 1595625000,
+      "quoteVolume": 312105000,
       "macd": {
-        "macd": -2.8147047331972317,
-        "signal": -6.395289986014501,
-        "hist": 3.5805852528172695
+        "macd": 0.7341676027935762,
+        "signal": 0.8235891468507057,
+        "hist": -0.08942154405712954
       },
-      "rsi": 54.767099298216614,
-      "ema50": 1065.9930685326242,
-      "ema200": 1065.2249468435548,
-      "support": 1030.18994140625,
-      "resistance": 1111.0899658203125,
-      "direction": "BUY",
-      "score": 55,
+      "rsi": 52.61782186744822,
+      "ema50": 207.68103438979296,
+      "ema200": 212.77901962823225,
+      "support": 199.9199981689453,
+      "resistance": 209.36000061035156,
+      "direction": "SELL",
+      "score": -55,
       "strengthReasons": [
-        "Positive MACD momentum",
-        "Long-term bullish trend regime (Price > EMA50 > EMA200)"
+        "Negative MACD momentum",
+        "Long-term bearish trend regime (Price < EMA50 < EMA200)"
       ],
       "blockReasons": [],
       "deferReasons": []
     },
     {
-      "symbol": "AKAM",
-      "price": 146.46,
-      "open": 146.24000549316406,
-      "high": 146.46,
-      "low": 146.24000549316406,
+      "symbol": "SNPS",
+      "price": 502.73,
+      "open": 503.9800109863281,
+      "high": 503.9800109863281,
+      "low": 502.73,
       "volume": 0,
-      "quoteVolume": 219360000,
+      "quoteVolume": 755970000,
       "macd": {
-        "macd": -0.5012901235161848,
-        "signal": -1.1772222925382987,
-        "hist": 0.6759321690221138
+        "macd": 1.3681701621978846,
+        "signal": -0.10799516282754185,
+        "hist": 1.4761653250254265
       },
-      "rsi": 53.161057017783115,
-      "ema50": 144.86856714629687,
-      "ema200": 127.61858195258117,
-      "support": 138.10000610351562,
-      "resistance": 165.4499969482422,
-      "direction": "BUY",
-      "score": 55,
-      "strengthReasons": [
-        "Positive MACD momentum",
-        "Long-term bullish trend regime (Price > EMA50 > EMA200)"
-      ],
-      "blockReasons": [],
-      "deferReasons": []
-    },
-    {
-      "symbol": "ARES",
-      "price": 124.17,
-      "open": 123.98999786376953,
-      "high": 124.17,
-      "low": 123.98999786376953,
-      "volume": 0,
-      "quoteVolume": 185985000,
-      "macd": {
-        "macd": 0.07479845963075604,
-        "signal": -0.17853901036122566,
-        "hist": 0.2533374699919817
-      },
-      "rsi": 54.18484971969805,
-      "ema50": 123.42961021280777,
-      "ema200": 121.05937085996895,
-      "support": 120.11000061035156,
-      "resistance": 129.35000610351562,
-      "direction": "BUY",
-      "score": 55,
-      "strengthReasons": [
-        "Positive MACD momentum",
-        "Long-term bullish trend regime (Price > EMA50 > EMA200)"
-      ],
-      "blockReasons": [],
-      "deferReasons": []
-    },
-    {
-      "symbol": "TSLA",
-      "price": 418.71,
-      "open": 417.8500061035156,
-      "high": 418.71,
-      "low": 417.8500061035156,
-      "volume": 0,
-      "quoteVolume": 626775000,
-      "macd": {
-        "macd": 0.7151306293275752,
-        "signal": -0.739164662927658,
-        "hist": 1.4542952922552332
-      },
-      "rsi": 54.62019853397713,
-      "ema50": 417.0903240000114,
-      "ema200": 406.1490450619439,
-      "support": 393.6300048828125,
-      "resistance": 453.3999938964844,
+      "rsi": 56.748073998947234,
+      "ema50": 499.42949506628014,
+      "ema200": 491.121056756255,
+      "support": 502.28900146484375,
+      "resistance": 504.7300109863281,
       "direction": "BUY",
       "score": 45,
       "strengthReasons": [
@@ -68688,23 +68612,23 @@
       "deferReasons": []
     },
     {
-      "symbol": "NUE",
-      "price": 226.83,
-      "open": 226.44000244140625,
-      "high": 226.83,
-      "low": 226.44000244140625,
+      "symbol": "APP",
+      "price": 484.69,
+      "open": 485.8900146484375,
+      "high": 485.8900146484375,
+      "low": 484.69,
       "volume": 0,
-      "quoteVolume": 339660000,
+      "quoteVolume": 728835000,
       "macd": {
-        "macd": 0.2827527671027781,
-        "signal": -0.2077443521905318,
-        "hist": 0.49049711929330986
+        "macd": 1.2407070472912096,
+        "signal": 0.7972088683345263,
+        "hist": 0.4434981789566833
       },
-      "rsi": 55.1372523072435,
-      "ema50": 226.3629379086245,
-      "ema200": 222.30921329516923,
-      "support": 219.49000549316406,
-      "resistance": 235.4499969482422,
+      "rsi": 50.508775733150976,
+      "ema50": 482.16104850593763,
+      "ema200": 471.2196497449229,
+      "support": 461,
+      "resistance": 515.3900146484375,
       "direction": "BUY",
       "score": 45,
       "strengthReasons": [
@@ -68716,20 +68640,20 @@
     },
     {
       "symbol": "TTWO",
-      "price": 238.49,
+      "price": 237.57,
       "open": 238.0800018310547,
-      "high": 238.49,
-      "low": 238.0800018310547,
+      "high": 238.0800018310547,
+      "low": 237.57,
       "volume": 0,
       "quoteVolume": 357120000,
       "macd": {
-        "macd": 0.31442188074240107,
-        "signal": 0.23305164661188638,
-        "hist": 0.0813702341305147
+        "macd": 0.24103156735210973,
+        "signal": 0.2183735839338281,
+        "hist": 0.022657983418281624
       },
-      "rsi": 50.552146601939775,
-      "ema50": 236.5131900847434,
-      "ema200": 226.27489615058943,
+      "rsi": 47.273144675662444,
+      "ema50": 236.47711165337086,
+      "ema200": 226.2657419217337,
       "support": 233.1300048828125,
       "resistance": 246.24989318847656,
       "direction": "BUY",
@@ -68742,23 +68666,23 @@
       "deferReasons": []
     },
     {
-      "symbol": "CRM",
-      "price": 176.59,
-      "open": 176.30999755859375,
-      "high": 176.59,
-      "low": 176.30999755859375,
+      "symbol": "TMUS",
+      "price": 190.52,
+      "open": 190.89999389648438,
+      "high": 190.89999389648438,
+      "low": 190.52,
       "volume": 0,
-      "quoteVolume": 264465000,
+      "quoteVolume": 286350000,
       "macd": {
-        "macd": -0.24578508093526352,
-        "signal": 0.11920880783927937,
-        "hist": -0.36499388877454286
+        "macd": -0.06746577486890715,
+        "signal": -0.023814903299187916,
+        "hist": -0.04365087156971923
       },
-      "rsi": 49.09077710981279,
-      "ema50": 176.7424026673981,
-      "ema200": 178.29278896531085,
-      "support": 164.32749938964844,
-      "resistance": 187.44000244140625,
+      "rsi": 49.93819990657839,
+      "ema50": 190.7573150549957,
+      "ema200": 192.02888448304762,
+      "support": 185.1199951171875,
+      "resistance": 195,
       "direction": "SELL",
       "score": -45,
       "strengthReasons": [
@@ -68767,10 +68691,83 @@
       ],
       "blockReasons": [],
       "deferReasons": []
+    },
+    {
+      "symbol": "AKAM",
+      "price": 145.97,
+      "open": 146.24000549316406,
+      "high": 146.24000549316406,
+      "low": 145.97,
+      "volume": 0,
+      "quoteVolume": 219360000,
+      "macd": {
+        "macd": -0.5403784426044922,
+        "signal": -1.1850399563559602,
+        "hist": 0.644661513751468
+      },
+      "rsi": 51.66280049729328,
+      "ema50": 144.84935146002235,
+      "ema200": 127.61370633069062,
+      "support": 138.10000610351562,
+      "resistance": 165.4499969482422,
+      "direction": "BUY",
+      "score": 45,
+      "strengthReasons": [
+        "Positive MACD momentum",
+        "Long-term bullish trend regime (Price > EMA50 > EMA200)"
+      ],
+      "blockReasons": [],
+      "deferReasons": []
+    },
+    {
+      "symbol": "ARES",
+      "price": 123.77,
+      "open": 123.98999786376953,
+      "high": 123.98999786376953,
+      "low": 123.77,
+      "volume": 0,
+      "quoteVolume": 185985000,
+      "macd": {
+        "macd": 0.04288962772191951,
+        "signal": -0.18492077674299295,
+        "hist": 0.22781040446491246
+      },
+      "rsi": 52.359537319554846,
+      "ema50": 123.41392393829797,
+      "ema200": 121.05539076046645,
+      "support": 120.11000061035156,
+      "resistance": 129.35000610351562,
+      "direction": "BUY",
+      "score": 45,
+      "strengthReasons": [
+        "Positive MACD momentum",
+        "Long-term bullish trend regime (Price > EMA50 > EMA200)"
+      ],
+      "blockReasons": [],
+      "deferReasons": []
     }
   ],
   "perSymbolRiskLocks": [],
   "logs": [
+    "[20:30:31] Autonomous Scan Evaluation: No new signals met safety buffer or correlation limits.",
+    "[20:30:31] Autonomous entry rejected for ARES: Margin Protection Lock. Free deployable cap ₹772.11 is less than trade size ₹2000",
+    "[20:30:31] Autonomous entry rejected for AKAM: Margin Protection Lock. Free deployable cap ₹772.11 is less than trade size ₹2000",
+    "[20:30:31] Autonomous entry rejected for TMUS: Margin Protection Lock. Free deployable cap ₹772.11 is less than trade size ₹2000",
+    "[20:30:31] Autonomous entry rejected for TTWO: Margin Protection Lock. Free deployable cap ₹772.11 is less than trade size ₹2000",
+    "[20:30:31] Autonomous entry rejected for APP: Margin Protection Lock. Free deployable cap ₹772.11 is less than trade size ₹2000",
+    "[20:30:31] Autonomous entry rejected for SNPS: Margin Protection Lock. Free deployable cap ₹772.11 is less than trade size ₹2000",
+    "[20:30:31] Autonomous entry rejected for SBAC: Margin Protection Lock. Free deployable cap ₹772.11 is less than trade size ₹2000",
+    "[20:30:31] Autonomous Executor checking signal convergence...",
+    "[20:30:31] Scan completed successfully. Updated ranked list: 7 entries. Visual snapshots validated.",
+    "[20:30:31] [Scanner] [20:30:31] Analysis finished: 300 assets finalized. BUY: 5, SELL: 2, HOLD: 293",
+    "[20:30:31] [Scanner] [20:30:25] Conducting parallel technical scans on Top 300 high-activity symbols...",
+    "[20:30:31] [Scanner] [20:30:25] Broad universe liquid assets count: 525",
+    "[20:30:31] [Scanner] [20:30:25] Filtered out 0 symbols before evaluation due to liquidity filter < 1.0M",
+    "[20:30:31] [Scanner] [20:30:25] Successfully synced 525 US equities using Yahoo Finance Spark API.",
+    "[20:30:31] [Scanner] [20:30:24] Fetching Wall Street prices from Yahoo Finance Spark API (https://query1.finance.yahoo.com)...",
+    "[20:30:31] [Scanner] [20:30:24] Using cached US index universe (526 symbols loaded).",
+    "[20:30:31] [Scanner] [20:30:24] Starting discovery-scan sequence for Wall Street large-cap stocks...",
+    "[20:30:24] Scan cycle triggered. Broad liquidity query running...",
     "[20:29:29] Autonomous Scan Evaluation: No new signals met safety buffer or correlation limits.",
     "[20:29:29] Autonomous entry rejected for CRM: Margin Protection Lock. Free deployable cap ₹789.29 is less than trade size ₹2000",
     "[20:29:29] Autonomous entry rejected for TTWO: Margin Protection Lock. Free deployable cap ₹789.29 is less than trade size ₹2000",
@@ -69051,26 +69048,7 @@
     "[20:15:32] Autonomous entry rejected for SBAC: Margin Protection Lock. Free deployable cap ₹765.47 is less than trade size ₹2000",
     "[20:15:32] Autonomous entry rejected for LH: Margin Protection Lock. Free deployable cap ₹765.47 is less than trade size ₹2000",
     "[20:15:32] Autonomous entry rejected for DASH: Margin Protection Lock. Free deployable cap ₹765.47 is less than trade size ₹2000",
-    "[20:15:32] Autonomous Executor checking signal convergence...",
-    "[20:15:32] Scan completed successfully. Updated ranked list: 11 entries. Visual snapshots validated.",
-    "[20:15:32] [Scanner] [20:15:32] Analysis finished: 300 assets finalized. BUY: 7, SELL: 4, HOLD: 289",
-    "[20:15:32] [Scanner] [20:15:28] Conducting parallel technical scans on Top 300 high-activity symbols...",
-    "[20:15:32] [Scanner] [20:15:28] Broad universe liquid assets count: 525",
-    "[20:15:32] [Scanner] [20:15:28] Filtered out 0 symbols before evaluation due to liquidity filter < 1.0M",
-    "[20:15:32] [Scanner] [20:15:28] Successfully synced 525 US equities using Yahoo Finance Spark API.",
-    "[20:15:32] [Scanner] [20:15:24] Fetching Wall Street prices from Yahoo Finance Spark API (https://query1.finance.yahoo.com)...",
-    "[20:15:32] [Scanner] [20:15:24] Using cached US index universe (526 symbols loaded).",
-    "[20:15:32] [Scanner] [20:15:24] Starting discovery-scan sequence for Wall Street large-cap stocks...",
-    "[20:15:24] Scan cycle triggered. Broad liquidity query running...",
-    "[20:14:31] Autonomous Scan Evaluation: No new signals met safety buffer or correlation limits.",
-    "[20:14:31] Autonomous entry rejected for TTWO: Margin Protection Lock. Free deployable cap ₹797.21 is less than trade size ₹2000",
-    "[20:14:31] Autonomous entry rejected for TSLA: Margin Protection Lock. Free deployable cap ₹797.21 is less than trade size ₹2000",
-    "[20:14:31] Autonomous entry rejected for ARES: Margin Protection Lock. Free deployable cap ₹797.21 is less than trade size ₹2000",
-    "[20:14:31] Autonomous entry rejected for AKAM: Margin Protection Lock. Free deployable cap ₹797.21 is less than trade size ₹2000",
-    "[20:14:31] Autonomous entry rejected for BLK: Margin Protection Lock. Free deployable cap ₹797.21 is less than trade size ₹2000",
-    "[20:14:31] Autonomous Executor checking signal convergence...",
-    "[20:14:31] Scan completed successfully. Updated ranked list: 5 entries. Visual snapshots validated.",
-    "[20:14:31] [Scanner] [20:14:31] Analysis finished: 300 assets finalized. BUY: 5, SELL: 0, HOLD: 295"
+    "[20:15:32] Autonomous Executor checking signal convergence..."
   ],
   "postLiquidationQueue": [],
   "config": {
