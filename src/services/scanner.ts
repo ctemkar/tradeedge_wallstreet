@@ -48,8 +48,11 @@ async function fetchWithTimeout(url: string, options: any = {}, timeoutMs = 1500
 // Global cache for Binance symbols
 let cachedSymbols: any[] = [];
 let cacheTimestamp = 0;
+let cachedUsStockSymbols: string[] = [];
+let usStockSymbolsCacheTimestamp = 0;
 
-// Dynamic expanded universe of liquid US large-cap stocks and ETFs
+// Expanded fallback universe of liquid US large-cap stocks and ETFs.
+// Dynamic index constituents are merged on top of this list at runtime.
 export const US_STOCK_SYMBOLS = [
   'AAPL', 'MSFT', 'NVDA', 'AMZN', 'GOOGL', 'META', 'TSLA', 'AMD', 'NFLX', 'AVGO',
   'ORCL', 'CRM', 'ADBE', 'INTC', 'QCOM', 'MU', 'CSCO', 'PLTR', 'UBER', 'SHOP',
@@ -57,8 +60,144 @@ export const US_STOCK_SYMBOLS = [
   'JNJ', 'UNH', 'LLY', 'PFE', 'MRK', 'ABBV', 'TMO', 'ISRG', 'ABT', 'DHR',
   'WMT', 'COST', 'HD', 'LOW', 'MCD', 'KO', 'PEP', 'SBUX', 'NKE', 'TGT',
   'XOM', 'CVX', 'SLB', 'COP', 'CAT', 'DE', 'GE', 'HON', 'RTX', 'LMT',
-  'SPY', 'QQQ', 'DIA', 'IWM', 'VTI', 'VOO', 'ARKK', 'XLF', 'XLK', 'XLE'
+  'SPY', 'QQQ', 'DIA', 'IWM', 'VTI', 'VOO', 'ARKK', 'XLF', 'XLK', 'XLE',
+  'AMGN', 'TXN', 'IBM', 'DIS', 'PG', 'VZ', 'SHW', 'BA', 'NOC', 'GD',
+  'PANW', 'CRWD', 'SNPS', 'CDNS', 'ANET', 'FTNT', 'NOW', 'WDAY', 'ADP', 'PAYX',
+  'BKNG', 'CMG', 'MAR', 'ABNB', 'LULU', 'ROST', 'ORLY', 'AZO', 'TJX', 'ULTA',
+  'PGR', 'AIG', 'CB', 'MMC', 'ICE', 'CME', 'MSCI', 'SPGI', 'KKR', 'BX',
+  'NEE', 'SO', 'DUK', 'CEG', 'AEP', 'EXC', 'SRE', 'ETR', 'XEL', 'PEG',
+  'VLO', 'PSX', 'MPC', 'OXY', 'EOG', 'KMI', 'WMB', 'HAL', 'BKR', 'FANG',
+  'LIN', 'APD', 'ECL', 'SHW', 'NEM', 'FCX', 'NUE', 'VMC', 'MLM', 'DD',
+  'AMAT', 'LRCX', 'KLAC', 'MCHP', 'NXPI', 'MRVL', 'ADI', 'MPWR', 'ON', 'ARM',
+  'TMUS', 'CMCSA', 'CHTR', 'TMUS', 'T', 'FOXA', 'FOX', 'EA', 'TTWO', 'WBD',
+  'VRTX', 'REGN', 'GILD', 'MRNA', 'DXCM', 'IDXX', 'HCA', 'CI', 'ELV', 'HUM',
+  'UPS', 'FDX', 'UNP', 'CSX', 'NSC', 'ODFL', 'UBER', 'DAL', 'UAL', 'LUV',
+  'PLD', 'AMT', 'EQIX', 'CCI', 'PSA', 'O', 'WELL', 'SPG', 'DLR', 'VICI'
 ];
+
+const WIKIPEDIA_API_BASE = 'https://en.wikipedia.org/w/api.php';
+const US_INDEX_SOURCES = [
+  {
+    name: 'S&P 500',
+    page: 'List_of_S%26P_500_companies',
+    section: 'S&P 500 component stocks',
+    pattern: /\{\{(?:NyseSymbol|NasdaqSymbol)\|([A-Z]{1,5}(?:[.-][A-Z])?)\}\}/gm,
+  },
+  {
+    name: 'Nasdaq-100',
+    page: 'Nasdaq-100',
+    section: 'Current components',
+    pattern: /^\|\s*([A-Z]{1,5}(?:[.-][A-Z])?)\s*\|\|/gm,
+  },
+  {
+    name: 'Dow Jones Industrial Average',
+    page: 'Dow_Jones_Industrial_Average',
+    section: 'Components',
+    pattern: /\|\s*\{\{(?:NYSE|NASDAQ) link\|([A-Z]{1,5}(?:[.-][A-Z])?)\}\}/gm,
+  },
+];
+
+function decodeWikiSectionName(sectionName: string): string {
+  return sectionName
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'");
+}
+
+function normalizeUsSymbol(symbol: string): string | null {
+  const cleaned = symbol.trim().toUpperCase().replace(/\./g, '-');
+  if (!/^[A-Z]{1,5}(?:-[A-Z])?$/.test(cleaned)) {
+    return null;
+  }
+  return cleaned;
+}
+
+function dedupeSymbols(symbols: string[]): string[] {
+  const seen = new Set<string>();
+  const unique: string[] = [];
+  for (const symbol of symbols) {
+    const normalized = normalizeUsSymbol(symbol);
+    if (!normalized || seen.has(normalized)) continue;
+    seen.add(normalized);
+    unique.push(normalized);
+  }
+  return unique;
+}
+
+async function fetchWikipediaSectionWikitext(page: string, sectionName: string): Promise<string> {
+  const sectionUrl = `${WIKIPEDIA_API_BASE}?action=parse&page=${page}&prop=sections&format=json&formatversion=2`;
+  const sectionRes = await fetchWithTimeout(sectionUrl, {
+    headers: {
+      'User-Agent': 'TradeEdge_WallStreet/1.0 (+https://github.com)',
+      'Accept': 'application/json'
+    }
+  }, 10000);
+
+  if (!sectionRes.ok) {
+    throw new Error(`Wikipedia section lookup returned HTTP ${sectionRes.status}`);
+  }
+
+  const sectionData: any = await sectionRes.json();
+  const sections = sectionData?.parse?.sections;
+  if (!Array.isArray(sections)) {
+    throw new Error(`Wikipedia sections payload missing for ${page}`);
+  }
+
+  const targetSection = sections.find((item: any) => decodeWikiSectionName(item.line) === sectionName);
+  if (!targetSection?.index) {
+    throw new Error(`Wikipedia section '${sectionName}' not found for ${page}`);
+  }
+
+  const contentUrl = `${WIKIPEDIA_API_BASE}?action=parse&page=${page}&prop=wikitext&section=${targetSection.index}&format=json&formatversion=2`;
+  const contentRes = await fetchWithTimeout(contentUrl, {
+    headers: {
+      'User-Agent': 'TradeEdge_WallStreet/1.0 (+https://github.com)',
+      'Accept': 'application/json'
+    }
+  }, 10000);
+
+  if (!contentRes.ok) {
+    throw new Error(`Wikipedia wikitext lookup returned HTTP ${contentRes.status}`);
+  }
+
+  const contentData: any = await contentRes.json();
+  const wikitext = contentData?.parse?.wikitext;
+  if (typeof wikitext !== 'string' || wikitext.trim() === '') {
+    throw new Error(`Wikipedia wikitext empty for ${page}`);
+  }
+
+  return wikitext;
+}
+
+async function loadDynamicUsStockSymbols(logger: (msg: string) => void): Promise<string[]> {
+  const now = Date.now();
+  if (cachedUsStockSymbols.length > 0 && now - usStockSymbolsCacheTimestamp < 6 * 60 * 60 * 1000) {
+    logger(`Using cached US index universe (${cachedUsStockSymbols.length} symbols loaded).`);
+    return cachedUsStockSymbols;
+  }
+
+  const collected: string[] = [];
+
+  for (const source of US_INDEX_SOURCES) {
+    try {
+      const wikitext = await fetchWikipediaSectionWikitext(source.page, source.section);
+      const matches = Array.from(wikitext.matchAll(source.pattern))
+        .map(match => match[1])
+        .filter(Boolean);
+      const symbols = dedupeSymbols(matches);
+      logger(`Loaded ${symbols.length} constituents from ${source.name}.`);
+      collected.push(...symbols);
+    } catch (err: any) {
+      logger(`Dynamic universe fetch failed for ${source.name}: ${err.message || err}`);
+    }
+  }
+
+  const mergedSymbols = dedupeSymbols([...US_STOCK_SYMBOLS, ...collected]);
+  cachedUsStockSymbols = mergedSymbols;
+  usStockSymbolsCacheTimestamp = now;
+  logger(`US stock universe ready with ${mergedSymbols.length} unique symbols after merging fallback and index constituents.`);
+  return mergedSymbols;
+}
 
 /**
  * Fetches real-time US stock quotes from Yahoo Finance
@@ -72,9 +211,11 @@ async function fetchYahooFinanceStocks(logger: (msg: string) => void): Promise<a
     return chunks;
   };
 
+  const universeSymbols = await loadDynamicUsStockSymbols(logger);
+
   const trySparkApi = async (baseUrl: string) => {
     logger(`Fetching Wall Street prices from Yahoo Finance Spark API (${baseUrl})...`);
-    const symbolChunks = chunkArray(US_STOCK_SYMBOLS, 15);
+    const symbolChunks = chunkArray(universeSymbols, 15);
     const results: any[] = [];
     
     for (const chunk of symbolChunks) {
@@ -147,7 +288,7 @@ async function fetchYahooFinanceStocks(logger: (msg: string) => void): Promise<a
       logger(`query2 spark failed: ${err2.message || err2}. Trying legacy quote API...`);
       // Legacy quote API fallback
       try {
-        const symbolChunks = chunkArray(US_STOCK_SYMBOLS, 15);
+        const symbolChunks = chunkArray(universeSymbols, 15);
         const results: any[] = [];
         
         for (const chunk of symbolChunks) {
@@ -188,7 +329,7 @@ async function fetchYahooFinanceStocks(logger: (msg: string) => void): Promise<a
         return mapped;
       } catch (errFallback: any) {
         logger(`All Yahoo Finance APIs failed. Generating robust local simulation fallback. Error: ${errFallback.message || errFallback}`);
-        return US_STOCK_SYMBOLS.map((symbol, i) => {
+        return universeSymbols.map((symbol, i) => {
           const basePrices: { [key: string]: number } = {
             'AAPL': 212.4,
             'MSFT': 438.7,
