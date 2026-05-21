@@ -1,0 +1,6 @@
+{
+  "name": "Tradeedge_WallStreet",
+  "description": "Tradeedge_WallStreet is an advanced US equities discovery console for Wall Street-style market scanning. It provides large-cap and ETF screening, indicator analysis (EMA, MACD, RSI), paper trading simulation in USD, risk-controlled execution workflows, and operator analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
