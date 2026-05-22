@@ -6,14 +6,14 @@
       "symbol": "SNPS",
       "side": "BUY",
       "entryPrice": 502.97,
-      "currentPrice": 503.7,
+      "currentPrice": 503.35,
       "leverage": 1,
       "margin": 2000,
       "size": 3.97638,
       "takeProfit": 507.2537,
       "stopLoss": 499.7776,
-      "unrealizedPnl": 2.9,
-      "pnlPercent": 0.15,
+      "unrealizedPnl": 1.51,
+      "pnlPercent": 0.08,
       "timestamp": "1:10:30 AM",
       "manualOverride": false,
       "entryFee": 1
@@ -23,14 +23,14 @@
       "symbol": "SBAC",
       "side": "SELL",
       "entryPrice": 207.15,
-      "currentPrice": 207.86,
+      "currentPrice": 207.89,
       "leverage": 1,
       "margin": 2000,
       "size": 9.65484,
       "takeProfit": 198.9204,
       "stopLoss": 210.4068,
-      "unrealizedPnl": -6.85,
-      "pnlPercent": -0.34,
+      "unrealizedPnl": -7.14,
+      "pnlPercent": -0.36,
       "timestamp": "1:11:33 AM",
       "manualOverride": false,
       "entryFee": 1
@@ -40,14 +40,14 @@
       "symbol": "AKAM",
       "side": "BUY",
       "entryPrice": 146.36,
-      "currentPrice": 146.06,
+      "currentPrice": 146.15,
       "leverage": 1,
       "margin": 2000,
       "size": 13.66494,
       "takeProfit": 166.2772,
       "stopLoss": 139.042,
-      "unrealizedPnl": -4.1,
-      "pnlPercent": -0.2,
+      "unrealizedPnl": -2.87,
+      "pnlPercent": -0.14,
       "timestamp": "1:11:33 AM",
       "manualOverride": false,
       "entryFee": 1
@@ -57,14 +57,14 @@
       "symbol": "TSLA",
       "side": "BUY",
       "entryPrice": 419.72,
-      "currentPrice": 417.6,
+      "currentPrice": 417.36,
       "leverage": 1,
       "margin": 2000,
       "size": 4.76508,
       "takeProfit": 455.667,
       "stopLoss": 398.734,
-      "unrealizedPnl": -10.1,
-      "pnlPercent": -0.51,
+      "unrealizedPnl": -11.25,
+      "pnlPercent": -0.56,
       "timestamp": "1:12:32 AM",
       "manualOverride": false,
       "entryFee": 1
@@ -72,6 +72,2156 @@
   ],
   "historicalTrades": [],
   "scanArchive": [
+    {
+      "summary": {
+        "timestamp": "5/22/2026, 7:48:17 AM",
+        "unix": 1779416297532,
+        "totalMarkets": 524,
+        "futuresUSDTCount": 524,
+        "analyzedCount": 300,
+        "buyCount": 0,
+        "sellCount": 0,
+        "holdCount": 300,
+        "blockedCount": 0,
+        "deferredCount": 300,
+        "logs": [
+          "[02:18:11] Starting discovery-scan sequence for Wall Street large-cap stocks...",
+          "[02:18:11] Using cached US index universe (526 symbols loaded).",
+          "[02:18:11] Fetching Wall Street prices from Yahoo Finance Spark API (https://query1.finance.yahoo.com)...",
+          "[02:18:13] Successfully synced 524 US equities using Yahoo Finance Spark API.",
+          "[02:18:13] Filtered out 0 symbols before evaluation due to liquidity filter < 1.0M",
+          "[02:18:13] Broad universe liquid assets count: 524",
+          "[02:18:13] Conducting parallel technical scans on Top 300 high-activity symbols...",
+          "[02:18:17] Analysis finished: 300 assets finalized. BUY: 0, SELL: 0, HOLD: 300"
+        ]
+      },
+      "rankedSignals": [],
+      "blockedSignals": [],
+      "deferredSignals": [
+        {
+          "symbol": "NVR",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 6039.5,
+          "score": 0
+        },
+        {
+          "symbol": "KLAC",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 1839.63,
+          "score": 0
+        },
+        {
+          "symbol": "AZO",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 3433.42,
+          "score": 0
+        },
+        {
+          "symbol": "FIX",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 1832.79,
+          "score": 0
+        },
+        {
+          "symbol": "ASML",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 1589.8,
+          "score": 0
+        },
+        {
+          "symbol": "MPWR",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 1559.09,
+          "score": 0
+        },
+        {
+          "symbol": "FICO",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line, Bearish MACD trigger rejected: RSI 59.3 is outside the 32-55 entry window",
+          "price": 1226.4,
+          "score": -35
+        },
+        {
+          "symbol": "GWW",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 1237.55,
+          "score": 0
+        },
+        {
+          "symbol": "MELI",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 1675.58,
+          "score": 0
+        },
+        {
+          "symbol": "SNDK",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 1540.14,
+          "score": 0
+        },
+        {
+          "symbol": "EQIX",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 1076.97,
+          "score": 0
+        },
+        {
+          "symbol": "MTD",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 1088.99,
+          "score": 0
+        },
+        {
+          "symbol": "LLY",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 1040.25,
+          "score": 0
+        },
+        {
+          "symbol": "COST",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 1049.04,
+          "score": 0
+        },
+        {
+          "symbol": "TDG",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 1207.7,
+          "score": 0
+        },
+        {
+          "symbol": "GS",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 986.84,
+          "score": 0
+        },
+        {
+          "symbol": "URI",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 930.93,
+          "score": 0
+        },
+        {
+          "symbol": "BLK",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line",
+          "price": 1062.33,
+          "score": 40
+        },
+        {
+          "symbol": "GEV",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 1042.43,
+          "score": 0
+        },
+        {
+          "symbol": "LITE",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 963.23,
+          "score": 0
+        },
+        {
+          "symbol": "EME",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 848.09,
+          "score": 0
+        },
+        {
+          "symbol": "CAT",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 864.82,
+          "score": 0
+        },
+        {
+          "symbol": "SPY",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 741.75,
+          "score": 0
+        },
+        {
+          "symbol": "QQQ",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 713.58,
+          "score": 0
+        },
+        {
+          "symbol": "MCK",
+          "reason": "Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: risk/reward 1.03x is below 1.50x minimum",
+          "price": 765.5,
+          "score": 75
+        },
+        {
+          "symbol": "PWR",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 715.98,
+          "score": 0
+        },
+        {
+          "symbol": "STX",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 809.41,
+          "score": 0
+        },
+        {
+          "symbol": "MU",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 761.11,
+          "score": 0
+        },
+        {
+          "symbol": "CASY",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 823.74,
+          "score": 0
+        },
+        {
+          "symbol": "PH",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 863.62,
+          "score": 0
+        },
+        {
+          "symbol": "CIEN",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 586.49,
+          "score": 0
+        },
+        {
+          "symbol": "IDXX",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 552.37,
+          "score": 0
+        },
+        {
+          "symbol": "NOC",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: MACD remains above zero line, Bearish MACD trigger rejected: short risk/reward 1.09x is below 1.50x minimum",
+          "price": 550.88,
+          "score": -45
+        },
+        {
+          "symbol": "TDY",
+          "reason": "Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line, Bullish MACD trigger rejected: RSI 42.7 is outside the 45-68 entry window",
+          "price": 606.35,
+          "score": 80
+        },
+        {
+          "symbol": "CMI",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 637.97,
+          "score": 0
+        },
+        {
+          "symbol": "MSCI",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line, Bearish MACD trigger rejected: short risk/reward 0.83x is below 1.50x minimum",
+          "price": 581.61,
+          "score": -35
+        },
+        {
+          "symbol": "REGN",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 641.78,
+          "score": 0
+        },
+        {
+          "symbol": "VOO",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 681.98,
+          "score": 0
+        },
+        {
+          "symbol": "CRWD",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line, Bearish MACD trigger rejected: RSI 70.3 is outside the 32-55 entry window, Bearish MACD trigger rejected: short risk/reward 0.44x is below 1.50x minimum",
+          "price": 647.41,
+          "score": -30
+        },
+        {
+          "symbol": "META",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 606.61,
+          "score": 0
+        },
+        {
+          "symbol": "MLM",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 537.3,
+          "score": 0
+        },
+        {
+          "symbol": "APP",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 485.29,
+          "score": 0
+        },
+        {
+          "symbol": "SNPS",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 503.35,
+          "score": 0
+        },
+        {
+          "symbol": "MA",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 499,
+          "score": 0
+        },
+        {
+          "symbol": "DE",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 530.69,
+          "score": 0
+        },
+        {
+          "symbol": "WDC",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 485.86,
+          "score": 0
+        },
+        {
+          "symbol": "LMT",
+          "reason": "Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line",
+          "price": 522.14,
+          "score": -75
+        },
+        {
+          "symbol": "ULTA",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 503.42,
+          "score": 0
+        },
+        {
+          "symbol": "DIA",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 502.49,
+          "score": 0
+        },
+        {
+          "symbol": "LIN",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 513.87,
+          "score": 0
+        },
+        {
+          "symbol": "LII",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: short risk/reward 0.27x is below 1.50x minimum",
+          "price": 479.92,
+          "score": -50
+        },
+        {
+          "symbol": "AMD",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 449.04,
+          "score": 0
+        },
+        {
+          "symbol": "ROK",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 439.71,
+          "score": 0
+        },
+        {
+          "symbol": "ISRG",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: MACD remains above zero line, Bearish MACD trigger rejected: short risk/reward 0.45x is below 1.50x minimum",
+          "price": 439.26,
+          "score": -45
+        },
+        {
+          "symbol": "TT",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line, Bullish MACD trigger rejected: RSI 36.8 is outside the 45-68 entry window",
+          "price": 447.09,
+          "score": 35
+        },
+        {
+          "symbol": "BRK-B",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 479.39,
+          "score": 0
+        },
+        {
+          "symbol": "HUBB",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line, Bullish MACD trigger rejected: RSI 40.7 is outside the 45-68 entry window, Bullish MACD trigger rejected: risk/reward 1.47x is below 1.50x minimum",
+          "price": 460.42,
+          "score": 30
+        },
+        {
+          "symbol": "TMO",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 448.82,
+          "score": 0
+        },
+        {
+          "symbol": "AMP",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 450.03,
+          "score": 0
+        },
+        {
+          "symbol": "MCO",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 444.84,
+          "score": 0
+        },
+        {
+          "symbol": "AXON",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 389.38,
+          "score": 0
+        },
+        {
+          "symbol": "HCA",
+          "reason": "Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line, Bullish MACD trigger rejected: RSI 28.1 is outside the 45-68 entry window",
+          "price": 392.1,
+          "score": 70
+        },
+        {
+          "symbol": "MSI",
+          "reason": "Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line, Bullish MACD trigger rejected: risk/reward 0.44x is below 1.50x minimum",
+          "price": 399.77,
+          "score": 70
+        },
+        {
+          "symbol": "SPGI",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 415.24,
+          "score": 0
+        },
+        {
+          "symbol": "AMAT",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 426.86,
+          "score": 0
+        },
+        {
+          "symbol": "AVGO",
+          "reason": "Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line, Bullish MACD trigger rejected: risk/reward 1.23x is below 1.50x minimum",
+          "price": 414.08,
+          "score": 70
+        },
+        {
+          "symbol": "MSFT",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 418.6,
+          "score": 0
+        },
+        {
+          "symbol": "TSLA",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 417.36,
+          "score": 0
+        },
+        {
+          "symbol": "TPL",
+          "reason": "Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line, Bearish MACD trigger rejected: short risk/reward 1.45x is below 1.50x minimum",
+          "price": 396.51,
+          "score": -70
+        },
+        {
+          "symbol": "VRTX",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line",
+          "price": 433.04,
+          "score": 40
+        },
+        {
+          "symbol": "FFIV",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 383.26,
+          "score": 0
+        },
+        {
+          "symbol": "GOOGL",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 387.22,
+          "score": 0
+        },
+        {
+          "symbol": "ADI",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 383.77,
+          "score": 0
+        },
+        {
+          "symbol": "GOOG",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 383.03,
+          "score": 0
+        },
+        {
+          "symbol": "ELV",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 389.37,
+          "score": 0
+        },
+        {
+          "symbol": "RL",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 374.47,
+          "score": 0
+        },
+        {
+          "symbol": "UNH",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 382.04,
+          "score": 0
+        },
+        {
+          "symbol": "ETN",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 381.07,
+          "score": 0
+        },
+        {
+          "symbol": "COHR",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 377.57,
+          "score": 0
+        },
+        {
+          "symbol": "FDX",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 388.47,
+          "score": 0
+        },
+        {
+          "symbol": "CPAY",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line",
+          "price": 347.07,
+          "score": -40
+        },
+        {
+          "symbol": "MAR",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 370.14,
+          "score": 0
+        },
+        {
+          "symbol": "VTI",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 364.68,
+          "score": 0
+        },
+        {
+          "symbol": "SNA",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 361.9,
+          "score": 0
+        },
+        {
+          "symbol": "JBL",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 356.01,
+          "score": 0
+        },
+        {
+          "symbol": "GD",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: short risk/reward 0.98x is below 1.50x minimum",
+          "price": 338.33,
+          "score": -40
+        },
+        {
+          "symbol": "EG",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 356.05,
+          "score": 0
+        },
+        {
+          "symbol": "TER",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 353.04,
+          "score": 0
+        },
+        {
+          "symbol": "CDNS",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 358.06,
+          "score": 0
+        },
+        {
+          "symbol": "WAT",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 340.61,
+          "score": 0
+        },
+        {
+          "symbol": "V",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line, Bearish MACD trigger rejected: short risk/reward 0.89x is below 1.50x minimum",
+          "price": 330.76,
+          "score": -35
+        },
+        {
+          "symbol": "DPZ",
+          "reason": "Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line, Bearish MACD trigger rejected: RSI 59.9 is outside the 32-55 entry window",
+          "price": 316.13,
+          "score": -70
+        },
+        {
+          "symbol": "KEYS",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line, Bullish MACD trigger rejected: risk/reward 1.19x is below 1.50x minimum",
+          "price": 337.18,
+          "score": 35
+        },
+        {
+          "symbol": "HLT",
+          "reason": "Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: histogram is not accelerating upward, Bullish MACD trigger rejected: risk/reward 0.05x is below 1.50x minimum",
+          "price": 322.41,
+          "score": 65
+        },
+        {
+          "symbol": "HII",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: RSI 27.3 is outside the 32-55 entry window, Bearish MACD trigger rejected: short risk/reward 0.08x is below 1.50x minimum",
+          "price": 317.21,
+          "score": -45
+        },
+        {
+          "symbol": "ROP",
+          "reason": "Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line, Bullish MACD trigger rejected: risk/reward 0.92x is below 1.50x minimum",
+          "price": 323.73,
+          "score": 80
+        },
+        {
+          "symbol": "AMGN",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 337.05,
+          "score": 0
+        },
+        {
+          "symbol": "CB",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 329.9,
+          "score": 0
+        },
+        {
+          "symbol": "VRT",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 323.05,
+          "score": 0
+        },
+        {
+          "symbol": "AON",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 323.87,
+          "score": 0
+        },
+        {
+          "symbol": "SYK",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line, Bearish MACD trigger rejected: short risk/reward 0.01x is below 1.50x minimum",
+          "price": 313.17,
+          "score": -35
+        },
+        {
+          "symbol": "TRV",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line, Bearish MACD trigger rejected: RSI 56.3 is outside the 32-55 entry window",
+          "price": 306.91,
+          "score": -35
+        },
+        {
+          "symbol": "TYL",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 308.42,
+          "score": 0
+        },
+        {
+          "symbol": "NSC",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 311.11,
+          "score": 0
+        },
+        {
+          "symbol": "SHW",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 309.02,
+          "score": 0
+        },
+        {
+          "symbol": "HD",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 313.45,
+          "score": 0
+        },
+        {
+          "symbol": "INTU",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 306.75,
+          "score": 0
+        },
+        {
+          "symbol": "LHX",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 306.01,
+          "score": 0
+        },
+        {
+          "symbol": "WST",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 315.8,
+          "score": 0
+        },
+        {
+          "symbol": "AXP",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line",
+          "price": 309.38,
+          "score": 40
+        },
+        {
+          "symbol": "GE",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 301.45,
+          "score": 0
+        },
+        {
+          "symbol": "VRSN",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line, Bearish MACD trigger rejected: RSI 59.1 is outside the 32-55 entry window",
+          "price": 305.62,
+          "score": -35
+        },
+        {
+          "symbol": "HUM",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 303.37,
+          "score": 0
+        },
+        {
+          "symbol": "TXN",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 298.09,
+          "score": 0
+        },
+        {
+          "symbol": "AAPL",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 304.68,
+          "score": 0
+        },
+        {
+          "symbol": "PSA",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 304.68,
+          "score": 0
+        },
+        {
+          "symbol": "JPM",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 302.69,
+          "score": 0
+        },
+        {
+          "symbol": "NXPI",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line, Bearish MACD trigger rejected: short risk/reward 1.12x is below 1.50x minimum",
+          "price": 299.08,
+          "score": -35
+        },
+        {
+          "symbol": "ALNY",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 300.21,
+          "score": 0
+        },
+        {
+          "symbol": "LRCX",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 301.93,
+          "score": 0
+        },
+        {
+          "symbol": "TRGP",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: short risk/reward 0.12x is below 1.50x minimum",
+          "price": 269.97,
+          "score": -40
+        },
+        {
+          "symbol": "IWM",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 282.21,
+          "score": 0
+        },
+        {
+          "symbol": "MCD",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 283.9,
+          "score": 0
+        },
+        {
+          "symbol": "NDSN",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 286.48,
+          "score": 0
+        },
+        {
+          "symbol": "CME",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 289,
+          "score": 0
+        },
+        {
+          "symbol": "ARM",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 297.93,
+          "score": 0
+        },
+        {
+          "symbol": "CI",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 281.74,
+          "score": 0
+        },
+        {
+          "symbol": "CEG",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 285.55,
+          "score": 0
+        },
+        {
+          "symbol": "ESS",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 273.53,
+          "score": 0
+        },
+        {
+          "symbol": "APD",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line, Bullish MACD trigger rejected: RSI 44.7 is outside the 45-68 entry window",
+          "price": 289.9,
+          "score": 35
+        },
+        {
+          "symbol": "COR",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 265.18,
+          "score": 0
+        },
+        {
+          "symbol": "AMZN",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 268.2,
+          "score": 0
+        },
+        {
+          "symbol": "HWM",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 259.64,
+          "score": 0
+        },
+        {
+          "symbol": "WTW",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: risk/reward 0.41x is below 1.50x minimum",
+          "price": 257.98,
+          "score": 40
+        },
+        {
+          "symbol": "LH",
+          "reason": "Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: risk/reward 0.29x is below 1.50x minimum",
+          "price": 255.5,
+          "score": 75
+        },
+        {
+          "symbol": "JBHT",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 258.98,
+          "score": 0
+        },
+        {
+          "symbol": "RCL",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 260.07,
+          "score": 0
+        },
+        {
+          "symbol": "AIZ",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 255.45,
+          "score": 0
+        },
+        {
+          "symbol": "VMC",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 261.83,
+          "score": 0
+        },
+        {
+          "symbol": "UNP",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 265.18,
+          "score": 0
+        },
+        {
+          "symbol": "ADBE",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 243.87,
+          "score": 0
+        },
+        {
+          "symbol": "WAB",
+          "reason": "Bearish MACD trigger rejected: short risk/reward 0.10x is below 1.50x minimum",
+          "price": 254.92,
+          "score": -85
+        },
+        {
+          "symbol": "IBM",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 252.73,
+          "score": 0
+        },
+        {
+          "symbol": "GNRC",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 247.55,
+          "score": 0
+        },
+        {
+          "symbol": "DELL",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 252.56,
+          "score": 0
+        },
+        {
+          "symbol": "ITW",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 249.69,
+          "score": 0
+        },
+        {
+          "symbol": "ECL",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 249.94,
+          "score": 0
+        },
+        {
+          "symbol": "FSLR",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 248.64,
+          "score": 0
+        },
+        {
+          "symbol": "PANW",
+          "reason": "Bullish MACD trigger rejected: RSI 70.0 is outside the 45-68 entry window, Bullish MACD trigger rejected: risk/reward 0.02x is below 1.50x minimum",
+          "price": 252.68,
+          "score": 80
+        },
+        {
+          "symbol": "MPC",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 248.19,
+          "score": 0
+        },
+        {
+          "symbol": "ERIE",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 224.52,
+          "score": 0
+        },
+        {
+          "symbol": "ADSK",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 239.97,
+          "score": 0
+        },
+        {
+          "symbol": "FDS",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 224.8,
+          "score": 0
+        },
+        {
+          "symbol": "ZBRA",
+          "reason": "Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line, Bullish MACD trigger rejected: RSI 43.3 is outside the 45-68 entry window",
+          "price": 242.03,
+          "score": 80
+        },
+        {
+          "symbol": "JNJ",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: risk/reward 0.09x is below 1.50x minimum",
+          "price": 231.51,
+          "score": 50
+        },
+        {
+          "symbol": "STLD",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 231.62,
+          "score": 0
+        },
+        {
+          "symbol": "VLO",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 240.86,
+          "score": 0
+        },
+        {
+          "symbol": "GRMN",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 239.56,
+          "score": 0
+        },
+        {
+          "symbol": "NUE",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 226.23,
+          "score": 0
+        },
+        {
+          "symbol": "TTWO",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 237.86,
+          "score": 0
+        },
+        {
+          "symbol": "NVDA",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: short risk/reward 0.08x is below 1.50x minimum",
+          "price": 219.31,
+          "score": -40
+        },
+        {
+          "symbol": "HON",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 223.59,
+          "score": 0
+        },
+        {
+          "symbol": "WM",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 217.55,
+          "score": 0
+        },
+        {
+          "symbol": "PNC",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 218.17,
+          "score": 0
+        },
+        {
+          "symbol": "EXPE",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line",
+          "price": 217.92,
+          "score": 40
+        },
+        {
+          "symbol": "AME",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 222.97,
+          "score": 0
+        },
+        {
+          "symbol": "STE",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: risk/reward 0.03x is below 1.50x minimum",
+          "price": 219.47,
+          "score": 40
+        },
+        {
+          "symbol": "DDOG",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 217.84,
+          "score": 0
+        },
+        {
+          "symbol": "BA",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 219.41,
+          "score": 0
+        },
+        {
+          "symbol": "ADP",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 219.87,
+          "score": 0
+        },
+        {
+          "symbol": "RSG",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 207.9,
+          "score": 0
+        },
+        {
+          "symbol": "MTB",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 212.14,
+          "score": 0
+        },
+        {
+          "symbol": "ALL",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 214.25,
+          "score": 0
+        },
+        {
+          "symbol": "LOW",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 217.21,
+          "score": 0
+        },
+        {
+          "symbol": "ABBV",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 214.31,
+          "score": 0
+        },
+        {
+          "symbol": "WELL",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 215.82,
+          "score": 0
+        },
+        {
+          "symbol": "PKG",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 213.57,
+          "score": 0
+        },
+        {
+          "symbol": "ROST",
+          "reason": "Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line",
+          "price": 217,
+          "score": -75
+        },
+        {
+          "symbol": "QCOM",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 213.22,
+          "score": 0
+        },
+        {
+          "symbol": "RMD",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 208.79,
+          "score": 0
+        },
+        {
+          "symbol": "IEX",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 205.43,
+          "score": 0
+        },
+        {
+          "symbol": "TEL",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line",
+          "price": 202.39,
+          "score": 40
+        },
+        {
+          "symbol": "ODFL",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line",
+          "price": 207.51,
+          "score": -40
+        },
+        {
+          "symbol": "SPG",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 204.72,
+          "score": 0
+        },
+        {
+          "symbol": "AJG",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 207.23,
+          "score": 0
+        },
+        {
+          "symbol": "FANG",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 200.79,
+          "score": 0
+        },
+        {
+          "symbol": "EA",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 201.69,
+          "score": 0
+        },
+        {
+          "symbol": "DOV",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 207.59,
+          "score": 0
+        },
+        {
+          "symbol": "CAH",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 200.44,
+          "score": 0
+        },
+        {
+          "symbol": "SBAC",
+          "reason": "Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line",
+          "price": 207.89,
+          "score": -75
+        },
+        {
+          "symbol": "TKO",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line",
+          "price": 191.47,
+          "score": -40
+        },
+        {
+          "symbol": "DRI",
+          "reason": "Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line",
+          "price": 196.9,
+          "score": -85
+        },
+        {
+          "symbol": "DVA",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 198.49,
+          "score": 0
+        },
+        {
+          "symbol": "DLR",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 194.11,
+          "score": 0
+        },
+        {
+          "symbol": "DGX",
+          "reason": "Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: risk/reward 0.16x is below 1.50x minimum",
+          "price": 193.66,
+          "score": 85
+        },
+        {
+          "symbol": "PGR",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required)",
+          "price": 198.8,
+          "score": -45
+        },
+        {
+          "symbol": "COIN",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 193.4,
+          "score": 0
+        },
+        {
+          "symbol": "GLW",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 191.73,
+          "score": 0
+        },
+        {
+          "symbol": "MS",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 200.34,
+          "score": 0
+        },
+        {
+          "symbol": "WSM",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 191.78,
+          "score": 0
+        },
+        {
+          "symbol": "MRVL",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 190.53,
+          "score": 0
+        },
+        {
+          "symbol": "AVB",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 183.96,
+          "score": 0
+        },
+        {
+          "symbol": "AMT",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line, Bearish MACD trigger rejected: RSI 62.8 is outside the 32-55 entry window",
+          "price": 183.63,
+          "score": -35
+        },
+        {
+          "symbol": "TMUS",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 190.74,
+          "score": 0
+        },
+        {
+          "symbol": "PM",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 188.31,
+          "score": 0
+        },
+        {
+          "symbol": "COF",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: risk/reward 0.45x is below 1.50x minimum",
+          "price": 186.51,
+          "score": 40
+        },
+        {
+          "symbol": "HSY",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: short risk/reward 0.71x is below 1.50x minimum",
+          "price": 190.23,
+          "score": -40
+        },
+        {
+          "symbol": "ORCL",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 189.62,
+          "score": 0
+        },
+        {
+          "symbol": "BIIB",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line, Bullish MACD trigger rejected: risk/reward 1.17x is below 1.50x minimum",
+          "price": 189.32,
+          "score": 35
+        },
+        {
+          "symbol": "CVX",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 190.86,
+          "score": 0
+        },
+        {
+          "symbol": "ATO",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line",
+          "price": 177.32,
+          "score": 40
+        },
+        {
+          "symbol": "CHRW",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 177.99,
+          "score": 0
+        },
+        {
+          "symbol": "ACN",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 177.73,
+          "score": 0
+        },
+        {
+          "symbol": "RTX",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 175.84,
+          "score": 0
+        },
+        {
+          "symbol": "XLK",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 178.46,
+          "score": 0
+        },
+        {
+          "symbol": "PSX",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 173.92,
+          "score": 0
+        },
+        {
+          "symbol": "CRM",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 176.17,
+          "score": 0
+        },
+        {
+          "symbol": "CTAS",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line, Bearish MACD trigger rejected: short risk/reward 0.78x is below 1.50x minimum",
+          "price": 172.23,
+          "score": -35
+        },
+        {
+          "symbol": "POOL",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: risk/reward 0.04x is below 1.50x minimum",
+          "price": 181.55,
+          "score": 40
+        },
+        {
+          "symbol": "DHR",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 173.2,
+          "score": 0
+        },
+        {
+          "symbol": "VRSK",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line, Bearish MACD trigger rejected: RSI 55.7 is outside the 32-55 entry window, Bearish MACD trigger rejected: short risk/reward 0.74x is below 1.50x minimum",
+          "price": 171.47,
+          "score": -30
+        },
+        {
+          "symbol": "NTRS",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: risk/reward 0.09x is below 1.50x minimum",
+          "price": 166.99,
+          "score": 50
+        },
+        {
+          "symbol": "ALB",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 169.78,
+          "score": 0
+        },
+        {
+          "symbol": "MRSH",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 165,
+          "score": 0
+        },
+        {
+          "symbol": "LYV",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 165.86,
+          "score": 0
+        },
+        {
+          "symbol": "CINF",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 168.25,
+          "score": 0
+        },
+        {
+          "symbol": "MSTR",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 164.73,
+          "score": 0
+        },
+        {
+          "symbol": "IQV",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 167.9,
+          "score": 0
+        },
+        {
+          "symbol": "ZS",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 170.88,
+          "score": 0
+        },
+        {
+          "symbol": "EFX",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line, Bullish MACD trigger rejected: risk/reward 0.83x is below 1.50x minimum",
+          "price": 162.98,
+          "score": 35
+        },
+        {
+          "symbol": "AVY",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 158.79,
+          "score": 0
+        },
+        {
+          "symbol": "EXPD",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 157.08,
+          "score": 0
+        },
+        {
+          "symbol": "ALGN",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 162.93,
+          "score": 0
+        },
+        {
+          "symbol": "DASH",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 159.16,
+          "score": 0
+        },
+        {
+          "symbol": "BKNG",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 159.57,
+          "score": 0
+        },
+        {
+          "symbol": "VEEV",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 158.16,
+          "score": 0
+        },
+        {
+          "symbol": "IT",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 157.11,
+          "score": 0
+        },
+        {
+          "symbol": "TJX",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line, Bearish MACD trigger rejected: RSI 61.2 is outside the 32-55 entry window",
+          "price": 157.35,
+          "score": -35
+        },
+        {
+          "symbol": "CRL",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 158.75,
+          "score": 0
+        },
+        {
+          "symbol": "UHS",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 162.34,
+          "score": 0
+        },
+        {
+          "symbol": "RJF",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 150.32,
+          "score": 0
+        },
+        {
+          "symbol": "Q",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 152.66,
+          "score": 0
+        },
+        {
+          "symbol": "STT",
+          "reason": "Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line",
+          "price": 153.59,
+          "score": -75
+        },
+        {
+          "symbol": "YUM",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 154.22,
+          "score": 0
+        },
+        {
+          "symbol": "MMM",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 151.5,
+          "score": 0
+        },
+        {
+          "symbol": "PODD",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 156.79,
+          "score": 0
+        },
+        {
+          "symbol": "GL",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: risk/reward 0.27x is below 1.50x minimum",
+          "price": 156.5,
+          "score": 50
+        },
+        {
+          "symbol": "ICE",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 151.39,
+          "score": 0
+        },
+        {
+          "symbol": "STZ",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 150.73,
+          "score": 0
+        },
+        {
+          "symbol": "XOM",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 155.19,
+          "score": 0
+        },
+        {
+          "symbol": "DHI",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 144.05,
+          "score": 0
+        },
+        {
+          "symbol": "BDX",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 146.16,
+          "score": 0
+        },
+        {
+          "symbol": "AKAM",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: MACD remains below zero line",
+          "price": 146.15,
+          "score": 50
+        },
+        {
+          "symbol": "CHTR",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 148.81,
+          "score": 0
+        },
+        {
+          "symbol": "PEP",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 148.76,
+          "score": 0
+        },
+        {
+          "symbol": "PTC",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line, Bearish MACD trigger rejected: short risk/reward 1.38x is below 1.50x minimum",
+          "price": 145.75,
+          "score": -35
+        },
+        {
+          "symbol": "PLD",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 144.54,
+          "score": 0
+        },
+        {
+          "symbol": "VST",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 148.99,
+          "score": 0
+        },
+        {
+          "symbol": "ANET",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: risk/reward 0.04x is below 1.50x minimum",
+          "price": 148.5,
+          "score": 40
+        },
+        {
+          "symbol": "BR",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 149.93,
+          "score": 0
+        },
+        {
+          "symbol": "JCI",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 135.39,
+          "score": 0
+        },
+        {
+          "symbol": "HIG",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: MACD remains above zero line",
+          "price": 135.94,
+          "score": -40
+        },
+        {
+          "symbol": "DTE",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 143.66,
+          "score": 0
+        },
+        {
+          "symbol": "TPR",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 139.03,
+          "score": 0
+        },
+        {
+          "symbol": "EOG",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 139.9,
+          "score": 0
+        },
+        {
+          "symbol": "JKHY",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: MACD remains above zero line, Bearish MACD trigger rejected: short risk/reward 0.53x is below 1.50x minimum",
+          "price": 139.48,
+          "score": -45
+        },
+        {
+          "symbol": "PG",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 143.31,
+          "score": 0
+        },
+        {
+          "symbol": "PLTR",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 137.33,
+          "score": 0
+        },
+        {
+          "symbol": "NRG",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 136.84,
+          "score": 0
+        },
+        {
+          "symbol": "EXR",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 143.82,
+          "score": 0
+        },
+        {
+          "symbol": "GILD",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 130.42,
+          "score": 0
+        },
+        {
+          "symbol": "ABNB",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line, Bullish MACD trigger rejected: risk/reward 1.03x is below 1.50x minimum",
+          "price": 134.17,
+          "score": 35
+        },
+        {
+          "symbol": "AEP",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 129.54,
+          "score": 0
+        },
+        {
+          "symbol": "ALLE",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 130.62,
+          "score": 0
+        },
+        {
+          "symbol": "APO",
+          "reason": "Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: short risk/reward 0.35x is below 1.50x minimum",
+          "price": 130.82,
+          "score": -85
+        },
+        {
+          "symbol": "CBRE",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line, Bullish MACD trigger rejected: risk/reward 0.25x is below 1.50x minimum",
+          "price": 130.96,
+          "score": 35
+        },
+        {
+          "symbol": "FTNT",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 129.39,
+          "score": 0
+        },
+        {
+          "symbol": "MAA",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 129.93,
+          "score": 0
+        },
+        {
+          "symbol": "EMR",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 134.82,
+          "score": 0
+        },
+        {
+          "symbol": "SATS",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: short risk/reward 0.02x is below 1.50x minimum",
+          "price": 128.37,
+          "score": -40
+        },
+        {
+          "symbol": "NTAP",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: risk/reward 0.05x is below 1.50x minimum",
+          "price": 123.88,
+          "score": 50
+        },
+        {
+          "symbol": "DUK",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 124.59,
+          "score": 0
+        },
+        {
+          "symbol": "ARES",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 123.92,
+          "score": 0
+        },
+        {
+          "symbol": "AWK",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: MACD remains below zero line, Bullish MACD trigger rejected: risk/reward 0.17x is below 1.50x minimum",
+          "price": 123.81,
+          "score": 35
+        },
+        {
+          "symbol": "LULU",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 126.69,
+          "score": 0
+        },
+        {
+          "symbol": "LDOS",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 122.97,
+          "score": 0
+        },
+        {
+          "symbol": "C",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 125.15,
+          "score": 0
+        },
+        {
+          "symbol": "IRM",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 127.26,
+          "score": 0
+        },
+        {
+          "symbol": "APH",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 124.79,
+          "score": 0
+        },
+        {
+          "symbol": "TGT",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required), Bullish MACD trigger rejected: risk/reward 0.23x is below 1.50x minimum",
+          "price": 126.08,
+          "score": 40
+        },
+        {
+          "symbol": "WMT",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 121.27,
+          "score": 0
+        },
+        {
+          "symbol": "FRT",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 118.55,
+          "score": 0
+        },
+        {
+          "symbol": "CF",
+          "reason": "Bearish MACD structure detected, but crossover is stale, Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required), Bearish MACD trigger rejected: short risk/reward 0.01x is below 1.50x minimum",
+          "price": 121.62,
+          "score": -40
+        },
+        {
+          "symbol": "COP",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 120.48,
+          "score": 0
+        },
+        {
+          "symbol": "CSCO",
+          "reason": "Bullish MACD structure detected, but crossover is stale, Bullish MACD trigger rejected: risk/reward 0.27x is below 1.50x minimum",
+          "price": 118.14,
+          "score": 50
+        },
+        {
+          "symbol": "AFL",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 117.75,
+          "score": 0
+        },
+        {
+          "symbol": "WDAY",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 121.78,
+          "score": 0
+        },
+        {
+          "symbol": "BX",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 118.51,
+          "score": 0
+        },
+        {
+          "symbol": "BG",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 120.4,
+          "score": 0
+        },
+        {
+          "symbol": "INTC",
+          "reason": "No fresh MACD crossover with qualifying confirmation filters",
+          "price": 118.44,
+          "score": 0
+        }
+      ],
+      "nearMisses": [
+        {
+          "symbol": "BLK",
+          "price": 1062.33,
+          "open": 1063.75,
+          "high": 1063.75,
+          "low": 1062.33,
+          "volume": 0,
+          "quoteVolume": 1595625000,
+          "macd": {
+            "macd": -3.1106591491516156,
+            "signal": -6.454480869205378,
+            "hist": 3.3438217200537625
+          },
+          "rsi": 52.05742540177656,
+          "ema50": 1065.847578336546,
+          "ema200": 1065.1880314206692,
+          "support": 1030.18994140625,
+          "resistance": 1111.0899658203125,
+          "direction": "HOLD",
+          "score": 40,
+          "strengthReasons": [
+            "Histogram accelerating upward",
+            "RSI in long-entry acceptance window",
+            "Long risk/reward acceptable at 1.52x"
+          ],
+          "blockReasons": [],
+          "deferReasons": [
+            "Bullish MACD structure detected, but crossover is stale",
+            "Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required)",
+            "Bullish MACD trigger rejected: MACD remains below zero line"
+          ]
+        },
+        {
+          "symbol": "VRTX",
+          "price": 433.04,
+          "open": 433.5400085449219,
+          "high": 433.5400085449219,
+          "low": 433.04,
+          "volume": 0,
+          "quoteVolume": 650310000,
+          "macd": {
+            "macd": -1.7626353236466343,
+            "signal": -2.486883840282865,
+            "hist": 0.7242485166362305
+          },
+          "rsi": 47.819264693191755,
+          "ema50": 435.6708933839109,
+          "ema200": 435.2961206051478,
+          "support": 430.25,
+          "resistance": 444.32000732421875,
+          "direction": "HOLD",
+          "score": 40,
+          "strengthReasons": [
+            "Histogram accelerating upward",
+            "RSI in long-entry acceptance window",
+            "Long risk/reward acceptable at 4.04x"
+          ],
+          "blockReasons": [],
+          "deferReasons": [
+            "Bullish MACD structure detected, but crossover is stale",
+            "Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required)",
+            "Bullish MACD trigger rejected: MACD remains below zero line"
+          ]
+        },
+        {
+          "symbol": "CPAY",
+          "price": 347.07,
+          "open": 347.4599914550781,
+          "high": 347.4599914550781,
+          "low": 347.07,
+          "volume": 0,
+          "quoteVolume": 521189999.99999994,
+          "macd": {
+            "macd": 2.460119728902953,
+            "signal": 2.8315241230035584,
+            "hist": -0.37140439410060555
+          },
+          "rsi": 54.635440389483826,
+          "ema50": 340.6311397547297,
+          "ema200": 328.1069368640619,
+          "support": 333.17999267578125,
+          "resistance": 354.9700012207031,
+          "direction": "HOLD",
+          "score": -40,
+          "strengthReasons": [
+            "Histogram accelerating downward",
+            "RSI in short-entry acceptance window",
+            "Short risk/reward acceptable at 1.76x"
+          ],
+          "blockReasons": [],
+          "deferReasons": [
+            "Bearish MACD structure detected, but crossover is stale",
+            "Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required)",
+            "Bearish MACD trigger rejected: MACD remains above zero line"
+          ]
+        },
+        {
+          "symbol": "GD",
+          "price": 338.33,
+          "open": 338.7099914550781,
+          "high": 338.7099914550781,
+          "low": 338.33,
+          "volume": 0,
+          "quoteVolume": 508064999.99999994,
+          "macd": {
+            "macd": -0.3727392823054174,
+            "signal": -0.2492871077544001,
+            "hist": -0.12345217455101731
+          },
+          "rsi": 43.25882424238599,
+          "ema50": 340.1769315265308,
+          "ema200": 338.5324078221873,
+          "support": 333.32000732421875,
+          "resistance": 343.4599914550781,
+          "direction": "HOLD",
+          "score": -40,
+          "strengthReasons": [
+            "MACD below zero line",
+            "Histogram accelerating downward",
+            "RSI in short-entry acceptance window"
+          ],
+          "blockReasons": [],
+          "deferReasons": [
+            "Bearish MACD structure detected, but crossover is stale",
+            "Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required)",
+            "Bearish MACD trigger rejected: short risk/reward 0.98x is below 1.50x minimum"
+          ]
+        },
+        {
+          "symbol": "AXP",
+          "price": 309.38,
+          "open": 309.70001220703125,
+          "high": 309.70001220703125,
+          "low": 309.38,
+          "volume": 0,
+          "quoteVolume": 464550000,
+          "macd": {
+            "macd": -0.6395231333540892,
+            "signal": -0.792899498756144,
+            "hist": 0.1533763654020548
+          },
+          "rsi": 46.167036625297634,
+          "ema50": 311.33423563002395,
+          "ema200": 316.27109247159,
+          "support": 307.760009765625,
+          "resistance": 315.6600036621094,
+          "direction": "HOLD",
+          "score": 40,
+          "strengthReasons": [
+            "Histogram accelerating upward",
+            "RSI in long-entry acceptance window",
+            "Long risk/reward acceptable at 3.88x"
+          ],
+          "blockReasons": [],
+          "deferReasons": [
+            "Bullish MACD structure detected, but crossover is stale",
+            "Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required)",
+            "Bullish MACD trigger rejected: MACD remains below zero line"
+          ]
+        },
+        {
+          "symbol": "TRGP",
+          "price": 269.97,
+          "open": 270.239990234375,
+          "high": 270.239990234375,
+          "low": 269.97,
+          "volume": 0,
+          "quoteVolume": 405360000,
+          "macd": {
+            "macd": -0.01285678890400277,
+            "signal": 0.595459886177355,
+            "hist": -0.6083166750813578
+          },
+          "rsi": 45.104621899053434,
+          "ema50": 268.9395463766153,
+          "ema200": 257.27111234367226,
+          "support": 268.760009765625,
+          "resistance": 280,
+          "direction": "HOLD",
+          "score": -40,
+          "strengthReasons": [
+            "MACD below zero line",
+            "Histogram accelerating downward",
+            "RSI in short-entry acceptance window"
+          ],
+          "blockReasons": [],
+          "deferReasons": [
+            "Bearish MACD structure detected, but crossover is stale",
+            "Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required)",
+            "Bearish MACD trigger rejected: short risk/reward 0.12x is below 1.50x minimum"
+          ]
+        },
+        {
+          "symbol": "WTW",
+          "price": 257.98,
+          "open": 258.2300109863281,
+          "high": 258.2300109863281,
+          "low": 257.98,
+          "volume": 0,
+          "quoteVolume": 387345000,
+          "macd": {
+            "macd": 1.1788168461494308,
+            "signal": 0.887874699995128,
+            "hist": 0.2909421461543028
+          },
+          "rsi": 62.91707757109618,
+          "ema50": 254.46677070452304,
+          "ema200": 263.7281231273839,
+          "support": 249.33999633789062,
+          "resistance": 261.4800109863281,
+          "direction": "HOLD",
+          "score": 40,
+          "strengthReasons": [
+            "MACD above zero line",
+            "Histogram accelerating upward",
+            "RSI in long-entry acceptance window"
+          ],
+          "blockReasons": [],
+          "deferReasons": [
+            "Bullish MACD structure detected, but crossover is stale",
+            "Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required)",
+            "Bullish MACD trigger rejected: risk/reward 0.41x is below 1.50x minimum"
+          ]
+        },
+        {
+          "symbol": "NVDA",
+          "price": 219.31,
+          "open": 219.50999450683594,
+          "high": 219.50999450683594,
+          "low": 219.31,
+          "volume": 0,
+          "quoteVolume": 329265000,
+          "macd": {
+            "macd": -1.1134505910652592,
+            "signal": -0.8919490353708877,
+            "hist": -0.22150155569437158
+          },
+          "rsi": 41.74344478072511,
+          "ema50": 221.70534615981512,
+          "ema200": 213.75112313054467,
+          "support": 217.91000366210938,
+          "resistance": 236.5399932861328,
+          "direction": "HOLD",
+          "score": -40,
+          "strengthReasons": [
+            "MACD below zero line",
+            "Histogram accelerating downward",
+            "RSI in short-entry acceptance window"
+          ],
+          "blockReasons": [],
+          "deferReasons": [
+            "Bearish MACD structure detected, but crossover is stale",
+            "Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required)",
+            "Bearish MACD trigger rejected: short risk/reward 0.08x is below 1.50x minimum"
+          ]
+        },
+        {
+          "symbol": "EXPE",
+          "price": 217.92,
+          "open": 218.1199951171875,
+          "high": 218.1199951171875,
+          "low": 217.92,
+          "volume": 0,
+          "quoteVolume": 327180000,
+          "macd": {
+            "macd": -0.09268904762114971,
+            "signal": -0.5895235815556802,
+            "hist": 0.4968345339345305
+          },
+          "rsi": 52.89462727290644,
+          "ema50": 219.21606011071202,
+          "ema200": 233.92890640960928,
+          "support": 214.34500122070312,
+          "resistance": 223.7799072265625,
+          "direction": "HOLD",
+          "score": 40,
+          "strengthReasons": [
+            "Histogram accelerating upward",
+            "RSI in long-entry acceptance window",
+            "Long risk/reward acceptable at 1.64x"
+          ],
+          "blockReasons": [],
+          "deferReasons": [
+            "Bullish MACD structure detected, but crossover is stale",
+            "Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required)",
+            "Bullish MACD trigger rejected: MACD remains below zero line"
+          ]
+        },
+        {
+          "symbol": "STE",
+          "price": 219.47,
+          "open": 219.6699981689453,
+          "high": 219.6699981689453,
+          "low": 219.47,
+          "volume": 0,
+          "quoteVolume": 329505000,
+          "macd": {
+            "macd": 1.2267260827390203,
+            "signal": 0.8600346472907275,
+            "hist": 0.36669143544829275
+          },
+          "rsi": 65.8616022028092,
+          "ema50": 214.8654250721129,
+          "ema200": 215.59151377868014,
+          "support": 209.3300018310547,
+          "resistance": 219.8000030517578,
+          "direction": "HOLD",
+          "score": 40,
+          "strengthReasons": [
+            "MACD above zero line",
+            "Histogram accelerating upward",
+            "RSI in long-entry acceptance window"
+          ],
+          "blockReasons": [],
+          "deferReasons": [
+            "Bullish MACD structure detected, but crossover is stale",
+            "Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required)",
+            "Bullish MACD trigger rejected: risk/reward 0.03x is below 1.50x minimum"
+          ]
+        }
+      ]
+    },
     {
       "summary": {
         "timestamp": "5/22/2026, 7:47:24 AM",
@@ -66179,2392 +68329,6 @@
           ]
         }
       ]
-    },
-    {
-      "summary": {
-        "timestamp": "5/22/2026, 7:18:33 AM",
-        "unix": 1779414513882,
-        "totalMarkets": 524,
-        "futuresUSDTCount": 524,
-        "analyzedCount": 300,
-        "buyCount": 7,
-        "sellCount": 5,
-        "holdCount": 288,
-        "blockedCount": 0,
-        "deferredCount": 288,
-        "logs": [
-          "[01:48:25] Starting discovery-scan sequence for Wall Street large-cap stocks...",
-          "[01:48:25] Using cached US index universe (526 symbols loaded).",
-          "[01:48:25] Fetching Wall Street prices from Yahoo Finance Spark API (https://query1.finance.yahoo.com)...",
-          "[01:48:29] Successfully synced 524 US equities using Yahoo Finance Spark API.",
-          "[01:48:29] Filtered out 0 symbols before evaluation due to liquidity filter < 1.0M",
-          "[01:48:29] Broad universe liquid assets count: 524",
-          "[01:48:29] Conducting parallel technical scans on Top 300 high-activity symbols...",
-          "[01:48:33] Analysis finished: 300 assets finalized. BUY: 7, SELL: 5, HOLD: 288"
-        ]
-      },
-      "rankedSignals": [
-        {
-          "symbol": "SPGI",
-          "price": 414.07,
-          "open": 415.7300109863281,
-          "high": 415.7300109863281,
-          "low": 414.07,
-          "volume": 0,
-          "quoteVolume": 623595000,
-          "macd": {
-            "macd": 0.6518293759991707,
-            "signal": 0.6611243306538339,
-            "hist": -0.009294954654663234
-          },
-          "rsi": 49.546191303704056,
-          "ema50": 414.70886561080073,
-          "ema200": 422.6551752467192,
-          "support": 403.79998779296875,
-          "resistance": 422.5,
-          "direction": "SELL",
-          "score": -80,
-          "strengthReasons": [
-            "Negative MACD momentum",
-            "Bearish MACD crossover (recent)",
-            "Long-term bearish trend regime (Price < EMA50 < EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": []
-        },
-        {
-          "symbol": "LH",
-          "price": 254.73,
-          "open": 255.75,
-          "high": 255.75,
-          "low": 254.73,
-          "volume": 0,
-          "quoteVolume": 383625000,
-          "macd": {
-            "macd": 0.16988623913354672,
-            "signal": 0.1785073665607886,
-            "hist": -0.008621127427241887
-          },
-          "rsi": 49.610002908975034,
-          "ema50": 254.87705060362563,
-          "ema200": 257.90035759385376,
-          "support": 250,
-          "resistance": 257.0799865722656,
-          "direction": "SELL",
-          "score": -80,
-          "strengthReasons": [
-            "Negative MACD momentum",
-            "Bearish MACD crossover (recent)",
-            "Long-term bearish trend regime (Price < EMA50 < EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": []
-        },
-        {
-          "symbol": "DASH",
-          "price": 158.64,
-          "open": 159.27000427246094,
-          "high": 159.27000427246094,
-          "low": 158.64,
-          "volume": 0,
-          "quoteVolume": 238905000.00000003,
-          "macd": {
-            "macd": 0.46441912216769765,
-            "signal": 0.46794967777690993,
-            "hist": -0.0035305556092122825
-          },
-          "rsi": 48.89114051965382,
-          "ema50": 159.13452012826545,
-          "ema200": 164.85590354963955,
-          "support": 148.00999450683594,
-          "resistance": 163.97000122070312,
-          "direction": "SELL",
-          "score": -80,
-          "strengthReasons": [
-            "Negative MACD momentum",
-            "Bearish MACD crossover (recent)",
-            "Long-term bearish trend regime (Price < EMA50 < EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": []
-        },
-        {
-          "symbol": "SBAC",
-          "price": 207.25,
-          "open": 208.07000732421875,
-          "high": 208.07000732421875,
-          "low": 207.25,
-          "volume": 0,
-          "quoteVolume": 312105000,
-          "macd": {
-            "macd": 0.7030564916824744,
-            "signal": 0.8173669246284854,
-            "hist": -0.11431043294601095
-          },
-          "rsi": 50.489483408596755,
-          "ema50": 207.66574027214588,
-          "ema200": 212.77513903121732,
-          "support": 199.9199981689453,
-          "resistance": 209.36000061035156,
-          "direction": "SELL",
-          "score": -55,
-          "strengthReasons": [
-            "Negative MACD momentum",
-            "Long-term bearish trend regime (Price < EMA50 < EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": []
-        },
-        {
-          "symbol": "SPY",
-          "price": 739.75,
-          "open": 742.719970703125,
-          "high": 742.719970703125,
-          "low": 739.75,
-          "volume": 0,
-          "quoteVolume": 1114080000,
-          "macd": {
-            "macd": 0.9123093594042757,
-            "signal": 0.5503359523731585,
-            "hist": 0.36197340703111724
-          },
-          "rsi": 50.40312242395373,
-          "ema50": 738.5578508490196,
-          "ema200": 727.6967267033684,
-          "support": 731.530029296875,
-          "resistance": 749.530029296875,
-          "direction": "BUY",
-          "score": 45,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": []
-        },
-        {
-          "symbol": "VOO",
-          "price": 680.11,
-          "open": 682.8400268554688,
-          "high": 682.8400268554688,
-          "low": 680.11,
-          "volume": 0,
-          "quoteVolume": 1024260000,
-          "macd": {
-            "macd": 0.8375168509840023,
-            "signal": 0.5051287428727804,
-            "hist": 0.3323881081112219
-          },
-          "rsi": 50.449025733926526,
-          "ema50": 678.9981544179299,
-          "ema200": 669.0082609641988,
-          "support": 672.5499877929688,
-          "resistance": 689.0999755859375,
-          "direction": "BUY",
-          "score": 45,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": []
-        },
-        {
-          "symbol": "SNPS",
-          "price": 501.97,
-          "open": 503.9800109863281,
-          "high": 503.9800109863281,
-          "low": 501.97,
-          "volume": 0,
-          "quoteVolume": 755970000,
-          "macd": {
-            "macd": 1.3075433815711222,
-            "signal": -0.12012051895289433,
-            "hist": 1.4276639005240166
-          },
-          "rsi": 55.49384415378607,
-          "ema50": 499.39969114471154,
-          "ema200": 491.11349456720023,
-          "support": 502.28900146484375,
-          "resistance": 504.7300109863281,
-          "direction": "BUY",
-          "score": 45,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": []
-        },
-        {
-          "symbol": "APP",
-          "price": 483.95,
-          "open": 485.8900146484375,
-          "high": 485.8900146484375,
-          "low": 483.95,
-          "volume": 0,
-          "quoteVolume": 728835000,
-          "macd": {
-            "macd": 1.1816757082598315,
-            "signal": 0.7854026005282507,
-            "hist": 0.39627310773158075
-          },
-          "rsi": 49.86728976708707,
-          "ema50": 482.1320288980945,
-          "ema200": 471.2122865608433,
-          "support": 461,
-          "resistance": 515.3900146484375,
-          "direction": "BUY",
-          "score": 45,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": []
-        },
-        {
-          "symbol": "COR",
-          "price": 264.38,
-          "open": 265.44000244140625,
-          "high": 265.44000244140625,
-          "low": 264.38,
-          "volume": 0,
-          "quoteVolume": 398160000,
-          "macd": {
-            "macd": 0.3718860214946744,
-            "signal": 0.5717928358909184,
-            "hist": -0.19990681439624403
-          },
-          "rsi": 51.801864436420416,
-          "ema50": 264.4512914249023,
-          "ema200": 280.3449975815046,
-          "support": 255.07000732421875,
-          "resistance": 268.8699951171875,
-          "direction": "SELL",
-          "score": -45,
-          "strengthReasons": [
-            "Negative MACD momentum",
-            "Long-term bearish trend regime (Price < EMA50 < EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": []
-        },
-        {
-          "symbol": "ORCL",
-          "price": 189.02,
-          "open": 189.77000427246094,
-          "high": 189.77000427246094,
-          "low": 189.02,
-          "volume": 0,
-          "quoteVolume": 284655000,
-          "macd": {
-            "macd": 0.7424215183322929,
-            "signal": 0.10018297043926222,
-            "hist": 0.6422385478930306
-          },
-          "rsi": 54.29718974488786,
-          "ema50": 187.901209636648,
-          "ema200": 183.08481231858877,
-          "support": 178.8000030517578,
-          "resistance": 200.70899963378906,
-          "direction": "BUY",
-          "score": 45,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": []
-        },
-        {
-          "symbol": "AKAM",
-          "price": 145.67,
-          "open": 146.24000549316406,
-          "high": 146.24000549316406,
-          "low": 145.67,
-          "volume": 0,
-          "quoteVolume": 219360000,
-          "macd": {
-            "macd": -0.5643100665361374,
-            "signal": -1.1898262811422893,
-            "hist": 0.6255162146061519
-          },
-          "rsi": 50.73793029410141,
-          "ema50": 144.83758675414,
-          "ema200": 127.61072125606375,
-          "support": 138.10000610351562,
-          "resistance": 165.4499969482422,
-          "direction": "BUY",
-          "score": 45,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": []
-        },
-        {
-          "symbol": "ARES",
-          "price": 123.51,
-          "open": 123.98999786376953,
-          "high": 123.98999786376953,
-          "low": 123.51,
-          "volume": 0,
-          "quoteVolume": 185985000,
-          "macd": {
-            "macd": 0.02214888698117079,
-            "signal": -0.18906892489114271,
-            "hist": 0.2112178118723135
-          },
-          "rsi": 51.13588757042429,
-          "ema50": 123.40372785986659,
-          "ema200": 121.05280369578985,
-          "support": 120.11000061035156,
-          "resistance": 129.35000610351562,
-          "direction": "BUY",
-          "score": 45,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": []
-        }
-      ],
-      "blockedSignals": [],
-      "deferredSignals": [
-        {
-          "symbol": "NVR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 6023.68,
-          "score": 10
-        },
-        {
-          "symbol": "MELI",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 1671.19,
-          "score": 10
-        },
-        {
-          "symbol": "FIX",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 1827.99,
-          "score": 10
-        },
-        {
-          "symbol": "KLAC",
-          "reason": "Poor Risk/Reward Ratio: 0.53x (Target lies too close to resistance)",
-          "price": 1834.81,
-          "score": 23
-        },
-        {
-          "symbol": "GWW",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 1234.3,
-          "score": -15
-        },
-        {
-          "symbol": "AZO",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 3424.43,
-          "score": 10
-        },
-        {
-          "symbol": "ASML",
-          "reason": "Poor Risk/Reward Ratio: 0.12x (Target lies too close to resistance)",
-          "price": 1585.63,
-          "score": 23
-        },
-        {
-          "symbol": "FICO",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 1223.19,
-          "score": -5
-        },
-        {
-          "symbol": "MPWR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 1555.01,
-          "score": 10
-        },
-        {
-          "symbol": "SNDK",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 1536.07,
-          "score": 30
-        },
-        {
-          "symbol": "TDG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 1204.48,
-          "score": 10
-        },
-        {
-          "symbol": "LITE",
-          "reason": "Poor Risk/Reward Ratio: 0.14x (Target lies too close to resistance)",
-          "price": 960.64,
-          "score": 23
-        },
-        {
-          "symbol": "URI",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 928.45,
-          "score": 10
-        },
-        {
-          "symbol": "GEV",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 1039.64,
-          "score": 10
-        },
-        {
-          "symbol": "MTD",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 1086.09,
-          "score": 10
-        },
-        {
-          "symbol": "COST",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 1046.25,
-          "score": -10
-        },
-        {
-          "symbol": "BLK",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 1059.5,
-          "score": 10
-        },
-        {
-          "symbol": "EQIX",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 1074.11,
-          "score": 10
-        },
-        {
-          "symbol": "GS",
-          "reason": "Poor Risk/Reward Ratio: 0.36x (Target lies too close to resistance)",
-          "price": 984.22,
-          "score": 23
-        },
-        {
-          "symbol": "LLY",
-          "reason": "Poor Risk/Reward Ratio: 0.17x (Target lies too close to resistance)",
-          "price": 1037.48,
-          "score": 23
-        },
-        {
-          "symbol": "MCK",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 763.43,
-          "score": 15
-        },
-        {
-          "symbol": "EME",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 845.8,
-          "score": -5
-        },
-        {
-          "symbol": "CAT",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 862.49,
-          "score": 10
-        },
-        {
-          "symbol": "STX",
-          "reason": "Poor Risk/Reward Ratio: 0.28x (Target lies too close to resistance)",
-          "price": 807.22,
-          "score": 23
-        },
-        {
-          "symbol": "PH",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 861.27,
-          "score": -5
-        },
-        {
-          "symbol": "MU",
-          "reason": "Poor Risk/Reward Ratio: 0.05x (Target lies too close to resistance)",
-          "price": 759.05,
-          "score": 23
-        },
-        {
-          "symbol": "CASY",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 821.5,
-          "score": -10
-        },
-        {
-          "symbol": "QQQ",
-          "reason": "Poor Risk/Reward Ratio: 0.63x (Target lies too close to resistance)",
-          "price": 711.65,
-          "score": 23
-        },
-        {
-          "symbol": "PWR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 714.04,
-          "score": 10
-        },
-        {
-          "symbol": "IDXX",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 550.86,
-          "score": -27
-        },
-        {
-          "symbol": "NOC",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.68x (Target lies too close to support)",
-          "price": 549.37,
-          "score": -27
-        },
-        {
-          "symbol": "META",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 604.95,
-          "score": -5
-        },
-        {
-          "symbol": "CIEN",
-          "reason": "Poor Risk/Reward Ratio: 0.08x (Target lies too close to resistance)",
-          "price": 584.88,
-          "score": 23
-        },
-        {
-          "symbol": "CMI",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 636.23,
-          "score": -10
-        },
-        {
-          "symbol": "CRWD",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 645.64,
-          "score": -5
-        },
-        {
-          "symbol": "TDY",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.08x (Target lies too close to support)",
-          "price": 604.69,
-          "score": -22
-        },
-        {
-          "symbol": "REGN",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 640.02,
-          "score": -5
-        },
-        {
-          "symbol": "MSCI",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 580.01,
-          "score": -15
-        },
-        {
-          "symbol": "LIN",
-          "reason": "Poor Risk/Reward Ratio: 0.20x (Target lies too close to resistance)",
-          "price": 512.45,
-          "score": 23
-        },
-        {
-          "symbol": "ULTA",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 502.04,
-          "score": 10
-        },
-        {
-          "symbol": "DIA",
-          "reason": "Poor Risk/Reward Ratio: 0.12x (Target lies too close to resistance)",
-          "price": 501.1,
-          "score": 23
-        },
-        {
-          "symbol": "MLM",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 535.82,
-          "score": -5
-        },
-        {
-          "symbol": "WDC",
-          "reason": "Poor Risk/Reward Ratio: 0.46x (Target lies too close to resistance)",
-          "price": 484.52,
-          "score": 23
-        },
-        {
-          "symbol": "LMT",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.87x (Target lies too close to support)",
-          "price": 520.7,
-          "score": -27
-        },
-        {
-          "symbol": "DE",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.37x (Target lies too close to support)",
-          "price": 529.23,
-          "score": -22
-        },
-        {
-          "symbol": "MA",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.63x (Target lies too close to support)",
-          "price": 497.62,
-          "score": -40
-        },
-        {
-          "symbol": "HUBB",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 459.14,
-          "score": -5
-        },
-        {
-          "symbol": "BRK-B",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 478.06,
-          "score": -15
-        },
-        {
-          "symbol": "AMD",
-          "reason": "Poor Risk/Reward Ratio: 0.06x (Target lies too close to resistance)",
-          "price": 447.79,
-          "score": 23
-        },
-        {
-          "symbol": "TMO",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 447.57,
-          "score": -5
-        },
-        {
-          "symbol": "LII",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.18x (Target lies too close to support)",
-          "price": 478.59,
-          "score": -27
-        },
-        {
-          "symbol": "ISRG",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.30x (Target lies too close to support)",
-          "price": 438.04,
-          "score": -27
-        },
-        {
-          "symbol": "TT",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 445.85,
-          "score": -5
-        },
-        {
-          "symbol": "MCO",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 443.59,
-          "score": 10
-        },
-        {
-          "symbol": "AMP",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.34x (Target lies too close to support)",
-          "price": 448.77,
-          "score": -22
-        },
-        {
-          "symbol": "ROK",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 438.49,
-          "score": 10
-        },
-        {
-          "symbol": "MSI",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 398.64,
-          "score": 5
-        },
-        {
-          "symbol": "TPL",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 395.39,
-          "score": -15
-        },
-        {
-          "symbol": "HCA",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 390.99,
-          "score": 20
-        },
-        {
-          "symbol": "MSFT",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 417.42,
-          "score": -15
-        },
-        {
-          "symbol": "TSLA",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 416.18,
-          "score": 10
-        },
-        {
-          "symbol": "AVGO",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 412.91,
-          "score": -27
-        },
-        {
-          "symbol": "VRTX",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 431.81,
-          "score": 10
-        },
-        {
-          "symbol": "AMAT",
-          "reason": "Poor Risk/Reward Ratio: 0.81x (Target lies too close to resistance)",
-          "price": 425.65,
-          "score": 23
-        },
-        {
-          "symbol": "AXON",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.24x (Target lies too close to support)",
-          "price": 388.28,
-          "score": -27
-        },
-        {
-          "symbol": "FFIV",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 382.17,
-          "score": -5
-        },
-        {
-          "symbol": "ELV",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 388.26,
-          "score": -10
-        },
-        {
-          "symbol": "RL",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 373.4,
-          "score": -5
-        },
-        {
-          "symbol": "ADI",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 382.68,
-          "score": -10
-        },
-        {
-          "symbol": "UNH",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 380.95,
-          "score": -15
-        },
-        {
-          "symbol": "ETN",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 379.99,
-          "score": -5
-        },
-        {
-          "symbol": "GOOG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 381.94,
-          "score": 10
-        },
-        {
-          "symbol": "COHR",
-          "reason": "Poor Risk/Reward Ratio: 0.92x (Target lies too close to resistance)",
-          "price": 376.49,
-          "score": 23
-        },
-        {
-          "symbol": "GOOGL",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 386.11,
-          "score": 10
-        },
-        {
-          "symbol": "FDX",
-          "reason": "Poor Risk/Reward Ratio: 0.24x (Target lies too close to resistance)",
-          "price": 387.36,
-          "score": 23
-        },
-        {
-          "symbol": "CDNS",
-          "reason": "Poor Risk/Reward Ratio: 0.20x (Target lies too close to resistance)",
-          "price": 357.03,
-          "score": 23
-        },
-        {
-          "symbol": "TER",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 352.03,
-          "score": 10
-        },
-        {
-          "symbol": "JBL",
-          "reason": "Poor Risk/Reward Ratio: 0.19x (Target lies too close to resistance)",
-          "price": 354.99,
-          "score": 23
-        },
-        {
-          "symbol": "EG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 355.03,
-          "score": -15
-        },
-        {
-          "symbol": "GD",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 337.36,
-          "score": -15
-        },
-        {
-          "symbol": "CPAY",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 346.07,
-          "score": -5
-        },
-        {
-          "symbol": "MAR",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 369.08,
-          "score": -5
-        },
-        {
-          "symbol": "VTI",
-          "reason": "Poor Risk/Reward Ratio: 0.96x (Target lies too close to resistance)",
-          "price": 363.63,
-          "score": 23
-        },
-        {
-          "symbol": "WAT",
-          "reason": "Poor Risk/Reward Ratio: 0.29x (Target lies too close to resistance)",
-          "price": 339.63,
-          "score": 23
-        },
-        {
-          "symbol": "SNA",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 360.86,
-          "score": -5
-        },
-        {
-          "symbol": "CB",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 328.94,
-          "score": -5
-        },
-        {
-          "symbol": "AMGN",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 336.07,
-          "score": 10
-        },
-        {
-          "symbol": "HII",
-          "reason": "Late MACD Short-entry (RSI is low: 25.6)",
-          "price": 316.28,
-          "score": -12
-        },
-        {
-          "symbol": "KEYS",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 336.2,
-          "score": 5
-        },
-        {
-          "symbol": "ROP",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 322.79,
-          "score": 30
-        },
-        {
-          "symbol": "AON",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 322.93,
-          "score": -5
-        },
-        {
-          "symbol": "HLT",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 321.47,
-          "score": -27
-        },
-        {
-          "symbol": "VRT",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 322.11,
-          "score": 10
-        },
-        {
-          "symbol": "DPZ",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 315.21,
-          "score": -15
-        },
-        {
-          "symbol": "V",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 329.8,
-          "score": -5
-        },
-        {
-          "symbol": "AXP",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 308.47,
-          "score": -5
-        },
-        {
-          "symbol": "NSC",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 310.2,
-          "score": -10
-        },
-        {
-          "symbol": "SHW",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 308.11,
-          "score": 10
-        },
-        {
-          "symbol": "HD",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 312.53,
-          "score": 10
-        },
-        {
-          "symbol": "SYK",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 312.25,
-          "score": -15
-        },
-        {
-          "symbol": "WST",
-          "reason": "Late MACD entry (RSI is high: 68.4)",
-          "price": 314.87,
-          "score": 14
-        },
-        {
-          "symbol": "LHX",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.28x (Target lies too close to support)",
-          "price": 305.11,
-          "score": -27
-        },
-        {
-          "symbol": "INTU",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 305.85,
-          "score": -30
-        },
-        {
-          "symbol": "TYL",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.56x (Target lies too close to support)",
-          "price": 307.51,
-          "score": -22
-        },
-        {
-          "symbol": "TRV",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 306.01,
-          "score": -5
-        },
-        {
-          "symbol": "VRSN",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 304.71,
-          "score": -5
-        },
-        {
-          "symbol": "PSA",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 303.78,
-          "score": 10
-        },
-        {
-          "symbol": "HUM",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 302.47,
-          "score": 5
-        },
-        {
-          "symbol": "NXPI",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 298.19,
-          "score": -5
-        },
-        {
-          "symbol": "TXN",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 297.2,
-          "score": -10
-        },
-        {
-          "symbol": "ALNY",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 299.31,
-          "score": 10
-        },
-        {
-          "symbol": "LRCX",
-          "reason": "Poor Risk/Reward Ratio: 0.03x (Target lies too close to resistance)",
-          "price": 301.04,
-          "score": 23
-        },
-        {
-          "symbol": "JPM",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 301.79,
-          "score": 10
-        },
-        {
-          "symbol": "AAPL",
-          "reason": "Poor Risk/Reward Ratio: 0.20x (Target lies too close to resistance)",
-          "price": 303.78,
-          "score": 23
-        },
-        {
-          "symbol": "GE",
-          "reason": "Poor Risk/Reward Ratio: 0.12x (Target lies too close to resistance)",
-          "price": 300.56,
-          "score": 23
-        },
-        {
-          "symbol": "NDSN",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 285.63,
-          "score": 10
-        },
-        {
-          "symbol": "ESS",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 272.71,
-          "score": -5
-        },
-        {
-          "symbol": "ARM",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 297.04,
-          "score": 30
-        },
-        {
-          "symbol": "CME",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 288.14,
-          "score": -10
-        },
-        {
-          "symbol": "CEG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 284.69,
-          "score": 10
-        },
-        {
-          "symbol": "IWM",
-          "reason": "Poor Risk/Reward Ratio: 0.40x (Target lies too close to resistance)",
-          "price": 281.37,
-          "score": 23
-        },
-        {
-          "symbol": "MCD",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 283.05,
-          "score": 10
-        },
-        {
-          "symbol": "TRGP",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 269.16,
-          "score": -5
-        },
-        {
-          "symbol": "APD",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 289.04,
-          "score": -5
-        },
-        {
-          "symbol": "CI",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 280.9,
-          "score": -15
-        },
-        {
-          "symbol": "JBHT",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 258.2,
-          "score": -5
-        },
-        {
-          "symbol": "RCL",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 259.28,
-          "score": 10
-        },
-        {
-          "symbol": "WTW",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 257.2,
-          "score": 10
-        },
-        {
-          "symbol": "VMC",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 261.04,
-          "score": -5
-        },
-        {
-          "symbol": "AMZN",
-          "reason": "Poor Risk/Reward Ratio: 0.52x (Target lies too close to resistance)",
-          "price": 267.39,
-          "score": 23
-        },
-        {
-          "symbol": "HWM",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 258.86,
-          "score": 10
-        },
-        {
-          "symbol": "UNP",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 264.38,
-          "score": -10
-        },
-        {
-          "symbol": "AIZ",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 254.68,
-          "score": 5
-        },
-        {
-          "symbol": "GNRC",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 246.8,
-          "score": 10
-        },
-        {
-          "symbol": "ADBE",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 243.13,
-          "score": -10
-        },
-        {
-          "symbol": "FSLR",
-          "reason": "Poor Risk/Reward Ratio: 0.36x (Target lies too close to resistance)",
-          "price": 247.89,
-          "score": 23
-        },
-        {
-          "symbol": "ECL",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 249.19,
-          "score": -5
-        },
-        {
-          "symbol": "WAB",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.05x (Target lies too close to support)",
-          "price": 254.15,
-          "score": -27
-        },
-        {
-          "symbol": "ITW",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 248.94,
-          "score": -5
-        },
-        {
-          "symbol": "DELL",
-          "reason": "Poor Risk/Reward Ratio: 0.36x (Target lies too close to resistance)",
-          "price": 251.8,
-          "score": 23
-        },
-        {
-          "symbol": "PANW",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 251.91,
-          "score": -30
-        },
-        {
-          "symbol": "MPC",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 247.44,
-          "score": -15
-        },
-        {
-          "symbol": "IBM",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 251.96,
-          "score": -5
-        },
-        {
-          "symbol": "NUE",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 225.54,
-          "score": 10
-        },
-        {
-          "symbol": "ERIE",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 223.84,
-          "score": -15
-        },
-        {
-          "symbol": "GRMN",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 238.83,
-          "score": 10
-        },
-        {
-          "symbol": "ADSK",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 239.24,
-          "score": -10
-        },
-        {
-          "symbol": "STLD",
-          "reason": "Poor Risk/Reward Ratio: 0.66x (Target lies too close to resistance)",
-          "price": 230.92,
-          "score": 23
-        },
-        {
-          "symbol": "FDS",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 224.12,
-          "score": -15
-        },
-        {
-          "symbol": "JNJ",
-          "reason": "Poor Risk/Reward Ratio: 0.24x (Target lies too close to resistance)",
-          "price": 230.81,
-          "score": 23
-        },
-        {
-          "symbol": "TTWO",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 237.13,
-          "score": -30
-        },
-        {
-          "symbol": "ZBRA",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 241.3,
-          "score": 28
-        },
-        {
-          "symbol": "VLO",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 240.13,
-          "score": 5
-        },
-        {
-          "symbol": "EXPE",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 217.25,
-          "score": -5
-        },
-        {
-          "symbol": "PNC",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 217.5,
-          "score": 10
-        },
-        {
-          "symbol": "STE",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 218.8,
-          "score": 10
-        },
-        {
-          "symbol": "ADP",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 219.2,
-          "score": -5
-        },
-        {
-          "symbol": "HON",
-          "reason": "Poor Risk/Reward Ratio: 0.29x (Target lies too close to resistance)",
-          "price": 222.91,
-          "score": 23
-        },
-        {
-          "symbol": "WM",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.33x (Target lies too close to support)",
-          "price": 216.89,
-          "score": -22
-        },
-        {
-          "symbol": "DDOG",
-          "reason": "Poor Risk/Reward Ratio: 0.42x (Target lies too close to resistance)",
-          "price": 217.17,
-          "score": 23
-        },
-        {
-          "symbol": "AME",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 222.28,
-          "score": -5
-        },
-        {
-          "symbol": "NVDA",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 218.64,
-          "score": -15
-        },
-        {
-          "symbol": "BA",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 218.74,
-          "score": -5
-        },
-        {
-          "symbol": "MTB",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 211.49,
-          "score": 10
-        },
-        {
-          "symbol": "PKG",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 212.91,
-          "score": -5
-        },
-        {
-          "symbol": "WELL",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 215.15,
-          "score": -15
-        },
-        {
-          "symbol": "ABBV",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 213.65,
-          "score": -30
-        },
-        {
-          "symbol": "QCOM",
-          "reason": "Poor Risk/Reward Ratio: 0.07x (Target lies too close to resistance)",
-          "price": 212.56,
-          "score": 23
-        },
-        {
-          "symbol": "ALL",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 213.59,
-          "score": 5
-        },
-        {
-          "symbol": "RSG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 207.26,
-          "score": 0
-        },
-        {
-          "symbol": "ROST",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 216.33,
-          "score": -15
-        },
-        {
-          "symbol": "LOW",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 216.55,
-          "score": -5
-        },
-        {
-          "symbol": "RMD",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 208.15,
-          "score": -15
-        },
-        {
-          "symbol": "SPG",
-          "reason": "Poor Risk/Reward Ratio: 0.28x (Target lies too close to resistance)",
-          "price": 204.09,
-          "score": 23
-        },
-        {
-          "symbol": "TEL",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 201.77,
-          "score": -5
-        },
-        {
-          "symbol": "ODFL",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 206.87,
-          "score": -15
-        },
-        {
-          "symbol": "IEX",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.39x (Target lies too close to support)",
-          "price": 204.8,
-          "score": -40
-        },
-        {
-          "symbol": "AJG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 206.59,
-          "score": 10
-        },
-        {
-          "symbol": "FANG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 200.17,
-          "score": -10
-        },
-        {
-          "symbol": "EA",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.44x (Target lies too close to support)",
-          "price": 201.07,
-          "score": -40
-        },
-        {
-          "symbol": "DOV",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 206.95,
-          "score": -5
-        },
-        {
-          "symbol": "CAH",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 199.82,
-          "score": 5
-        },
-        {
-          "symbol": "DVA",
-          "reason": "Poor Risk/Reward Ratio: 1.10x (Target lies too close to resistance)",
-          "price": 197.87,
-          "score": 23
-        },
-        {
-          "symbol": "DGX",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 193.05,
-          "score": -15
-        },
-        {
-          "symbol": "DRI",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 196.29,
-          "score": -27
-        },
-        {
-          "symbol": "COIN",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 192.79,
-          "score": -5
-        },
-        {
-          "symbol": "MS",
-          "reason": "Poor Risk/Reward Ratio: 0.12x (Target lies too close to resistance)",
-          "price": 199.72,
-          "score": 23
-        },
-        {
-          "symbol": "DLR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 193.5,
-          "score": 10
-        },
-        {
-          "symbol": "PGR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 198.18,
-          "score": -15
-        },
-        {
-          "symbol": "GLW",
-          "reason": "Poor Risk/Reward Ratio: 0.97x (Target lies too close to resistance)",
-          "price": 191.13,
-          "score": 23
-        },
-        {
-          "symbol": "TKO",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 190.87,
-          "score": -15
-        },
-        {
-          "symbol": "WSM",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 191.18,
-          "score": -5
-        },
-        {
-          "symbol": "COF",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 185.92,
-          "score": 15
-        },
-        {
-          "symbol": "MRVL",
-          "reason": "Poor Risk/Reward Ratio: 0.08x (Target lies too close to resistance)",
-          "price": 189.94,
-          "score": 23
-        },
-        {
-          "symbol": "HSY",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 189.64,
-          "score": -15
-        },
-        {
-          "symbol": "BIIB",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 188.72,
-          "score": 10
-        },
-        {
-          "symbol": "AMT",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 183.05,
-          "score": -5
-        },
-        {
-          "symbol": "PM",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 187.72,
-          "score": -5
-        },
-        {
-          "symbol": "CVX",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 190.26,
-          "score": -10
-        },
-        {
-          "symbol": "AVB",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 183.38,
-          "score": -10
-        },
-        {
-          "symbol": "TMUS",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 1.04x (Target lies too close to support)",
-          "price": 190.15,
-          "score": -27
-        },
-        {
-          "symbol": "POOL",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 180.97,
-          "score": 10
-        },
-        {
-          "symbol": "RTX",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 175.29,
-          "score": -5
-        },
-        {
-          "symbol": "DHR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 172.65,
-          "score": 10
-        },
-        {
-          "symbol": "CTAS",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 171.68,
-          "score": -15
-        },
-        {
-          "symbol": "XLK",
-          "reason": "Poor Risk/Reward Ratio: 0.33x (Target lies too close to resistance)",
-          "price": 177.9,
-          "score": 23
-        },
-        {
-          "symbol": "PSX",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 173.36,
-          "score": -10
-        },
-        {
-          "symbol": "ATO",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 176.76,
-          "score": 5
-        },
-        {
-          "symbol": "CHRW",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 177.43,
-          "score": -15
-        },
-        {
-          "symbol": "CRM",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.95x (Target lies too close to support)",
-          "price": 175.61,
-          "score": -22
-        },
-        {
-          "symbol": "ACN",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 177.17,
-          "score": -15
-        },
-        {
-          "symbol": "CINF",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 167.71,
-          "score": -5
-        },
-        {
-          "symbol": "NTRS",
-          "reason": "Poor Risk/Reward Ratio: 0.24x (Target lies too close to resistance)",
-          "price": 166.45,
-          "score": 23
-        },
-        {
-          "symbol": "EFX",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 162.46,
-          "score": -5
-        },
-        {
-          "symbol": "MRSH",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 164.47,
-          "score": -10
-        },
-        {
-          "symbol": "ALB",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 169.23,
-          "score": -5
-        },
-        {
-          "symbol": "MSTR",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 164.2,
-          "score": -5
-        },
-        {
-          "symbol": "VRSK",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 170.92,
-          "score": -15
-        },
-        {
-          "symbol": "IQV",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 167.36,
-          "score": -15
-        },
-        {
-          "symbol": "LYV",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 165.33,
-          "score": 10
-        },
-        {
-          "symbol": "ZS",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 170.34,
-          "score": 5
-        },
-        {
-          "symbol": "CRL",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 158.23,
-          "score": -5
-        },
-        {
-          "symbol": "BKNG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 159.05,
-          "score": 10
-        },
-        {
-          "symbol": "TJX",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 156.84,
-          "score": -15
-        },
-        {
-          "symbol": "VEEV",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.08x (Target lies too close to support)",
-          "price": 157.65,
-          "score": -27
-        },
-        {
-          "symbol": "UHS",
-          "reason": "Late MACD Short-entry (RSI is low: 30.9)",
-          "price": 161.81,
-          "score": -13
-        },
-        {
-          "symbol": "IT",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 156.6,
-          "score": -5
-        },
-        {
-          "symbol": "ALGN",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 162.4,
-          "score": 10
-        },
-        {
-          "symbol": "EXPD",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 156.57,
-          "score": -5
-        },
-        {
-          "symbol": "AVY",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 158.27,
-          "score": -5
-        },
-        {
-          "symbol": "YUM",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 153.71,
-          "score": 10
-        },
-        {
-          "symbol": "RJF",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.38x (Target lies too close to support)",
-          "price": 149.83,
-          "score": -22
-        },
-        {
-          "symbol": "STT",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 153.09,
-          "score": -30
-        },
-        {
-          "symbol": "PODD",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 156.27,
-          "score": 10
-        },
-        {
-          "symbol": "Q",
-          "reason": "Poor Risk/Reward Ratio: 0.21x (Target lies too close to resistance)",
-          "price": 152.16,
-          "score": 23
-        },
-        {
-          "symbol": "ICE",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.19x (Target lies too close to support)",
-          "price": 150.89,
-          "score": -22
-        },
-        {
-          "symbol": "STZ",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 150.24,
-          "score": -27
-        },
-        {
-          "symbol": "GL",
-          "reason": "Poor Risk/Reward Ratio: 0.41x (Target lies too close to resistance)",
-          "price": 155.98,
-          "score": 23
-        },
-        {
-          "symbol": "MMM",
-          "reason": "Poor Risk/Reward Ratio: 0.26x (Target lies too close to resistance)",
-          "price": 151,
-          "score": 23
-        },
-        {
-          "symbol": "XOM",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 154.68,
-          "score": -10
-        },
-        {
-          "symbol": "DHI",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 143.57,
-          "score": 10
-        },
-        {
-          "symbol": "CHTR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 148.31,
-          "score": 10
-        },
-        {
-          "symbol": "ANET",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 148.01,
-          "score": 10
-        },
-        {
-          "symbol": "PEP",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.03x (Target lies too close to support)",
-          "price": 148.27,
-          "score": -22
-        },
-        {
-          "symbol": "VST",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 148.49,
-          "score": 10
-        },
-        {
-          "symbol": "BDX",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.89x (Target lies too close to support)",
-          "price": 145.68,
-          "score": -27
-        },
-        {
-          "symbol": "PLD",
-          "reason": "Poor Risk/Reward Ratio: 0.32x (Target lies too close to resistance)",
-          "price": 144.06,
-          "score": 23
-        },
-        {
-          "symbol": "BR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 149.43,
-          "score": -15
-        },
-        {
-          "symbol": "PTC",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 145.27,
-          "score": -5
-        },
-        {
-          "symbol": "DTE",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 143.19,
-          "score": -27
-        },
-        {
-          "symbol": "JKHY",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.40x (Target lies too close to support)",
-          "price": 139.01,
-          "score": -27
-        },
-        {
-          "symbol": "PLTR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 136.88,
-          "score": 10
-        },
-        {
-          "symbol": "EOG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 139.43,
-          "score": -15
-        },
-        {
-          "symbol": "PG",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 142.84,
-          "score": -5
-        },
-        {
-          "symbol": "TPR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 138.56,
-          "score": 10
-        },
-        {
-          "symbol": "HIG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 135.49,
-          "score": -15
-        },
-        {
-          "symbol": "JCI",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.36x (Target lies too close to support)",
-          "price": 134.94,
-          "score": -40
-        },
-        {
-          "symbol": "EXR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 143.35,
-          "score": 10
-        },
-        {
-          "symbol": "NRG",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 136.38,
-          "score": 10
-        },
-        {
-          "symbol": "ALLE",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 130.19,
-          "score": 10
-        },
-        {
-          "symbol": "APO",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 130.39,
-          "score": -27
-        },
-        {
-          "symbol": "CBRE",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 130.53,
-          "score": -5
-        },
-        {
-          "symbol": "MAA",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 129.5,
-          "score": -5
-        },
-        {
-          "symbol": "ABNB",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 133.72,
-          "score": -5
-        },
-        {
-          "symbol": "FTNT",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 128.95,
-          "score": 5
-        },
-        {
-          "symbol": "GILD",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 129.99,
-          "score": -5
-        },
-        {
-          "symbol": "EMR",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 134.37,
-          "score": 10
-        },
-        {
-          "symbol": "AEP",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 129.1,
-          "score": -27
-        },
-        {
-          "symbol": "SATS",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 127.94,
-          "score": -15
-        },
-        {
-          "symbol": "IRM",
-          "reason": "Poor Risk/Reward Ratio: 0.37x (Target lies too close to resistance)",
-          "price": 126.83,
-          "score": 23
-        },
-        {
-          "symbol": "DUK",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 124.17,
-          "score": -15
-        },
-        {
-          "symbol": "NTAP",
-          "reason": "Poor Risk/Reward Ratio: 0.13x (Target lies too close to resistance)",
-          "price": 123.46,
-          "score": 28
-        },
-        {
-          "symbol": "LDOS",
-          "reason": "Poor Risk/Reward Ratio for Shorts: 0.00x (Target lies too close to support)",
-          "price": 122.56,
-          "score": -27
-        },
-        {
-          "symbol": "APH",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 124.37,
-          "score": 10
-        },
-        {
-          "symbol": "LULU",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 126.26,
-          "score": 10
-        },
-        {
-          "symbol": "C",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 124.73,
-          "score": 10
-        },
-        {
-          "symbol": "AWK",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 123.4,
-          "score": -5
-        },
-        {
-          "symbol": "TGT",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 125.66,
-          "score": 15
-        },
-        {
-          "symbol": "COP",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 120.08,
-          "score": -10
-        },
-        {
-          "symbol": "CSCO",
-          "reason": "Poor Risk/Reward Ratio: 0.39x (Target lies too close to resistance)",
-          "price": 117.74,
-          "score": 23
-        },
-        {
-          "symbol": "FRT",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 118.15,
-          "score": 30
-        },
-        {
-          "symbol": "CF",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 121.21,
-          "score": -15
-        },
-        {
-          "symbol": "AFL",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 117.35,
-          "score": -5
-        },
-        {
-          "symbol": "WMT",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 120.87,
-          "score": -30
-        },
-        {
-          "symbol": "BG",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 119.99,
-          "score": -5
-        },
-        {
-          "symbol": "BX",
-          "reason": "Insufficient indicator convergence strength",
-          "price": 118.11,
-          "score": -5
-        },
-        {
-          "symbol": "INTC",
-          "reason": "Poor Risk/Reward Ratio: 0.25x (Target lies too close to resistance)",
-          "price": 118.04,
-          "score": 23
-        },
-        {
-          "symbol": "WDAY",
-          "reason": "Choppy trend regime (EMA50/EMA200 alignment weak)",
-          "price": 121.37,
-          "score": -10
-        }
-      ],
-      "nearMisses": [
-        {
-          "symbol": "MA",
-          "price": 497.62,
-          "open": 499.6199951171875,
-          "high": 499.6199951171875,
-          "low": 497.62,
-          "volume": 0,
-          "quoteVolume": 749430000,
-          "macd": {
-            "macd": 0.0948260946171331,
-            "signal": 0.10892308670176698,
-            "hist": -0.014096992084633886
-          },
-          "rsi": 47.425779911580726,
-          "ema50": 498.60143495943146,
-          "ema200": 501.96871708224535,
-          "support": 488.010009765625,
-          "resistance": 512.9000244140625,
-          "direction": "HOLD",
-          "score": -40,
-          "strengthReasons": [
-            "Negative MACD momentum",
-            "Bearish MACD crossover (recent)",
-            "Long-term bearish trend regime (Price < EMA50 < EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": [
-            "Poor Risk/Reward Ratio for Shorts: 0.63x (Target lies too close to support)"
-          ]
-        },
-        {
-          "symbol": "IEX",
-          "price": 204.8,
-          "open": 205.61000061035156,
-          "high": 205.61000061035156,
-          "low": 204.8,
-          "volume": 0,
-          "quoteVolume": 308415000,
-          "macd": {
-            "macd": -0.6634565762635987,
-            "signal": -0.650202308370802,
-            "hist": -0.013254267892796712
-          },
-          "rsi": 39.047518867016336,
-          "ema50": 208.45328796283715,
-          "ema200": 209.98173090462225,
-          "support": 203.4499969482422,
-          "resistance": 208.23989868164062,
-          "direction": "HOLD",
-          "score": -40,
-          "strengthReasons": [
-            "Negative MACD momentum",
-            "Bearish MACD crossover (recent)",
-            "Long-term bearish trend regime (Price < EMA50 < EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": [
-            "Poor Risk/Reward Ratio for Shorts: 0.39x (Target lies too close to support)"
-          ]
-        },
-        {
-          "symbol": "EA",
-          "price": 201.07,
-          "open": 201.8699951171875,
-          "high": 201.8699951171875,
-          "low": 201.07,
-          "volume": 0,
-          "quoteVolume": 302805000,
-          "macd": {
-            "macd": 0.14242314029797853,
-            "signal": 0.16918480370317807,
-            "hist": -0.02676166340519953
-          },
-          "rsi": 44.810626775372974,
-          "ema50": 201.17819710365868,
-          "ema200": 201.55470930111343,
-          "support": 200.77999877929688,
-          "resistance": 201.72999572753906,
-          "direction": "HOLD",
-          "score": -40,
-          "strengthReasons": [
-            "Negative MACD momentum",
-            "Bearish MACD crossover (recent)",
-            "Long-term bearish trend regime (Price < EMA50 < EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": [
-            "Poor Risk/Reward Ratio for Shorts: 0.44x (Target lies too close to support)"
-          ]
-        },
-        {
-          "symbol": "JCI",
-          "price": 134.94,
-          "open": 135.47000122070312,
-          "high": 135.47000122070312,
-          "low": 134.94,
-          "volume": 0,
-          "quoteVolume": 203205000,
-          "macd": {
-            "macd": -1.0268227239874363,
-            "signal": -1.0247146456976854,
-            "hist": -0.002108078289750903
-          },
-          "rsi": 35.50155361450604,
-          "ema50": 138.6536348024126,
-          "ema200": 140.82544064353922,
-          "support": 133.60499572753906,
-          "resistance": 138.67999267578125,
-          "direction": "HOLD",
-          "score": -40,
-          "strengthReasons": [
-            "Negative MACD momentum",
-            "Bearish MACD crossover (recent)",
-            "Long-term bearish trend regime (Price < EMA50 < EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": [
-            "Poor Risk/Reward Ratio for Shorts: 0.36x (Target lies too close to support)"
-          ]
-        },
-        {
-          "symbol": "SNDK",
-          "price": 1536.07,
-          "open": 1542.239990234375,
-          "high": 1542.239990234375,
-          "low": 1536.07,
-          "volume": 0,
-          "quoteVolume": 2313360000,
-          "macd": {
-            "macd": 43.643444982246365,
-            "signal": 28.32661589640682,
-            "hist": 15.316829085839544
-          },
-          "rsi": 73.85714892325853,
-          "ema50": 1414.7820036074693,
-          "ema200": 1275.1740555652477,
-          "support": 1277.3299560546875,
-          "resistance": 1546.0899658203125,
-          "direction": "HOLD",
-          "score": 30,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Long-term bullish trend regime (Price > EMA50 > EMA200)",
-            "RSI overbought (potential reversal)"
-          ],
-          "blockReasons": [],
-          "deferReasons": [
-            "Insufficient indicator convergence strength"
-          ]
-        },
-        {
-          "symbol": "ROP",
-          "price": 322.79,
-          "open": 324.0799865722656,
-          "high": 324.0799865722656,
-          "low": 322.79,
-          "volume": 0,
-          "quoteVolume": 486120000,
-          "macd": {
-            "macd": -1.0495177112721308,
-            "signal": -1.096971715151545,
-            "hist": 0.04745400387941423
-          },
-          "rsi": 46.896406971510174,
-          "ema50": 326.16966070704024,
-          "ema200": 339.7401897474817,
-          "support": 305.9599914550781,
-          "resistance": 340,
-          "direction": "HOLD",
-          "score": 30,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Bullish MACD crossover (recent)",
-            "Long-term bearish trend regime (Price < EMA50 < EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": [
-            "Insufficient indicator convergence strength"
-          ]
-        },
-        {
-          "symbol": "INTU",
-          "price": 305.85,
-          "open": 307.07000732421875,
-          "high": 307.07000732421875,
-          "low": 305.85,
-          "volume": 0,
-          "quoteVolume": 460605000,
-          "macd": {
-            "macd": -24.509760380387434,
-            "signal": -17.938238375099946,
-            "hist": -6.571522005287488
-          },
-          "rsi": 15.319961948858236,
-          "ema50": 369.34377255705334,
-          "ema200": 385.7675801745123,
-          "support": 302.3638916015625,
-          "resistance": 423.989990234375,
-          "direction": "HOLD",
-          "score": -30,
-          "strengthReasons": [
-            "Negative MACD momentum",
-            "Long-term bearish trend regime (Price < EMA50 < EMA200)",
-            "RSI oversold (potential reversal)"
-          ],
-          "blockReasons": [],
-          "deferReasons": [
-            "Insufficient indicator convergence strength"
-          ]
-        },
-        {
-          "symbol": "ARM",
-          "price": 297.04,
-          "open": 298.2300109863281,
-          "high": 298.2300109863281,
-          "low": 297.04,
-          "volume": 0,
-          "quoteVolume": 447345000,
-          "macd": {
-            "macd": 19.88968868338293,
-            "signal": 16.654786943106078,
-            "hist": 3.2349017402768503
-          },
-          "rsi": 83.52247698354128,
-          "ema50": 242.78178282625404,
-          "ema200": 215.65554158512896,
-          "support": 203.00489807128906,
-          "resistance": 298.69000244140625,
-          "direction": "HOLD",
-          "score": 30,
-          "strengthReasons": [
-            "Positive MACD momentum",
-            "Long-term bullish trend regime (Price > EMA50 > EMA200)",
-            "RSI overbought (potential reversal)"
-          ],
-          "blockReasons": [],
-          "deferReasons": [
-            "Insufficient indicator convergence strength"
-          ]
-        },
-        {
-          "symbol": "PANW",
-          "price": 251.91,
-          "open": 252.9199981689453,
-          "high": 252.9199981689453,
-          "low": 251.91,
-          "volume": 0,
-          "quoteVolume": 379380000,
-          "macd": {
-            "macd": 3.307450807942587,
-            "signal": 3.311512875984782,
-            "hist": -0.0040620680421952216
-          },
-          "rsi": 67.07084042613282,
-          "ema50": 238.9297085958904,
-          "ema200": 208.96604084511137,
-          "support": 235.26199340820312,
-          "resistance": 253.10000610351562,
-          "direction": "HOLD",
-          "score": -30,
-          "strengthReasons": [
-            "Negative MACD momentum",
-            "Bearish MACD crossover (recent)",
-            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": [
-            "Insufficient indicator convergence strength"
-          ]
-        },
-        {
-          "symbol": "TTWO",
-          "price": 237.13,
-          "open": 238.0800018310547,
-          "high": 238.0800018310547,
-          "low": 237.13,
-          "volume": 0,
-          "quoteVolume": 357120000,
-          "macd": {
-            "macd": 0.20593185225237676,
-            "signal": 0.2113536409138815,
-            "hist": -0.005421788661504751
-          },
-          "rsi": 45.8372131723385,
-          "ema50": 236.4598567514101,
-          "ema200": 226.261363812281,
-          "support": 233.1300048828125,
-          "resistance": 246.24989318847656,
-          "direction": "HOLD",
-          "score": -30,
-          "strengthReasons": [
-            "Negative MACD momentum",
-            "Bearish MACD crossover (recent)",
-            "Long-term bullish trend regime (Price > EMA50 > EMA200)"
-          ],
-          "blockReasons": [],
-          "deferReasons": [
-            "Insufficient indicator convergence strength"
-          ]
-        }
-      ]
     }
   ],
   "lastNonEmptyRanked": [
@@ -68706,6 +68470,18 @@
   ],
   "perSymbolRiskLocks": [],
   "logs": [
+    "[02:18:17] Autonomous Scan Evaluation: No new signals met safety buffer or correlation limits.",
+    "[02:18:17] Autonomous Executor checking signal convergence...",
+    "[02:18:17] Scan complete: No qualified strategy entry signals generated. Retaining last ranked visual setups.",
+    "[02:18:17] [Scanner] [02:18:17] Analysis finished: 300 assets finalized. BUY: 0, SELL: 0, HOLD: 300",
+    "[02:18:17] [Scanner] [02:18:13] Conducting parallel technical scans on Top 300 high-activity symbols...",
+    "[02:18:17] [Scanner] [02:18:13] Broad universe liquid assets count: 524",
+    "[02:18:17] [Scanner] [02:18:13] Filtered out 0 symbols before evaluation due to liquidity filter < 1.0M",
+    "[02:18:17] [Scanner] [02:18:13] Successfully synced 524 US equities using Yahoo Finance Spark API.",
+    "[02:18:17] [Scanner] [02:18:11] Fetching Wall Street prices from Yahoo Finance Spark API (https://query1.finance.yahoo.com)...",
+    "[02:18:17] [Scanner] [02:18:11] Using cached US index universe (526 symbols loaded).",
+    "[02:18:17] [Scanner] [02:18:11] Starting discovery-scan sequence for Wall Street large-cap stocks...",
+    "[02:18:11] Scan cycle triggered. Broad liquidity query running...",
     "[02:17:24] Autonomous Scan Evaluation: No new signals met safety buffer or correlation limits.",
     "[02:17:24] Autonomous Executor checking signal convergence...",
     "[02:17:24] Scan complete: No qualified strategy entry signals generated. Retaining last ranked visual setups.",
@@ -68993,19 +68769,7 @@
     "[02:03:31] [Scanner] [02:03:25] Fetching Wall Street prices from Yahoo Finance Spark API (https://query1.finance.yahoo.com)...",
     "[02:03:31] [Scanner] [02:03:25] Using cached US index universe (526 symbols loaded).",
     "[02:03:31] [Scanner] [02:03:25] Starting discovery-scan sequence for Wall Street large-cap stocks...",
-    "[02:03:25] Scan cycle triggered. Broad liquidity query running...",
-    "[02:02:30] Autonomous Scan Evaluation: No new signals met safety buffer or correlation limits.",
-    "[02:02:30] Autonomous entry rejected for CRM: Margin Protection Lock. Free deployable cap ₹789.11 is less than trade size ₹2000",
-    "[02:02:30] Autonomous entry rejected for NUE: Margin Protection Lock. Free deployable cap ₹789.11 is less than trade size ₹2000",
-    "[02:02:30] Autonomous entry rejected for TTWO: Margin Protection Lock. Free deployable cap ₹789.11 is less than trade size ₹2000",
-    "[02:02:30] Autonomous entry rejected for TSLA: Margin Protection Lock. Free deployable cap ₹789.11 is less than trade size ₹2000",
-    "[02:02:30] Autonomous entry rejected for APP: Margin Protection Lock. Free deployable cap ₹789.11 is less than trade size ₹2000",
-    "[02:02:30] Autonomous entry rejected for ARES: Margin Protection Lock. Free deployable cap ₹789.11 is less than trade size ₹2000",
-    "[02:02:30] Autonomous entry rejected for AKAM: Margin Protection Lock. Free deployable cap ₹789.11 is less than trade size ₹2000",
-    "[02:02:30] Autonomous entry rejected for BLK: Margin Protection Lock. Free deployable cap ₹789.11 is less than trade size ₹2000",
-    "[02:02:30] Autonomous Executor checking signal convergence...",
-    "[02:02:30] Scan completed successfully. Updated ranked list: 8 entries. Visual snapshots validated.",
-    "[02:02:30] [Scanner] [02:02:30] Analysis finished: 300 assets finalized. BUY: 7, SELL: 1, HOLD: 292"
+    "[02:03:25] Scan cycle triggered. Broad liquidity query running..."
   ],
   "postLiquidationQueue": [],
   "config": {
