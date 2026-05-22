@@ -277,6 +277,8 @@ export function analyzeAsset(
     const histAcceleratingDown = curHist < prevHist && prevHist <= prevHist2;
     const macdAboveZero = curMacd >= 0;
     const macdBelowZero = curMacd <= 0;
+    const nearBullishZeroLine = curMacd >= -0.15;
+    const nearBearishZeroLine = curMacd <= 0.15;
 
     // Support / Resistance distance
     const distToSupport = Math.max(0, currentPrice - supRes.support);
@@ -285,8 +287,8 @@ export function analyzeAsset(
     // Risk/Reward structure
     const rrRatio = distToResistance / (distToSupport || 0.0001);
     const shortRrRatio = distToSupport / (distToResistance || 0.0001);
-    const buyRsiWindowOk = curRsi >= 45 && curRsi <= 68;
-    const sellRsiWindowOk = curRsi >= 32 && curRsi <= 55;
+    const buyRsiWindowOk = curRsi >= 40 && curRsi <= 72;
+    const sellRsiWindowOk = curRsi >= 28 && curRsi <= 60;
 
     const bullishStructureReady = curMacd > curSignal && curHist > 0 && histAcceleratingUp;
     const bearishStructureReady = curMacd < curSignal && curHist < 0 && histAcceleratingDown;
@@ -317,10 +319,10 @@ export function analyzeAsset(
         score += 10;
       }
 
-      if (!macdAboveZero) {
-        deferReasons.push('Bullish MACD trigger rejected: MACD remains below zero line');
+      if (!nearBullishZeroLine) {
+        deferReasons.push('Bullish MACD trigger rejected: MACD is too far below the zero line');
       } else {
-        strengthReasons.push('MACD above zero line');
+        strengthReasons.push(macdAboveZero ? 'MACD above zero line' : 'MACD close enough to zero line for bullish continuation');
         score += 5;
       }
 
@@ -332,14 +334,14 @@ export function analyzeAsset(
       }
 
       if (!buyRsiWindowOk) {
-        deferReasons.push(`Bullish MACD trigger rejected: RSI ${curRsi.toFixed(1)} is outside the 45-68 entry window`);
+        deferReasons.push(`Bullish MACD trigger rejected: RSI ${curRsi.toFixed(1)} is outside the 40-72 entry window`);
       } else {
         strengthReasons.push('RSI in long-entry acceptance window');
         score += 5;
       }
 
-      if (rrRatio < 1.5) {
-        deferReasons.push(`Bullish MACD trigger rejected: risk/reward ${rrRatio.toFixed(2)}x is below 1.50x minimum`);
+      if (rrRatio < 1.2) {
+        deferReasons.push(`Bullish MACD trigger rejected: risk/reward ${rrRatio.toFixed(2)}x is below 1.20x minimum`);
       } else {
         strengthReasons.push(`Long risk/reward acceptable at ${rrRatio.toFixed(2)}x`);
         score += 5;
@@ -354,10 +356,10 @@ export function analyzeAsset(
         score -= 10;
       }
 
-      if (!macdBelowZero) {
-        deferReasons.push('Bearish MACD trigger rejected: MACD remains above zero line');
+      if (!nearBearishZeroLine) {
+        deferReasons.push('Bearish MACD trigger rejected: MACD is too far above the zero line');
       } else {
-        strengthReasons.push('MACD below zero line');
+        strengthReasons.push(macdBelowZero ? 'MACD below zero line' : 'MACD close enough to zero line for bearish continuation');
         score -= 5;
       }
 
@@ -369,14 +371,14 @@ export function analyzeAsset(
       }
 
       if (!sellRsiWindowOk) {
-        deferReasons.push(`Bearish MACD trigger rejected: RSI ${curRsi.toFixed(1)} is outside the 32-55 entry window`);
+        deferReasons.push(`Bearish MACD trigger rejected: RSI ${curRsi.toFixed(1)} is outside the 28-60 entry window`);
       } else {
         strengthReasons.push('RSI in short-entry acceptance window');
         score -= 5;
       }
 
-      if (shortRrRatio < 1.5) {
-        deferReasons.push(`Bearish MACD trigger rejected: short risk/reward ${shortRrRatio.toFixed(2)}x is below 1.50x minimum`);
+      if (shortRrRatio < 1.2) {
+        deferReasons.push(`Bearish MACD trigger rejected: short risk/reward ${shortRrRatio.toFixed(2)}x is below 1.20x minimum`);
       } else {
         strengthReasons.push(`Short risk/reward acceptable at ${shortRrRatio.toFixed(2)}x`);
         score -= 5;
@@ -386,9 +388,9 @@ export function analyzeAsset(
     const hasFreshMacdEntry = freshBullishCross || freshBearishCross;
 
     // Decide Direction: only fresh MACD crosses may open positions.
-    if (hasFreshMacdEntry && score >= 75 && deferReasons.length === 0) {
+    if (hasFreshMacdEntry && score >= 60 && deferReasons.length === 0) {
       direction = 'BUY';
-    } else if (hasFreshMacdEntry && score <= -75 && deferReasons.length === 0) {
+    } else if (hasFreshMacdEntry && score <= -60 && deferReasons.length === 0) {
       direction = 'SELL';
     } else {
       direction = 'HOLD';
