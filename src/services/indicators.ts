@@ -240,6 +240,10 @@ export function analyzeAsset(
   const curEma50 = ema50Result[lastIndex] || currentPrice;
   const curEma200 = ema200Result[lastIndex] || currentPrice;
 
+  const prevMacd2 = macdResult.macd[lastIndex - 2] || 0;
+  const prevMacd = macdResult.macd[lastIndex - 1] || 0;
+  const prevSignal2 = macdResult.signal[lastIndex - 2] || 0;
+  const prevSignal = macdResult.signal[lastIndex - 1] || 0;
   const prevHist2 = macdResult.histogram[lastIndex - 2] || 0;
   const prevHist = macdResult.histogram[lastIndex - 1] || 0;
   
@@ -260,102 +264,136 @@ export function analyzeAsset(
   let direction: 'BUY' | 'SELL' | 'HOLD' = 'HOLD';
 
   if (blockReasons.length === 0) {
-    // Trend alignment
+    // Trend alignment remains a filter, but MACD is now the actual trade trigger.
     const isUptrend = currentPrice > curEma50 && curEma50 > curEma200;
     const isDowntrend = currentPrice < curEma50 && curEma50 < curEma200;
-    
-    // MACD triggers
-    const macdCrossoverUp = curHist > 0 && prevHist <= 0;
-    const macdCrossoverDown = curHist < 0 && prevHist >= 0;
-    const macdRising = curHist > prevHist;
-    const macdFalling = curHist < prevHist;
-
-    // RSI triggers
-    const rsiOversold = curRsi <= config.rsiOversold;
-    const rsiOverbought = curRsi >= config.rsiOverbought;
+    const bullishCrossThisBar = prevMacd <= prevSignal && curMacd > curSignal;
+    const bearishCrossThisBar = prevMacd >= prevSignal && curMacd < curSignal;
+    const bullishCrossLastBar = prevMacd2 <= prevSignal2 && prevMacd > prevSignal && curMacd > curSignal;
+    const bearishCrossLastBar = prevMacd2 >= prevSignal2 && prevMacd < prevSignal && curMacd < curSignal;
+    const freshBullishCross = bullishCrossThisBar || bullishCrossLastBar;
+    const freshBearishCross = bearishCrossThisBar || bearishCrossLastBar;
+    const histAcceleratingUp = curHist > prevHist && prevHist >= prevHist2;
+    const histAcceleratingDown = curHist < prevHist && prevHist <= prevHist2;
+    const macdAboveZero = curMacd >= 0;
+    const macdBelowZero = curMacd <= 0;
 
     // Support / Resistance distance
     const distToSupport = Math.max(0, currentPrice - supRes.support);
     const distToResistance = Math.max(0, supRes.resistance - currentPrice);
-    const totalDist = distToSupport + distToResistance;
     
     // Risk/Reward structure
     const rrRatio = distToResistance / (distToSupport || 0.0001);
+    const shortRrRatio = distToSupport / (distToResistance || 0.0001);
+    const buyRsiWindowOk = curRsi >= 45 && curRsi <= 68;
+    const sellRsiWindowOk = curRsi >= 32 && curRsi <= 55;
 
-    // Scoring calculation
-    // Base score for MACD alignment
-    if (curHist > 0) {
+    const bullishStructureReady = curMacd > curSignal && curHist > 0 && histAcceleratingUp;
+    const bearishStructureReady = curMacd < curSignal && curHist < 0 && histAcceleratingDown;
+
+    if (freshBullishCross) {
+      strengthReasons.push('Fresh bullish MACD crossover');
+      score += 55;
+      if (bullishCrossThisBar) score += 10;
+    } else if (bullishStructureReady) {
+      deferReasons.push('Bullish MACD structure detected, but crossover is stale');
       score += 20;
-      if (macdRising) score += 10;
-      strengthReasons.push('Positive MACD momentum');
-    } else {
+    }
+
+    if (freshBearishCross) {
+      strengthReasons.push('Fresh bearish MACD crossover');
+      score -= 55;
+      if (bearishCrossThisBar) score -= 10;
+    } else if (bearishStructureReady) {
+      deferReasons.push('Bearish MACD structure detected, but crossover is stale');
       score -= 20;
-      if (macdFalling) score -= 10;
-      strengthReasons.push('Negative MACD momentum');
     }
 
-    if (macdCrossoverUp) {
-      score += 25;
-      strengthReasons.push('Bullish MACD crossover (recent)');
-    } else if (macdCrossoverDown) {
-      score -= 25;
-      strengthReasons.push('Bearish MACD crossover (recent)');
-    }
-
-    // Trend weight
-    if (isUptrend) {
-      score += 25;
-      strengthReasons.push('Long-term bullish trend regime (Price > EMA50 > EMA200)');
-    } else if (isDowntrend) {
-      score -= 25;
-      strengthReasons.push('Long-term bearish trend regime (Price < EMA50 < EMA200)');
-    } else {
-      // Choppy range
-      score *= 0.5; // slash score in non-trend regime
-      deferReasons.push('Choppy trend regime (EMA50/EMA200 alignment weak)');
-    }
-
-    // RSI constraints
-    if (rsiOversold) {
-      score += 15;
-      strengthReasons.push('RSI oversold (potential reversal)');
-    } else if (rsiOverbought) {
-      score -= 15;
-      strengthReasons.push('RSI overbought (potential reversal)');
-    }
-
-    // Protect against overbought buys or oversold shorts
-    if (curRsi > 68) {
-      if (score > 30) {
-        deferReasons.push(`Late MACD entry (RSI is high: ${curRsi.toFixed(1)})`);
-        score *= 0.3; // penalize chasing
+    if (freshBullishCross || bullishStructureReady) {
+      if (!isUptrend) {
+        deferReasons.push('Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required)');
+      } else {
+        strengthReasons.push('Trend filter aligned for long setup');
+        score += 10;
       }
-    }
-    if (curRsi < 32) {
-      if (score < -30) {
-        deferReasons.push(`Late MACD Short-entry (RSI is low: ${curRsi.toFixed(1)})`);
-        score *= 0.3; // penalize chasing
+
+      if (!macdAboveZero) {
+        deferReasons.push('Bullish MACD trigger rejected: MACD remains below zero line');
+      } else {
+        strengthReasons.push('MACD above zero line');
+        score += 5;
+      }
+
+      if (!histAcceleratingUp) {
+        deferReasons.push('Bullish MACD trigger rejected: histogram is not accelerating upward');
+      } else {
+        strengthReasons.push('Histogram accelerating upward');
+        score += 10;
+      }
+
+      if (!buyRsiWindowOk) {
+        deferReasons.push(`Bullish MACD trigger rejected: RSI ${curRsi.toFixed(1)} is outside the 45-68 entry window`);
+      } else {
+        strengthReasons.push('RSI in long-entry acceptance window');
+        score += 5;
+      }
+
+      if (rrRatio < 1.5) {
+        deferReasons.push(`Bullish MACD trigger rejected: risk/reward ${rrRatio.toFixed(2)}x is below 1.50x minimum`);
+      } else {
+        strengthReasons.push(`Long risk/reward acceptable at ${rrRatio.toFixed(2)}x`);
+        score += 5;
       }
     }
 
-    // Risk reward limit
-    if (score > 30 && rrRatio < 1.1) {
-      deferReasons.push(`Poor Risk/Reward Ratio: ${rrRatio.toFixed(2)}x (Target lies too close to resistance)`);
-      score *= 0.5;
-    } else if (score < -30 && (1 / rrRatio) < 1.1) {
-      deferReasons.push(`Poor Risk/Reward Ratio for Shorts: ${(1 / rrRatio).toFixed(2)}x (Target lies too close to support)`);
-      score *= 0.5;
+    if (freshBearishCross || bearishStructureReady) {
+      if (!isDowntrend) {
+        deferReasons.push('Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required)');
+      } else {
+        strengthReasons.push('Trend filter aligned for short setup');
+        score -= 10;
+      }
+
+      if (!macdBelowZero) {
+        deferReasons.push('Bearish MACD trigger rejected: MACD remains above zero line');
+      } else {
+        strengthReasons.push('MACD below zero line');
+        score -= 5;
+      }
+
+      if (!histAcceleratingDown) {
+        deferReasons.push('Bearish MACD trigger rejected: histogram is not accelerating downward');
+      } else {
+        strengthReasons.push('Histogram accelerating downward');
+        score -= 10;
+      }
+
+      if (!sellRsiWindowOk) {
+        deferReasons.push(`Bearish MACD trigger rejected: RSI ${curRsi.toFixed(1)} is outside the 32-55 entry window`);
+      } else {
+        strengthReasons.push('RSI in short-entry acceptance window');
+        score -= 5;
+      }
+
+      if (shortRrRatio < 1.5) {
+        deferReasons.push(`Bearish MACD trigger rejected: short risk/reward ${shortRrRatio.toFixed(2)}x is below 1.50x minimum`);
+      } else {
+        strengthReasons.push(`Short risk/reward acceptable at ${shortRrRatio.toFixed(2)}x`);
+        score -= 5;
+      }
     }
 
-    // Decide Direction
-    if (score >= 45 && deferReasons.length === 0) {
+    const hasFreshMacdEntry = freshBullishCross || freshBearishCross;
+
+    // Decide Direction: only fresh MACD crosses may open positions.
+    if (hasFreshMacdEntry && score >= 75 && deferReasons.length === 0) {
       direction = 'BUY';
-    } else if (score <= -45 && deferReasons.length === 0) {
+    } else if (hasFreshMacdEntry && score <= -75 && deferReasons.length === 0) {
       direction = 'SELL';
     } else {
       direction = 'HOLD';
       if (deferReasons.length === 0) {
-        deferReasons.push('Insufficient indicator convergence strength');
+        deferReasons.push('No fresh MACD crossover with qualifying confirmation filters');
       }
     }
   }
