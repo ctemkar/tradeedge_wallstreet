@@ -1,16 +1,19 @@
 import express from 'express';
+import dotenv from 'dotenv';
 import path from 'path';
 import { createServer as createViteServer } from 'vite';
 import { runMarketScan, ScanCycleReport, fetchCandleHistory } from './src/services/scanner.js';
 import { StrategyMetrics } from './src/services/indicators.js';
 import {
-  loginToAngelOne as loginToSchwab,
-  fetchAngelProfile as fetchSchwabProfile,
-  fetchAngelRMS as fetchSchwabRMS,
-  placeAngelOrder as placeSchwabOrder,
-  fetchAngelHoldings as fetchSchwabHoldings,
-  fetchAngelPositions as fetchSchwabPositions,
-} from './src/services/angelone.js';
+  buildSchwabAuthorizationUrl,
+  exchangeSchwabAuthorizationCode,
+  fetchSchwabAccounts,
+  placeSchwabOrder,
+  refreshSchwabAccessToken,
+} from './src/services/schwab.js';
+
+dotenv.config({ path: '.env.local' });
+dotenv.config();
 
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
@@ -55,19 +58,52 @@ interface HistoricalTrade {
 
 import fs from 'fs';
 
+const DEFAULT_PAPER_BALANCE = 1000;
+const DEFAULT_ALLOCATION = 200;
+
+function createEmptySchwabState() {
+  return {
+    linked: false,
+    clientCode: '',
+    apiKey: '',
+    mpin: '',
+    totpSecret: '',
+    accessToken: '',
+    refreshToken: '',
+    tokenExpiresAt: 0,
+    accountHash: '',
+    accountNumber: '',
+    profileName: '',
+    email: '',
+    availableCash: 0,
+    availableNetMargin: 0,
+    brokerBalances: {
+      cashBalance: 0,
+      availableFunds: 0,
+      buyingPower: 0,
+      liquidationValue: 0,
+      equity: 0,
+    },
+    linkedAt: '',
+    holdings: [] as any[],
+    livePositions: [] as any[],
+    mutualFunds: [] as any[],
+  };
+}
+
 const state = {
   botActive: true,
   autonomousTrading: true, // Auto-trading enabled by default
   lastScanTime: '',
   scanIntervalSeconds: 60,
-  paperBalance: 11000.0,
-  freeMargin: 11000.0,
-  deployableCapital: 8800.0,
-  marginBufferPercent: 20.0, // Operator can tune
+  paperBalance: DEFAULT_PAPER_BALANCE,
+  freeMargin: DEFAULT_PAPER_BALANCE,
+  deployableCapital: DEFAULT_PAPER_BALANCE * 0.8,
+  marginBufferPercent: 10.0, // Operator can tune
   marketMode: 'us_stocks' as 'crypto' | 'us_stocks',
   config: {
     leverage: 1,
-    allocation: 2000, // Margin allocated per automated position (₹2,200/2,000 INR default)
+    allocation: DEFAULT_ALLOCATION,
     minVolume: 1000000, // ₹1M default to filter liquid Indian stocks
     maxClusteredPositions: 3, // Prevent correlation clustering
     preventCorrelationClustering: true, 
@@ -81,21 +117,7 @@ const state = {
     liveUniverseString: '*', // Tradeable list (* means unrestricted)
     schwabProductType: 'INTRADAY' as 'INTRADAY' | 'DELIVERY',
   },
-  schwab: {
-    linked: false,
-    clientCode: '',
-    apiKey: '',
-    mpin: '',
-    totpSecret: '',
-    profileName: '',
-    email: '',
-    availableCash: 0,
-    availableNetMargin: 0,
-    linkedAt: '',
-    holdings: [] as any[],
-    livePositions: [] as any[],
-    mutualFunds: [] as any[],
-  },
+  schwab: createEmptySchwabState(),
   positions: [] as Position[],
   historicalTrades: [] as HistoricalTrade[],
   logs: [] as string[],
@@ -109,6 +131,74 @@ const state = {
 };
 
 const PERSIST_FILE = path.join(process.cwd(), 'tradeedge_state_durable.json');
+
+function maskSchwabAccount(accountNumber: string) {
+  if (!accountNumber) return 'Schwab Account';
+  const lastFour = accountNumber.slice(-4);
+  return `Schwab Account ••••${lastFour}`;
+}
+
+function parseBrokerNumeric(val: any): number {
+  if (val === undefined || val === null) return 0;
+  if (typeof val === 'number') return val;
+  if (typeof val === 'string') {
+    const clean = val.replace(/[₹$,\s]/g, '');
+    const num = parseFloat(clean);
+    return isNaN(num) ? 0 : num;
+  }
+  return 0;
+}
+
+function normalizeSchwabAccountData(data: any) {
+  const accounts = Array.isArray(data) ? data : data ? [data] : [];
+  const primary = accounts[0] || {};
+  const securitiesAccount = primary.securitiesAccount || primary;
+  const balances = securitiesAccount.currentBalances || {};
+  const positions = Array.isArray(securitiesAccount.positions) ? securitiesAccount.positions : [];
+
+  const accountHash = primary.hashValue || primary.accountHash || securitiesAccount.accountHash || '';
+  const accountNumber = primary.accountNumber || securitiesAccount.accountNumber || '';
+  const availableCash = parseBrokerNumeric(
+    balances.cashBalance ?? balances.availableFunds ?? balances.availableFundsNonMarginableTrade ?? balances.buyingPower ?? 0
+  );
+  const availableNetMargin = parseBrokerNumeric(
+    balances.liquidationValue ?? balances.equity ?? balances.cashBalance ?? balances.buyingPower ?? availableCash
+  );
+
+  return {
+    accountHash,
+    accountNumber,
+    availableCash,
+    availableNetMargin,
+    brokerBalances: {
+      cashBalance: parseBrokerNumeric(balances.cashBalance),
+      availableFunds: parseBrokerNumeric(balances.availableFunds ?? balances.availableFundsNonMarginableTrade),
+      buyingPower: parseBrokerNumeric(balances.buyingPower),
+      liquidationValue: parseBrokerNumeric(balances.liquidationValue),
+      equity: parseBrokerNumeric(balances.equity),
+    },
+    holdings: positions.filter((position: any) => Number(position.longQuantity || 0) > 0),
+    livePositions: positions,
+  };
+}
+
+async function ensureSchwabAccessToken() {
+  if (!state.schwab.linked || !state.schwab.refreshToken) {
+    throw new Error('No Schwab developer session is linked.');
+  }
+
+  const tokenStillValid = state.schwab.accessToken && state.schwab.tokenExpiresAt > Date.now() + 30_000;
+  if (tokenStillValid) {
+    return state.schwab.accessToken;
+  }
+
+  const refreshed = await refreshSchwabAccessToken(state.schwab.refreshToken);
+  state.schwab.accessToken = refreshed.accessToken;
+  state.schwab.refreshToken = refreshed.refreshToken;
+  state.schwab.tokenExpiresAt = Date.now() + refreshed.expiresIn * 1000;
+  saveStateToDisk();
+  return state.schwab.accessToken;
+}
 
 function saveStateToDisk() {
   try {
@@ -146,15 +236,22 @@ function loadStateFromDisk() {
       if (data.postLiquidationQueue !== undefined) state.postLiquidationQueue = data.postLiquidationQueue;
       if (data.marketMode !== undefined) state.marketMode = data.marketMode === 'india_stocks' ? 'us_stocks' : data.marketMode;
       if (data.autonomousTrading !== undefined) state.autonomousTrading = data.autonomousTrading;
-      if (data.schwab !== undefined) state.schwab = data.schwab;
-      else if (data.angelOne !== undefined) state.schwab = data.angelOne;
+      if (data.schwab !== undefined) state.schwab = { ...createEmptySchwabState(), ...data.schwab };
       let healed = false;
       if (data.config !== undefined) {
         state.config = { ...state.config, ...data.config };
         if (state.config.allocation > state.paperBalance) {
-          state.config.allocation = 2000;
+          state.config.allocation = DEFAULT_ALLOCATION;
           healed = true;
         }
+      }
+      if ((state.schwab.mpin || state.schwab.totpSecret || state.schwab.apiKey) && !state.schwab.refreshToken) {
+        state.schwab = createEmptySchwabState();
+        state.config.paperMode = true;
+        healed = true;
+        setTimeout(() => {
+          logMessage('[Schwab] Cleared legacy non-Schwab broker credentials from persisted state.');
+        }, 120);
       }
       // Clear legacy simulated positions when loaded into live mode to release margin
       if (!state.config.paperMode && state.positions.length > 0) {
@@ -340,33 +437,22 @@ function executePositionCloseInternal(p: Position, exitPrice: number, reason: 'T
       logMessage(`[Schwab Gateway] ⚡ Initializing live market exit order for ${p.symbol}...`);
       (async () => {
         try {
-          const authRes = await loginToSchwab(
-            state.schwab.apiKey,
-            state.schwab.clientCode,
-            state.schwab.mpin,
-            state.schwab.totpSecret
-          );
-          if (authRes.success && authRes.data?.jwtToken) {
-            const exitSide = p.side === 'BUY' ? 'SELL' : 'BUY';
+          const accessToken = await ensureSchwabAccessToken();
+          if (accessToken && state.schwab.accountHash) {
+            const exitSide = p.side === 'BUY' ? 'SELL' : 'BUY_TO_COVER';
             const quantity = Math.max(1, Math.floor((p.margin * p.leverage) / p.entryPrice));
             const orderRes = await placeSchwabOrder(
-              state.schwab.apiKey,
-              authRes.data.jwtToken,
+              accessToken,
+              state.schwab.accountHash,
               {
                 symbol: p.symbol,
-                side: exitSide,
-                price: exitPrice,
+                instruction: exitSide,
                 quantity,
-                productType: state.config.schwabProductType || 'INTRADAY'
               }
             );
-            if (orderRes.success) {
-              logMessage(`[Schwab Gateway] 🟢 LIVE BROKER close order placed successfully! Order ID: ${orderRes.orderId}`);
-            } else {
-              logMessage(`[Schwab Gateway] ❌ LIVE BROKER close order rejected: ${orderRes.error}`);
-            }
+            logMessage(`[Schwab Gateway] 🟢 LIVE BROKER close order placed successfully! Order ID: ${orderRes.orderId}`);
           } else {
-            logMessage(`[Schwab Gateway] ❌ Live exit auth failed: ${authRes.error}`);
+            logMessage('[Schwab Gateway] ❌ Live exit auth failed: missing linked access token or account hash.');
           }
         } catch (e: any) {
           logMessage(`[Schwab Gateway] ❌ Error routing live close order: ${e.message || e}`);
@@ -531,36 +617,23 @@ async function openPositionInternal(
     if (!state.schwab.linked) {
       throw new Error("No live broker linked. Please connect your Schwab account before executing live trades.");
     }
+    if (!state.schwab.accountHash) {
+      throw new Error('Linked Schwab session is missing an account hash. Refresh the account and try again.');
+    }
 
     logMessage(`[Schwab Gateway] ⚡ Initializing live partner order for ${symbol}...`);
-    const authRes = await loginToSchwab(
-      state.schwab.apiKey,
-      state.schwab.clientCode,
-      state.schwab.mpin,
-      state.schwab.totpSecret
-    );
-    if (!authRes.success || !authRes.data?.jwtToken) {
-      logMessage(`[Schwab Gateway] ❌ Live auth failed: ${authRes.error}`);
-      throw new Error(`Live partner auth failed: ${authRes.error || 'Invalid credentials'}`);
-    }
+    const accessToken = await ensureSchwabAccessToken();
 
     const quantity = Math.max(1, Math.floor((margin * leverage) / entryPrice));
     const orderRes = await placeSchwabOrder(
-      state.schwab.apiKey,
-      authRes.data.jwtToken,
+      accessToken,
+      state.schwab.accountHash,
       {
         symbol,
-        side,
-        price: entryPrice,
+        instruction: side === 'BUY' ? 'BUY' : 'SELL_SHORT',
         quantity,
-        productType: state.config.schwabProductType || 'INTRADAY'
       }
     );
-
-    if (!orderRes.success) {
-      logMessage(`[Schwab Gateway] ❌ LIVE BROKER order rejected: ${orderRes.error}`);
-      throw new Error(`Live broker order rejected: ${orderRes.error || 'Unknown rejection reason'}`);
-    }
 
     logMessage(`[Schwab Gateway] 🟢 LIVE BROKER order placed successfully! Order ID: ${orderRes.orderId}`);
   }
@@ -737,8 +810,10 @@ app.get('/api/candles', async (req, res) => {
 
 app.get('/api/state', (req, res) => {
   recalculateFinancials();
+  const { accessToken, refreshToken, ...publicSchwab } = state.schwab;
   res.json({
     ...state,
+    schwab: publicSchwab,
     scanningInProgress,
   });
 });
@@ -786,6 +861,9 @@ app.post('/api/config', (req, res) => {
   if (marginBufferPercent !== undefined) state.marginBufferPercent = Number(marginBufferPercent);
   if (scanLimit !== undefined) state.config.scanLimit = Number(scanLimit);
   if (paperMode !== undefined) {
+    if (Boolean(paperMode) === false && !state.schwab.linked) {
+      return res.status(400).json({ error: 'Live production mode requires a linked Schwab developer account.' });
+    }
     const prevMode = state.config.paperMode;
     state.config.paperMode = Boolean(paperMode);
     if (prevMode !== state.config.paperMode) {
@@ -910,117 +988,77 @@ app.post('/api/clear-liquidation', (req, res) => {
   res.json({ status: 'ok', state });
 });
 
-function parseAngelNumeric(val: any): number {
-  if (val === undefined || val === null) return 0;
-  if (typeof val === 'number') return val;
-  if (typeof val === 'string') {
-    // Strip commas, currency symbols, and spaces
-    const clean = val.replace(/[₹$,\s]/g, '');
-    const num = parseFloat(clean);
-    return isNaN(num) ? 0 : num;
+app.post('/api/schwab/link', async (_req, res) => {
+  return res.status(405).json({ error: 'Direct credential linking is disabled. Use /api/schwab/auth-url to start Schwab OAuth.' });
+});
+
+app.get('/api/schwab/auth-url', (_req, res) => {
+  try {
+    const stateToken = Math.random().toString(36).slice(2);
+    const authUrl = buildSchwabAuthorizationUrl(stateToken);
+    logMessage('[Schwab] Generated developer OAuth authorization URL.');
+    res.json({ status: 'ok', authUrl });
+  } catch (err: any) {
+    res.status(400).json({ error: err.message || String(err) });
   }
-  return 0;
-}
+});
 
-function extractAngelCashAndMargin(data: any): { availableCash: number; availableNetMargin: number } {
-  if (!data) return { availableCash: 0, availableNetMargin: 0 };
-  
-  // Look for any variation of cash key (lowercase, camelCase, etc.)
-  const cashVal = data.availablecash !== undefined ? data.availablecash :
-                  data.availableCash !== undefined ? data.availableCash :
-                  data.cash !== undefined ? data.cash :
-                  data.funds !== undefined ? data.funds :
-                  data.available_cash !== undefined ? data.available_cash : 0;
-  const availableCash = parseAngelNumeric(cashVal);
-  
-  // Look for any variation of margin key (lowercase, camelcase, etc.)
-  const marginVal = data.net !== undefined ? data.net :
-                    data.netMargin !== undefined ? data.netMargin :
-                    data.netmargin !== undefined ? data.netmargin :
-                    data.availableMargin !== undefined ? data.availableMargin :
-                    data.availableNetMargin !== undefined ? data.availableNetMargin : cashVal;
-  const availableNetMargin = parseAngelNumeric(marginVal);
-  
-  return { availableCash, availableNetMargin };
-}
+app.get('/api/schwab/callback', async (req, res) => {
+  const code = typeof req.query.code === 'string' ? req.query.code : '';
+  const error = typeof req.query.error === 'string' ? req.query.error : '';
 
-app.post('/api/schwab/link', async (req, res) => {
-  const { clientCode, apiKey, mpin, totpSecret } = req.body;
-  if (!clientCode || !apiKey || !mpin || !totpSecret) {
-    return res.status(400).json({ error: 'Missing clientCode, apiKey, mpin, or totpSecret parameters' });
+  if (error) {
+    logMessage(`[Schwab] OAuth callback returned error: ${error}`);
+    return res.redirect(`/?schwab_error=${encodeURIComponent(error)}`);
   }
 
-  logMessage(`[Schwab] Connecting to partner account ${clientCode.toUpperCase()}...`);
-  
-  const authRes = await loginToSchwab(apiKey, clientCode, mpin, totpSecret);
-  if (!authRes.success || !authRes.data?.jwtToken) {
-    logMessage(`[Schwab] Authentication failed: ${authRes.error}`);
-    return res.status(400).json({ error: authRes.error || 'Failed to authenticate with the configured Schwab adapter' });
+  if (!code) {
+    return res.redirect('/?schwab_error=missing_authorization_code');
   }
 
-  const { jwtToken } = authRes.data;
-  const profileRes = await fetchSchwabProfile(apiKey, jwtToken);
-  const rmsRes = await fetchSchwabRMS(apiKey, jwtToken);
+  try {
+    const tokens = await exchangeSchwabAuthorizationCode(code);
+    const accounts = await fetchSchwabAccounts(tokens.accessToken);
+    const normalized = normalizeSchwabAccountData(accounts);
 
-  const profileName = profileRes.success ? profileRes.data?.name : 'Schwab Client';
-  const email = profileRes.success ? profileRes.data?.email : '';
-  
-  const { availableCash, availableNetMargin } = extractAngelCashAndMargin(rmsRes.success ? rmsRes.data : null);
+    state.schwab = {
+      ...createEmptySchwabState(),
+      linked: true,
+      accessToken: tokens.accessToken,
+      refreshToken: tokens.refreshToken,
+      tokenExpiresAt: Date.now() + tokens.expiresIn * 1000,
+      accountHash: normalized.accountHash,
+      accountNumber: normalized.accountNumber,
+      clientCode: normalized.accountNumber,
+      profileName: maskSchwabAccount(normalized.accountNumber),
+      availableCash: normalized.availableCash,
+      availableNetMargin: normalized.availableNetMargin,
+      brokerBalances: normalized.brokerBalances,
+      linkedAt: new Date().toLocaleDateString(),
+      holdings: normalized.holdings,
+      livePositions: normalized.livePositions,
+    };
 
-  // Retrieve active portfolio holdings & positions from the broker terminal
-  const holdingsRes = await fetchSchwabHoldings(apiKey, jwtToken);
-  const positionsRes = await fetchSchwabPositions(apiKey, jwtToken);
-
-  state.schwab = {
-    linked: true,
-    clientCode: clientCode.toUpperCase(),
-    apiKey,
-    mpin,
-    totpSecret,
-    profileName,
-    email,
-    availableCash,
-    availableNetMargin,
-    linkedAt: new Date().toLocaleDateString(),
-    holdings: holdingsRes.success ? (holdingsRes.data || []) : [],
-    livePositions: positionsRes.success ? (positionsRes.data || []) : [],
-    mutualFunds: [],
-  };
-
-  logMessage(`[Schwab] Dynamic credentials mapping completed. Client Name: ${profileName} | Net Margin: $${availableNetMargin.toFixed(2)}`);
-  
-  // Automatically switch mode to Live (paperMode: false) and clear simulated positions to resolve capital/margin lock
-  state.config.paperMode = false;
-  state.positions = [];
-  logMessage(`[Schwab] Auto-switched system execution mode to LIVE. Cleared any simulated tracking positions to avoid margin conflicts.`);
-
-  // Hydrate simulator balance with live equity
-  if (availableNetMargin > 0) {
-    state.paperBalance = availableNetMargin;
+    state.positions = [];
+    state.config.paperMode = false;
+    if (normalized.availableNetMargin > 0) {
+      state.paperBalance = normalized.availableNetMargin;
+    }
+    recalculateFinancials();
+    saveStateToDisk();
+    logMessage(`[Schwab] Developer account linked successfully. ${state.schwab.profileName} | Net Margin: $${normalized.availableNetMargin.toFixed(2)}`);
+    res.redirect('/?schwab=linked');
+  } catch (err: any) {
+    const message = err.message || String(err);
+    logMessage(`[Schwab] OAuth callback failed: ${message}`);
+    res.redirect(`/?schwab_error=${encodeURIComponent(message)}`);
   }
-  recalculateFinancials();
-  saveStateToDisk();
-
-  res.json({ status: 'ok', schwab: state.schwab });
 });
 
 app.post('/api/schwab/unlink', (req, res) => {
   logMessage(`[Schwab] Unlinked active client profile ${state.schwab.clientCode}`);
-  state.schwab = {
-    linked: false,
-    clientCode: '',
-    apiKey: '',
-    mpin: '',
-    totpSecret: '',
-    profileName: '',
-    email: '',
-    availableCash: 0,
-    availableNetMargin: 0,
-    linkedAt: '',
-    holdings: [],
-    livePositions: [],
-    mutualFunds: [],
-  };
+  state.schwab = createEmptySchwabState();
+  state.config.paperMode = true;
   recalculateFinancials();
   saveStateToDisk();
   res.json({ status: 'ok', schwab: state.schwab });
@@ -1031,29 +1069,23 @@ app.post('/api/schwab/refresh', async (req, res) => {
     return res.status(400).json({ error: 'No Schwab account linked yet.' });
   }
 
-  const { apiKey, clientCode, mpin, totpSecret } = state.schwab;
   logMessage(`[Schwab] Fetching refreshed balance and session diagnostics...`);
 
-  const authRes = await loginToSchwab(apiKey, clientCode, mpin, totpSecret);
-  if (!authRes.success || !authRes.data?.jwtToken) {
-    logMessage(`[Schwab] Session refresh aborted: ${authRes.error}`);
-    return res.status(400).json({ error: `Refresh authentication error: ${authRes.error}` });
-  }
+  try {
+    const accessToken = await ensureSchwabAccessToken();
+    const accounts = await fetchSchwabAccounts(accessToken);
+    const normalized = normalizeSchwabAccountData(accounts);
 
-  const { jwtToken } = authRes.data;
-  const rmsRes = await fetchSchwabRMS(apiKey, jwtToken);
-  
-  if (rmsRes.success) {
-    const { availableCash, availableNetMargin } = extractAngelCashAndMargin(rmsRes.data);
-    state.schwab.availableCash = availableCash;
-    state.schwab.availableNetMargin = availableNetMargin;
-    
-    // Refresh live holding assets and positions
-    const holdingsRes = await fetchSchwabHoldings(apiKey, jwtToken);
-    const positionsRes = await fetchSchwabPositions(apiKey, jwtToken);
-    state.schwab.holdings = holdingsRes.success ? (holdingsRes.data || []) : [];
-    state.schwab.livePositions = positionsRes.success ? (positionsRes.data || []) : [];
-    
+    state.schwab.accountHash = normalized.accountHash;
+    state.schwab.accountNumber = normalized.accountNumber;
+    state.schwab.clientCode = normalized.accountNumber;
+    state.schwab.profileName = maskSchwabAccount(normalized.accountNumber);
+    state.schwab.availableCash = normalized.availableCash;
+    state.schwab.availableNetMargin = normalized.availableNetMargin;
+    state.schwab.brokerBalances = normalized.brokerBalances;
+    state.schwab.holdings = normalized.holdings;
+    state.schwab.livePositions = normalized.livePositions;
+
     // Real-Time Portfolio Reconciliation: Clear local positions if they do not exist on the live broker to prevent frozen margin locks
     if (!state.config.paperMode && state.positions.length > 0) {
       const brokerSymbols = new Set(
@@ -1083,8 +1115,8 @@ app.post('/api/schwab/refresh', async (req, res) => {
     }
     recalculateFinancials();
     saveStateToDisk();
-  } else {
-    return res.status(400).json({ error: rmsRes.error });
+  } catch (err: any) {
+    return res.status(400).json({ error: err.message || String(err) });
   }
 
   res.json({ status: 'ok', schwab: state.schwab });
@@ -1092,13 +1124,25 @@ app.post('/api/schwab/refresh', async (req, res) => {
 
 app.post('/api/schwab/simulate', (req, res) => {
   if (!state.schwab.linked) {
-    state.schwab.linked = true;
-    state.schwab.clientCode = 'SCHWAB-DEMO';
-    state.schwab.profileName = 'Demo Wall Street Portfolio';
-    state.schwab.email = 'demo.client@example.com';
-    state.schwab.availableCash = 42500.0;
-    state.schwab.availableNetMargin = 125000.0;
-    state.schwab.linkedAt = new Date().toLocaleDateString() + ' (Simulated)';
+    state.schwab = {
+      ...createEmptySchwabState(),
+      linked: true,
+      clientCode: 'SCHWAB-DEMO',
+      accountNumber: 'DEMO-ACCOUNT',
+      profileName: 'Demo Wall Street Portfolio',
+      email: 'demo.client@example.com',
+      availableCash: 42500.0,
+      availableNetMargin: 125000.0,
+      brokerBalances: {
+        cashBalance: 42500.0,
+        availableFunds: 42500.0,
+        buyingPower: 125000.0,
+        liquidationValue: 125000.0,
+        equity: 125000.0,
+      },
+      linkedAt: new Date().toLocaleDateString() + ' (Simulated)',
+      accountHash: 'demo-account-hash',
+    };
   }
 
   // Hydrate custom mock holdings (Equity)
@@ -1183,14 +1227,19 @@ app.post('/api/schwab/simulate', (req, res) => {
 });
 
 app.post('/api/reset', (req, res) => {
-  state.paperBalance = 11000.0;
-  state.config.allocation = 2000;
+  state.paperBalance = DEFAULT_PAPER_BALANCE;
+  state.config.allocation = DEFAULT_ALLOCATION;
   state.positions = [];
   state.historicalTrades = [];
+  state.scanArchive = [];
+  state.lastNonEmptyRanked = [];
+  state.blockedSignals = [];
+  state.deferredSignals = [];
+  state.nearMisses = [];
   state.perSymbolRiskLocks = [];
   state.postLiquidationQueue = [];
   state.logs = [];
-  logMessage('Operator terminal reset instructions executed. Simulator reloaded to ₹11,000.00 INR and allocation reset to ₹2,000.00.');
+  logMessage(`Operator terminal reset instructions executed. Simulator reloaded to $${DEFAULT_PAPER_BALANCE.toFixed(2)} and allocation reset to $${DEFAULT_ALLOCATION.toFixed(2)}.`);
   recalculateFinancials();
   saveStateToDisk();
   res.json({ status: 'ok' });

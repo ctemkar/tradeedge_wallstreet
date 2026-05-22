@@ -195,17 +195,18 @@ export default function App() {
   const [hasAutoRefreshed, setHasAutoRefreshed] = useState<boolean>(false);
   const [hasAutoRestored, setHasAutoRestored] = useState<boolean>(false);
   const [angelTab, setAngelTab] = useState<'holdings' | 'positions' | 'settings'>('holdings');
+  const schwabOAuthLinkAvailable = true;
 
   // Quick execution desk values
-  const [tradeMargin, setTradeMargin] = useState<number>(2000);
+  const [tradeMargin, setTradeMargin] = useState<number>(200);
   const [tradeLeverage, setTradeLeverage] = useState<number>(1);
   const [manualOverrideBox, setManualOverrideBox] = useState<boolean>(true);
 
   // Configuration edit variables
   const [editLeverage, setEditLeverage] = useState<number>(1);
-  const [editAllocation, setEditAllocation] = useState<number>(2000);
+  const [editAllocation, setEditAllocation] = useState<number>(200);
   const [editMinVolume, setEditMinVolume] = useState<number>(1000000);
-  const [editMarginBuffer, setEditMarginBuffer] = useState<number>(20);
+  const [editMarginBuffer, setEditMarginBuffer] = useState<number>(10);
   const [editScanInterval, setEditScanInterval] = useState<number>(60);
   const [editMaxCluster, setEditMaxCluster] = useState<number>(3);
   const [editPreventCluster, setEditPreventCluster] = useState<boolean>(true);
@@ -213,7 +214,7 @@ export default function App() {
   const [editMarketMode, setEditMarketMode] = useState<'crypto' | 'us_stocks'>('us_stocks');
   const [editPaperMode, setEditPaperMode] = useState<boolean>(true);
   const [editLiveUniverseString, setEditLiveUniverseString] = useState<string>('*');
-  const [editPaperBalance, setEditPaperBalance] = useState<number>(11000);
+  const [editPaperBalance, setEditPaperBalance] = useState<number>(1000);
   const [editAngelProductType, setEditAngelProductType] = useState<'INTRADAY' | 'DELIVERY'>('INTRADAY');
 
   const logsEndRef = useRef<HTMLDivElement>(null);
@@ -249,48 +250,42 @@ export default function App() {
 
   // Auto-restore Schwab link if container state was reset but browser has credentials
   useEffect(() => {
+    if (!schwabOAuthLinkAvailable) {
+      return;
+    }
     if (state && !state.schwab?.linked && !hasAutoRestored) {
       setHasAutoRestored(true);
-      const savedCode = localStorage.getItem('schwab_clientCode') || localStorage.getItem('angel_clientCode');
-      const savedApiKey = localStorage.getItem('schwab_apiKey') || localStorage.getItem('angel_apiKey');
-      const savedMpin = localStorage.getItem('schwab_mpin') || localStorage.getItem('angel_mpin');
-      const savedTotp = localStorage.getItem('schwab_totpSecret') || localStorage.getItem('angel_totpSecret');
-      
-      if (savedCode && savedApiKey && savedMpin && savedTotp) {
-        console.log('[Broker Link Persistence] Ephemeral server reset detected. Re-linking using saved credentials...');
-        setAngelLoading(true);
-        fetch('/api/schwab/link', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            clientCode: savedCode,
-            apiKey: savedApiKey,
-            mpin: savedMpin,
-            totpSecret: savedTotp
-          })
-        })
-        .then(async (res) => {
-          const data = await res.json();
-          if (res.ok) {
-            flashMessage(`Welcome back! Schwab session restored for ${data.schwab.profileName || data.schwab.clientCode}.`, 'success');
-            setAngelClientCode(savedCode);
-            setAngelApiKey(savedApiKey);
-            setAngelMpin(savedMpin);
-            setAngelTotpSecret(savedTotp);
-            fetchState();
-          } else {
-            console.warn('[Broker Link Persistence] Silent session restoration failed:', data.error);
-          }
-        })
-        .catch(err => {
-          console.error('[Broker Link Persistence] Quiet auto-restorations fault:', err);
-        })
-        .finally(() => {
-          setAngelLoading(false);
-        });
-      }
+      localStorage.removeItem('schwab_clientCode');
+      localStorage.removeItem('schwab_apiKey');
+      localStorage.removeItem('schwab_mpin');
+      localStorage.removeItem('schwab_totpSecret');
+      localStorage.removeItem('angel_clientCode');
+      localStorage.removeItem('angel_apiKey');
+      localStorage.removeItem('angel_mpin');
+      localStorage.removeItem('angel_totpSecret');
     }
   }, [state, hasAutoRestored]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const schwabStatus = params.get('schwab');
+    const schwabError = params.get('schwab_error');
+
+    if (schwabStatus === 'linked') {
+      flashMessage('Schwab developer account linked successfully.', 'success');
+      fetchState();
+    } else if (schwabError) {
+      flashMessage(`Schwab link failed: ${schwabError}`, 'error');
+    }
+
+    if (schwabStatus || schwabError) {
+      params.delete('schwab');
+      params.delete('schwab_error');
+      const nextQuery = params.toString();
+      const nextUrl = `${window.location.pathname}${nextQuery ? `?${nextQuery}` : ''}`;
+      window.history.replaceState({}, '', nextUrl);
+    }
+  }, []);
 
   // Auto-sync account balance quietly once if Schwab is linked
   useEffect(() => {
@@ -526,40 +521,15 @@ export default function App() {
 
   const linkAngelAccount = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!angelClientCode || !angelApiKey || !angelMpin || !angelTotpSecret) {
-      setAngelError('All fields are required to initialize the Schwab connection.');
-      return;
-    }
     setAngelError('');
     setAngelLoading(true);
     try {
-      const res = await fetch('/api/schwab/link', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          clientCode: angelClientCode,
-          apiKey: angelApiKey,
-          mpin: angelMpin,
-          totpSecret: angelTotpSecret
-        })
-      });
+      const res = await fetch('/api/schwab/auth-url');
       const data = await res.json();
       if (!res.ok) {
-        throw new Error(data.error || 'Failed to link account');
+        throw new Error(data.error || 'Failed to initialize Schwab OAuth');
       }
-
-      // Save credentials locally in the user's browser for silent auto-restoration
-      localStorage.setItem('schwab_clientCode', angelClientCode);
-      localStorage.setItem('schwab_apiKey', angelApiKey);
-      localStorage.setItem('schwab_mpin', angelMpin);
-      localStorage.setItem('schwab_totpSecret', angelTotpSecret);
-
-      flashMessage(`Schwab linked successfully. Hello ${data.schwab.profileName}!`, 'success');
-      setShowAngelModal(false);
-      setActiveTab('brokerHoldings');
-      fetchState();
+      window.location.href = data.authUrl;
     } catch (err: any) {
       setAngelError(err.message || 'Operation failed');
     } finally {
@@ -1062,7 +1032,7 @@ export default function App() {
                   <ul className="text-[11px] font-mono text-zinc-500 space-y-1 mt-3 bg-zinc-950/60 p-2.5 rounded border border-zinc-900 leading-normal">
                     <li className="flex items-center gap-1.5">
                       <span className="text-rose-500 font-bold">•</span>
-                      Restore simulator capital to <span className="text-zinc-300">{cSign}{formatNumber(11000, 2, 2)}</span>
+                      Restore simulator capital to <span className="text-zinc-300">{cSign}{formatNumber(1000, 2, 2)}</span>
                     </li>
                     <li className="flex items-center gap-1.5">
                       <span className="text-rose-500 font-bold">•</span>
@@ -1525,7 +1495,13 @@ export default function App() {
           </button>
 
           <button
-            onClick={() => setShowAngelModal(true)}
+            onClick={() => {
+              if (state?.schwab?.linked) {
+                setShowAngelModal(true);
+              } else {
+                void linkAngelAccount({ preventDefault() {} } as React.FormEvent);
+              }
+            }}
             className={`px-3 py-1.5 rounded text-[11px] font-mono font-bold flex items-center gap-1.5 border transition cursor-pointer ${
               state?.schwab?.linked
                 ? 'bg-blue-950/80 border-blue-500/80 text-blue-200 hover:text-white hover:border-blue-400 shadow-[0_0_12px_rgba(59,130,246,0.25)]'

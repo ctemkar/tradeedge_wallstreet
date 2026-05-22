@@ -265,8 +265,8 @@ export function analyzeAsset(
 
   if (blockReasons.length === 0) {
     // Trend alignment remains a filter, but MACD is now the actual trade trigger.
-    const isUptrend = currentPrice > curEma50 && curEma50 > curEma200;
-    const isDowntrend = currentPrice < curEma50 && curEma50 < curEma200;
+    const isUptrend = currentPrice > curEma50 && curEma50 >= curEma200 * 0.985;
+    const isDowntrend = currentPrice < curEma50 && curEma50 <= curEma200 * 1.015;
     const bullishCrossThisBar = prevMacd <= prevSignal && curMacd > curSignal;
     const bearishCrossThisBar = prevMacd >= prevSignal && curMacd < curSignal;
     const bullishCrossLastBar = prevMacd2 <= prevSignal2 && prevMacd > prevSignal && curMacd > curSignal;
@@ -290,16 +290,16 @@ export function analyzeAsset(
     const buyRsiWindowOk = curRsi >= 40 && curRsi <= 72;
     const sellRsiWindowOk = curRsi >= 28 && curRsi <= 60;
 
-    const bullishStructureReady = curMacd > curSignal && curHist > 0 && histAcceleratingUp;
-    const bearishStructureReady = curMacd < curSignal && curHist < 0 && histAcceleratingDown;
+    const bullishStructureReady = curMacd > curSignal && curHist > 0;
+    const bearishStructureReady = curMacd < curSignal && curHist < 0;
 
     if (freshBullishCross) {
       strengthReasons.push('Fresh bullish MACD crossover');
       score += 55;
       if (bullishCrossThisBar) score += 10;
     } else if (bullishStructureReady) {
-      deferReasons.push('Bullish MACD structure detected, but crossover is stale');
-      score += 20;
+      strengthReasons.push('Bullish MACD continuation structure');
+      score += 35;
     }
 
     if (freshBearishCross) {
@@ -307,13 +307,14 @@ export function analyzeAsset(
       score -= 55;
       if (bearishCrossThisBar) score -= 10;
     } else if (bearishStructureReady) {
-      deferReasons.push('Bearish MACD structure detected, but crossover is stale');
-      score -= 20;
+      strengthReasons.push('Bearish MACD continuation structure');
+      score -= 35;
     }
 
     if (freshBullishCross || bullishStructureReady) {
       if (!isUptrend) {
-        deferReasons.push('Bullish MACD trigger rejected: trend regime is not aligned (Price > EMA50 > EMA200 required)');
+        strengthReasons.push('Trend filter not aligned for long setup');
+        score -= 8;
       } else {
         strengthReasons.push('Trend filter aligned for long setup');
         score += 10;
@@ -326,11 +327,11 @@ export function analyzeAsset(
         score += 5;
       }
 
-      if (!histAcceleratingUp) {
-        deferReasons.push('Bullish MACD trigger rejected: histogram is not accelerating upward');
-      } else {
+      if (histAcceleratingUp) {
         strengthReasons.push('Histogram accelerating upward');
         score += 10;
+      } else {
+        score += 3;
       }
 
       if (!buyRsiWindowOk) {
@@ -341,7 +342,8 @@ export function analyzeAsset(
       }
 
       if (rrRatio < 1.2) {
-        deferReasons.push(`Bullish MACD trigger rejected: risk/reward ${rrRatio.toFixed(2)}x is below 1.20x minimum`);
+        strengthReasons.push(`Long risk/reward weak at ${rrRatio.toFixed(2)}x`);
+        score -= 5;
       } else {
         strengthReasons.push(`Long risk/reward acceptable at ${rrRatio.toFixed(2)}x`);
         score += 5;
@@ -350,7 +352,8 @@ export function analyzeAsset(
 
     if (freshBearishCross || bearishStructureReady) {
       if (!isDowntrend) {
-        deferReasons.push('Bearish MACD trigger rejected: trend regime is not aligned (Price < EMA50 < EMA200 required)');
+        strengthReasons.push('Trend filter not aligned for short setup');
+        score += 8;
       } else {
         strengthReasons.push('Trend filter aligned for short setup');
         score -= 10;
@@ -363,11 +366,11 @@ export function analyzeAsset(
         score -= 5;
       }
 
-      if (!histAcceleratingDown) {
-        deferReasons.push('Bearish MACD trigger rejected: histogram is not accelerating downward');
-      } else {
+      if (histAcceleratingDown) {
         strengthReasons.push('Histogram accelerating downward');
         score -= 10;
+      } else {
+        score -= 3;
       }
 
       if (!sellRsiWindowOk) {
@@ -378,24 +381,25 @@ export function analyzeAsset(
       }
 
       if (shortRrRatio < 1.2) {
-        deferReasons.push(`Bearish MACD trigger rejected: short risk/reward ${shortRrRatio.toFixed(2)}x is below 1.20x minimum`);
+        strengthReasons.push(`Short risk/reward weak at ${shortRrRatio.toFixed(2)}x`);
+        score += 5;
       } else {
         strengthReasons.push(`Short risk/reward acceptable at ${shortRrRatio.toFixed(2)}x`);
         score -= 5;
       }
     }
 
-    const hasFreshMacdEntry = freshBullishCross || freshBearishCross;
+    const hasMacdEntryWindow = freshBullishCross || freshBearishCross || bullishStructureReady || bearishStructureReady;
 
-    // Decide Direction: only fresh MACD crosses may open positions.
-    if (hasFreshMacdEntry && score >= 60 && deferReasons.length === 0) {
+    // Decide Direction: fresh crosses are preferred, but strong continuation structures may also qualify.
+    if (hasMacdEntryWindow && score >= 45 && deferReasons.length === 0) {
       direction = 'BUY';
-    } else if (hasFreshMacdEntry && score <= -60 && deferReasons.length === 0) {
+    } else if (hasMacdEntryWindow && score <= -45 && deferReasons.length === 0) {
       direction = 'SELL';
     } else {
       direction = 'HOLD';
       if (deferReasons.length === 0) {
-        deferReasons.push('No fresh MACD crossover with qualifying confirmation filters');
+        deferReasons.push('No qualifying MACD-aligned setup after confirmation filters');
       }
     }
   }
