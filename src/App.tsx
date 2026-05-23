@@ -144,6 +144,13 @@ interface SystemState {
     email?: string;
     availableCash?: number;
     availableNetMargin?: number;
+    brokerBalances?: {
+      cashBalance?: number;
+      availableFunds?: number;
+      buyingPower?: number;
+      liquidationValue?: number;
+      equity?: number;
+    };
     linkedAt?: string;
     holdings?: any[];
     livePositions?: any[];
@@ -238,6 +245,20 @@ export default function App() {
   const unrealizedPnLSum = state ? state.positions.reduce((acc, p) => acc + p.unrealizedPnl, 0) : 0;
   const netEquity = state ? state.paperBalance + unrealizedPnLSum : 0;
   const capitalReturnPercent = state && state.paperBalance > 0 ? (unrealizedPnLSum / state.paperBalance) * 100 : 0;
+  const showSchwabBalances = Boolean(state?.schwab?.linked && isWallStreet);
+  const schwabBalances = state?.schwab?.brokerBalances;
+  const displayedNetEquity = showSchwabBalances
+    ? (schwabBalances?.liquidationValue || schwabBalances?.equity || state?.schwab?.availableNetMargin || 0)
+    : netEquity;
+  const displayedCashBase = showSchwabBalances
+    ? (schwabBalances?.cashBalance || state?.schwab?.availableCash || 0)
+    : (state?.paperBalance || 0);
+  const displayedAvailableMargin = showSchwabBalances
+    ? (schwabBalances?.buyingPower || schwabBalances?.availableFunds || state?.schwab?.availableNetMargin || 0)
+    : (state?.freeMargin || 0);
+  const lowMarginWarning = showSchwabBalances
+    ? displayedAvailableMargin < (displayedCashBase * 0.2)
+    : Boolean(state && state.freeMargin < (state.paperBalance * 0.2));
 
   // Setup periodic state polling and triggers
   useEffect(() => {
@@ -412,6 +433,13 @@ export default function App() {
   const togglePaperMode = async () => {
     if (!state) return;
     const target = !state.config.paperMode;
+
+    if (!target && !state.schwab?.linked) {
+      flashMessage('Live production mode requires a linked Schwab account first.', 'error');
+      setShowAngelModal(true);
+      return;
+    }
+
     flashMessage(`Switching Engine to ${target ? 'PAPER SIMULATION' : 'LIVE PRODUCTION'} Mode...`, 'success');
     submitConfigChanges({ paperMode: target });
   };
@@ -423,8 +451,8 @@ export default function App() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updates),
       });
-      if (!res.ok) throw new Error('Failed to update setup.');
       const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Failed to update setup.');
       setState(data.state);
       flashMessage('System parameter profiles updated.', 'success');
     } catch (err: any) {
@@ -1296,11 +1324,11 @@ export default function App() {
                         <div className="grid grid-cols-2 gap-3 mt-4 pt-4 border-t border-zinc-900 font-mono">
                           <div className="bg-zinc-900/40 p-2 rounded-md border border-zinc-900">
                             <div className="text-[9px] text-zinc-500 font-bold">AVAILABLE CASH</div>
-                            <div className="text-xs font-bold text-zinc-200 mt-0.5">{cSign}{formatNumber(state.schwab.availableCash)}</div>
+                            <div className="text-xs font-bold text-zinc-200 mt-0.5">{cSign}{formatNumber(displayedCashBase)}</div>
                           </div>
                           <div className="bg-zinc-900/40 p-2 rounded-md border border-zinc-900">
-                            <div className="text-[9px] text-zinc-500 font-bold">NET RISK MARGIN</div>
-                            <div className="text-xs font-bold text-blue-400 mt-0.5">{cSign}{formatNumber(state.schwab.availableNetMargin)}</div>
+                            <div className="text-[9px] text-zinc-500 font-bold">LIQUIDATION VALUE</div>
+                            <div className="text-xs font-bold text-blue-400 mt-0.5">{cSign}{formatNumber(displayedNetEquity)}</div>
                           </div>
                         </div>
                       </div>
@@ -1333,7 +1361,7 @@ export default function App() {
 
                 </div>
               ) : (
-                /* LINK CREDENTIALS SUBMISSION FORM */
+                /* SCHWAB DEVELOPER OAUTH LINK */
                 <form onSubmit={linkAngelAccount} className="space-y-4 font-mono">
                   {angelError && (
                     <div className="bg-rose-950/60 border border-rose-500/40 p-2.5 rounded text-[11px] text-rose-200 leading-normal border shadow">
@@ -1341,62 +1369,27 @@ export default function App() {
                     </div>
                   )}
 
-                  <p className="text-[11px] text-zinc-400 leading-normal font-sans mb-1 text-center bg-zinc-950/30 p-2 border border-zinc-900/60 rounded">
-                    Connect your Schwab developer account. Credentials remain local to this server container instance.
-                  </p>
-
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label className="block text-[9px] font-bold text-zinc-400 uppercase tracking-wider mb-1">Client Code ID</label>
-                      <input
-                        type="text"
-                        required
-                        value={angelClientCode}
-                        onChange={(e) => setAngelClientCode(e.target.value)}
-                        placeholder="e.g. S123456"
-                        className="w-full bg-[#050608] border border-zinc-800 rounded px-2.5 py-1.5 text-xs text-zinc-200 focus:outline-none focus:border-blue-500 uppercase font-mono"
-                      />
+                  <div className="bg-zinc-950/40 border border-zinc-900/70 rounded p-3 space-y-3">
+                    <p className="text-[11px] text-zinc-300 leading-normal font-sans">
+                      This app uses the official Schwab developer OAuth flow. No broker password, client code, MPIN, or TOTP secret is entered here.
+                    </p>
+                    <div className="rounded border border-amber-500/20 bg-amber-950/20 px-3 py-2 text-[10px] text-amber-100 leading-normal font-sans">
+                      Schwab developer app registration happens on the developer portal, but the actual OAuth sign-in may redirect to Schwab's secure login host during authorization. Complete that step in Chrome, Edge, or Firefox rather than an embedded browser view.
                     </div>
-                    <div>
-                      <label className="block text-[9px] font-bold text-zinc-400 uppercase tracking-wider mb-1">Password / App Secret</label>
-                      <input
-                        type="password"
-                        required
-                        value={angelMpin}
-                        onChange={(e) => setAngelMpin(e.target.value)}
-                        placeholder="Password or app secret"
-                        className="w-full bg-[#050608] border border-zinc-800 rounded px-2.5 py-1.5 text-xs text-zinc-200 focus:outline-none focus:border-blue-500 font-mono"
-                      />
+                    <div className="grid grid-cols-1 gap-2 text-[10px] text-zinc-400 font-sans">
+                      <div className="border border-zinc-900 rounded bg-[#050608] px-3 py-2">
+                        1. Click the button below to open Schwab authorization.
+                      </div>
+                      <div className="border border-zinc-900 rounded bg-[#050608] px-3 py-2">
+                        2. Sign in on Schwab and approve the developer app.
+                      </div>
+                      <div className="border border-zinc-900 rounded bg-[#050608] px-3 py-2">
+                        3. You will be returned here and the account snapshot will sync automatically.
+                      </div>
                     </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-[9px] font-bold text-zinc-400 uppercase tracking-wider mb-1">Developer App API Key</label>
-                    <input
-                      type="text"
-                      required
-                      value={angelApiKey}
-                      onChange={(e) => setAngelApiKey(e.target.value)}
-                      placeholder="Developer app key"
-                      className="w-full bg-[#050608] border border-zinc-800 rounded px-2.5 py-1.5 text-xs text-zinc-200 focus:outline-none focus:border-blue-500 font-mono"
-                    />
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between items-center mb-1">
-                      <label className="block text-[9px] font-bold text-zinc-400 uppercase tracking-wider">Authenticator Secret / One-Time Code</label>
+                    <div className="rounded border border-blue-500/20 bg-blue-950/20 px-3 py-2 text-[10px] text-blue-200 leading-normal font-sans">
+                      Required local environment: SCHWAB_CLIENT_ID, SCHWAB_CLIENT_SECRET, and SCHWAB_REDIRECT_URI.
                     </div>
-                    <input
-                      type="password"
-                      required
-                      value={angelTotpSecret}
-                      onChange={(e) => setAngelTotpSecret(e.target.value)}
-                      placeholder="App TOTP Secret or raw 6-digit Token"
-                      className="w-full bg-[#050608] border border-zinc-800 rounded px-2.5 py-1.5 text-xs text-zinc-200 focus:outline-none focus:border-blue-500 font-mono"
-                    />
-                    <span className="text-[9px] text-zinc-500 block leading-normal mt-1 font-sans">
-                      Supply the authenticator secret used for local session automation, or type the current 6-digit code.
-                    </span>
                   </div>
 
                   <div className="flex justify-end gap-2 border-t border-zinc-900 pt-3 mt-4 text-xs">
@@ -1413,7 +1406,7 @@ export default function App() {
                       className="bg-blue-500 hover:bg-blue-600 text-black px-4 py-2 rounded font-bold transition flex items-center gap-1.5 disabled:opacity-50 cursor-pointer shadow-md"
                     >
                       {angelLoading ? <RefreshCw className="w-3.5 h-3.5 animate-spin" /> : <Unlock className="w-3.5 h-3.5" />}
-                      {angelLoading ? 'CONNECTING GATEWAY...' : 'INITIALIZE SCHWAB LINK'}
+                      {angelLoading ? 'OPENING SCHWAB OAUTH...' : 'AUTHORIZE WITH SCHWAB'}
                     </button>
                   </div>
                 </form>
@@ -1457,6 +1450,7 @@ export default function App() {
           {/* Paper / Live Toggle */}
           <button
             onClick={togglePaperMode}
+            title={state?.config.paperMode ? 'Current mode: Paper Trading. Click to switch to live mode.' : 'Current mode: Live Trading. Click to switch to paper mode.'}
             className={`px-3 py-1.5 rounded text-[11px] font-mono tracking-wider transition-all flex items-center gap-2 border font-bold ${
               !state?.config.paperMode
                 ? 'bg-rose-950 border-rose-500 text-rose-300 shadow-[0_0_15px_rgba(239,68,68,0.25)]'
@@ -1465,13 +1459,13 @@ export default function App() {
           >
             {state?.config.paperMode ? (
               <>
-                <Coins className="w-3.5 h-3.5 text-teal-400" />
-                MODE: PAPER TRADING
+                <Zap className="w-3.5 h-3.5 text-teal-400" />
+                SWITCH TO LIVE MODE
               </>
             ) : (
               <>
-                <Zap className="w-3.5 h-3.5 text-rose-400 animate-pulse" />
-                MODE: LIVE ({state?.marketMode === 'us_stocks' ? 'SCHWAB GATEWAY' : 'BINANCE APIS'})
+                <Coins className="w-3.5 h-3.5 text-rose-400" />
+                SWITCH TO PAPER MODE
               </>
             )}
           </button>
@@ -1741,12 +1735,12 @@ export default function App() {
               <Percent className={`w-8 h-8 ${unrealizedPnLSum > 0 ? 'text-emerald-400/10' : 'text-zinc-500/10'}`} />
             </div>
             <div className="text-[9px] uppercase font-mono tracking-wider text-zinc-500 font-bold">
-              {state.config.paperMode ? 'Simulator Net Equity' : 'Live Portfolio Equity'}
+              {showSchwabBalances ? 'Schwab Liquidation Value' : state.config.paperMode ? 'Simulator Net Equity' : 'Live Portfolio Equity'}
             </div>
             <div className={`text-lg font-bold font-mono ${unrealizedPnLSum > 0 ? 'text-emerald-400' : unrealizedPnLSum < 0 ? 'text-rose-400' : 'text-zinc-100'}`}>
-              {cSign}{formatNumber(netEquity, 2, 2)}
+              {cSign}{formatNumber(displayedNetEquity, 2, 2)}
             </div>
-            <div className="text-[8.5px] font-mono text-zinc-500 mt-0.5">Capital + Active P&L</div>
+            <div className="text-[8.5px] font-mono text-zinc-500 mt-0.5">{showSchwabBalances ? 'Exact broker account valuation' : 'Capital + Active P&L'}</div>
           </div>
 
           {/* ACTIVE UNREALIZED return */}
@@ -1789,10 +1783,10 @@ export default function App() {
               <Coins className="w-8 h-8 text-amber-500/10" />
             </div>
             <div className="text-[9px] uppercase font-mono tracking-wider text-zinc-500">
-              {state.config.paperMode ? 'Simulator Cash Base' : (isWallStreet ? 'Schwab Buying Power' : 'Binance Exchange Margin Wallet')}
+              {showSchwabBalances ? 'Schwab Cash Balance' : state.config.paperMode ? 'Simulator Cash Base' : (isWallStreet ? 'Schwab Buying Power' : 'Binance Exchange Margin Wallet')}
             </div>
             <div className="text-lg font-bold font-mono text-zinc-100 flex items-baseline gap-1.5 mt-0.5">
-              <span>{cSign}{formatNumber(state.paperBalance, 2, 2)}</span>
+              <span>{cSign}{formatNumber(displayedCashBase, 2, 2)}</span>
               {state?.schwab?.linked && (
                 <span className="text-[9px] text-blue-400 font-mono font-medium">
                   (Linked Broker)
@@ -1800,22 +1794,22 @@ export default function App() {
               )}
             </div>
             <div className="text-[8.5px] font-mono text-zinc-500 mt-1">
-              {state?.schwab?.linked ? `Last synced available cash limit: ${cSign}${formatNumber(state.schwab.availableCash)}` : 'Settled cash (excl active margin)'}
+              {showSchwabBalances ? `Last synced cash balance from Schwab: ${cSign}${formatNumber(displayedCashBase)}` : state?.schwab?.linked ? `Last synced available cash limit: ${cSign}${formatNumber(state.schwab.availableCash)}` : 'Settled cash (excl active margin)'}
             </div>
           </div>
 
           {/* FREE MARGIN VOL */}
           <div className={`p-3 rounded border relative overflow-hidden transition-all duration-300 ${
-            state.freeMargin < (state.paperBalance * 0.2) ? 'bg-[#120c0f] border-amber-900/40' : 'bg-[#0b0c10] border-zinc-900/60'
+            lowMarginWarning ? 'bg-[#120c0f] border-amber-900/40' : 'bg-[#0b0c10] border-zinc-900/60'
           }`}>
             <div className="absolute right-2 top-2"><Sliders className="w-8 h-8 text-indigo-400/10" /></div>
             <div className="text-[9px] uppercase font-mono tracking-wider text-zinc-500">
-              {state.config.paperMode ? 'Available Free Margin' : 'Live Available Margin'}
+              {showSchwabBalances ? 'Schwab Buying Power' : state.config.paperMode ? 'Available Free Margin' : 'Live Available Margin'}
             </div>
-            <div className={`text-lg font-bold font-mono ${state.freeMargin < (state.paperBalance * 0.2) ? 'text-amber-500' : 'text-teal-400'}`}>
-              {cSign}{formatNumber(state.freeMargin, 2, 2)}
+            <div className={`text-lg font-bold font-mono ${lowMarginWarning ? 'text-amber-500' : 'text-teal-400'}`}>
+              {cSign}{formatNumber(displayedAvailableMargin, 2, 2)}
             </div>
-            <div className="text-[8.5px] font-mono text-zinc-500 mt-0.5">Cash + P&L - Locked Margin</div>
+            <div className="text-[8.5px] font-mono text-zinc-500 mt-0.5">{showSchwabBalances ? 'Exact broker buying power snapshot' : 'Cash + P&L - Locked Margin'}</div>
           </div>
 
           {/* DEPLOYABLE CAPITAL */}

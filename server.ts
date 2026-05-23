@@ -1,7 +1,9 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import https from 'https';
 import path from 'path';
 import { createServer as createViteServer } from 'vite';
+import selfsigned from 'selfsigned';
 import { runMarketScan, ScanCycleReport, fetchCandleHistory } from './src/services/scanner.js';
 import { StrategyMetrics } from './src/services/indicators.js';
 import {
@@ -19,6 +21,60 @@ const app = express();
 const PORT = Number(process.env.PORT || 3000);
 
 app.use(express.json());
+
+function getAppBaseUrl() {
+  const configured = process.env.APP_URL?.trim();
+  if (configured) {
+    try {
+      return new URL(configured).toString().replace(/\/$/, '');
+    } catch {
+      // Ignore invalid APP_URL and fall back to the local dev server URL.
+    }
+  }
+
+  return `http://localhost:${PORT}`;
+}
+
+function getSchwabRedirectUriFromEnv() {
+  const raw = process.env.SCHWAB_REDIRECT_URI?.trim();
+  if (!raw || raw.includes('#')) {
+    return null;
+  }
+
+  try {
+    return new URL(raw);
+  } catch {
+    return null;
+  }
+}
+
+async function buildLocalSchwabHttpsOptions() {
+  const notAfterDate = new Date();
+  notAfterDate.setDate(notAfterDate.getDate() + 30);
+
+  const pems = await selfsigned.generate(
+    [{ name: 'commonName', value: '127.0.0.1' }],
+    {
+      algorithm: 'sha256',
+      keySize: 2048,
+      notAfterDate,
+      extensions: [
+        {
+          name: 'subjectAltName',
+          altNames: [
+            { type: 7, ip: '127.0.0.1' },
+            { type: 2, value: 'localhost' },
+          ],
+        },
+      ],
+    }
+  );
+
+  return {
+    key: pems.private,
+    cert: pems.cert,
+  };
+}
 
 // TradeEdge Engine In-Memory State
 interface Position {
@@ -1009,11 +1065,11 @@ app.get('/api/schwab/callback', async (req, res) => {
 
   if (error) {
     logMessage(`[Schwab] OAuth callback returned error: ${error}`);
-    return res.redirect(`/?schwab_error=${encodeURIComponent(error)}`);
+    return res.redirect(`${getAppBaseUrl()}/?schwab_error=${encodeURIComponent(error)}`);
   }
 
   if (!code) {
-    return res.redirect('/?schwab_error=missing_authorization_code');
+    return res.redirect(`${getAppBaseUrl()}/?schwab_error=missing_authorization_code`);
   }
 
   try {
@@ -1047,11 +1103,11 @@ app.get('/api/schwab/callback', async (req, res) => {
     recalculateFinancials();
     saveStateToDisk();
     logMessage(`[Schwab] Developer account linked successfully. ${state.schwab.profileName} | Net Margin: $${normalized.availableNetMargin.toFixed(2)}`);
-    res.redirect('/?schwab=linked');
+    res.redirect(`${getAppBaseUrl()}/?schwab=linked`);
   } catch (err: any) {
     const message = err.message || String(err);
     logMessage(`[Schwab] OAuth callback failed: ${message}`);
-    res.redirect(`/?schwab_error=${encodeURIComponent(message)}`);
+    res.redirect(`${getAppBaseUrl()}/?schwab_error=${encodeURIComponent(message)}`);
   }
 });
 
@@ -1259,6 +1315,19 @@ const startServer = async () => {
     app.get('*', (req, res) => {
       res.sendFile(path.join(distPath, 'index.html'));
     });
+  }
+
+  const schwabRedirectUri = getSchwabRedirectUriFromEnv();
+  if (schwabRedirectUri?.protocol === 'https:' && ['127.0.0.1', 'localhost'].includes(schwabRedirectUri.hostname)) {
+    const httpsPort = Number(schwabRedirectUri.port || 443);
+    const httpsHost = schwabRedirectUri.hostname === '127.0.0.1' ? '127.0.0.1' : '0.0.0.0';
+    const httpsOptions = await buildLocalSchwabHttpsOptions();
+
+    https.createServer(httpsOptions, app).listen(httpsPort, httpsHost, () => {
+      console.log(`TradeEdge Schwab OAuth callback server running on ${schwabRedirectUri.origin}`);
+    });
+  } else if (process.env.SCHWAB_REDIRECT_URI) {
+    logMessage('[Schwab] OAuth callback listener not started. Set SCHWAB_REDIRECT_URI to a local https:// callback such as https://127.0.0.1:3443/api/schwab/callback.');
   }
 
   app.listen(PORT, '0.0.0.0', () => {

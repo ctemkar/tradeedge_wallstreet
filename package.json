@@ -21,6 +21,7 @@
     "otpauth": "^9.5.1",
     "react": "^19.0.1",
     "react-dom": "^19.0.1",
+    "selfsigned": "^5.5.0",
     "vite": "^6.2.3"
   },
   "devDependencies": {

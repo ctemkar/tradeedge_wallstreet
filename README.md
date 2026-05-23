@@ -31,20 +31,22 @@ Required environment variables:
 
 For local development, set:
 
-- `SCHWAB_REDIRECT_URI=http://localhost:3001/api/schwab/callback`
+- `SCHWAB_REDIRECT_URI=https://127.0.0.1:3443/api/schwab/callback`
 
 Flow summary:
 
 1. Create a Schwab developer application in the Schwab developer portal.
-2. Configure the redirect URI to match `SCHWAB_REDIRECT_URI`.
+2. Configure the redirect URI in the Schwab developer portal to match `SCHWAB_REDIRECT_URI` exactly.
 3. Start the app on port `3001`.
-4. Use the `LINK SCHWAB` control in the UI to begin OAuth.
-5. After Schwab redirects back to the callback route, the server exchanges the authorization code, stores the refresh token locally, and syncs account balances and positions.
+4. Accept the local browser warning for the self-signed callback certificate on `https://127.0.0.1:3443` when Schwab redirects back.
+5. Use the `LINK SCHWAB` control in the UI to begin OAuth.
+6. After Schwab redirects back to the callback route, the server exchanges the authorization code, stores the refresh token locally, and syncs account balances and positions.
 
 Notes:
 
 - The previous Angel One-style credential flow is no longer used for Schwab.
 - If `/api/schwab/auth-url` returns a missing-environment-variable error, the Schwab developer credentials are not configured yet.
+- Schwab OAuth requires an HTTPS callback. This app now starts a local HTTPS callback listener on port `3443` for local development.
 # tradeedge_wallstreet
 # tradeedge_wallstreet
 # tradeedge_wallstreet

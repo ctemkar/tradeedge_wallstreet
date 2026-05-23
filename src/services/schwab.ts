@@ -8,6 +8,25 @@ export interface SchwabTokens {
   tokenType?: string;
 }
 
+function normalizeSchwabRedirectUri(rawValue: string): string {
+  if (rawValue.includes('#')) {
+    throw new Error('SCHWAB_REDIRECT_URI cannot include an inline comment or URL fragment. Put comments on separate lines.');
+  }
+
+  let parsed: URL;
+  try {
+    parsed = new URL(rawValue);
+  } catch {
+    throw new Error('SCHWAB_REDIRECT_URI must be a valid absolute URL.');
+  }
+
+  if (parsed.protocol !== 'https:') {
+    throw new Error('SCHWAB_REDIRECT_URI must use https:// for Schwab OAuth callbacks.');
+  }
+
+  return parsed.toString();
+}
+
 function getRequiredEnv(name: string): string {
   const value = process.env[name]?.trim();
   if (!value) {
@@ -20,7 +39,7 @@ export function getSchwabConfig() {
   return {
     clientId: getRequiredEnv('SCHWAB_CLIENT_ID'),
     clientSecret: getRequiredEnv('SCHWAB_CLIENT_SECRET'),
-    redirectUri: getRequiredEnv('SCHWAB_REDIRECT_URI'),
+    redirectUri: normalizeSchwabRedirectUri(getRequiredEnv('SCHWAB_REDIRECT_URI')),
   };
 }
 
